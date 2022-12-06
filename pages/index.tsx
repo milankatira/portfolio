@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Abouts from "../components/Abouts";
+import ContactUs from "../components/ContactUs";
 import Hero from "../components/Hero";
 import Portfolio from "../components/Portfolio";
 import Resume from "../components/Resume";
@@ -20,6 +21,7 @@ export default function Home() {
         <Abouts />
         <Resume />
         <Portfolio/>
+        <ContactUs/>
       </main>
     </div>
   );
