@@ -1,8 +1,8 @@
-import { useTheme } from 'next-themes';
-import React from 'react'
+import { useTheme } from "next-themes";
+import React from "react";
 
 const Navbar = () => {
-   const { theme, setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   return (
     <div>
       <header className="text-gray-600 body-font">
@@ -12,7 +12,7 @@ const Navbar = () => {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               stroke="currentColor"
-              stroke-linecap="round"
+              strokeLinecap="round"
               stroke-linejoin="round"
               stroke-width="2"
               className="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
@@ -54,11 +54,10 @@ const Navbar = () => {
               </svg>
             )}
           </button>
-          
         </div>
       </header>
     </div>
   );
-}
+};
 
-export default Navbar
+export default Navbar;
