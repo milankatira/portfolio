@@ -1,12 +1,14 @@
 import React from "react";
+import SectionTitle from "./design/SectionTitle";
 
 const Abouts = () => {
   return (
     <div>
-      <section className="overflow-hidden pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
+      <SectionTitle text="About us" />
+      <section className="overflow-hidden pb-12 lg:pt-[120px] lg:pb-[90px]">
         <div className="container mx-auto">
           <div className="-mx-4 flex flex-wrap items-center justify-between">
-            <div className="w-full px-4 lg:w-6/12">
+            <div className="w-full lg:w-6/12">
               <div className="-mx-3 flex items-center sm:-mx-4">
                 <div className="w-full px-3 sm:px-4 xl:w-1/2 flex mx-auto">
                   <div className="my-4">
@@ -42,7 +44,7 @@ const Abouts = () => {
                   role with a company promoting best practices and offering
                   diverse customer projects.
                 </p>
-             
+
                 <a className="bg-purple-700 inline-flex items-center justify-center rounded-lg py-4 px-10 text-center text-base font-normal text-white hover:bg-opacity-90 lg:px-8 xl:px-10">
                   Get Started
                 </a>
