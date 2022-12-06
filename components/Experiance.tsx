@@ -1,14 +1,12 @@
 import React from 'react'
+import SectionTitle from './design/SectionTitle';
 
 const Experiance = () => {
   return (
     <div>
+      <SectionTitle text="Experiance" />
       <section className="text-gray-600 body-font flex flex-row">
-        <div className="w-1/5 py-24 h-full my-auto ml-40 text-3xl tracking-[1rem]">
-          Experiance
-        </div>
-
-        <div className="container w-4/5 py-24 mx-auto flex flex-wrap">
+        <div className="container py-24 w-full flex flex-wrap">
           <div className="flex relative pt-10 pb-20 sm:items-center md:w-2/3 mx-auto">
             <div className="h-full w-6 absolute inset-0 flex items-center justify-center">
               <div className="h-full w-1 bg-gray-200 pointer-events-none"></div>
