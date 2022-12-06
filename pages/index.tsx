@@ -2,6 +2,8 @@ import Head from "next/head";
 import Image from "next/image";
 import Abouts from "../components/Abouts";
 import ContactUs from "../components/ContactUs";
+import Education from "../components/Education";
+import Experiance from "../components/Experiance";
 import Hero from "../components/Hero";
 import Portfolio from "../components/Portfolio";
 import Resume from "../components/Resume";
@@ -19,7 +21,8 @@ export default function Home() {
       <main className={styles.main}>
         <Hero />
         <Abouts />
-        <Resume />
+        <Experiance/>
+        <Education/>
         <Portfolio/>
         <ContactUs/>
       </main>
