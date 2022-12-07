@@ -7,7 +7,7 @@ export default function DarkModeSwitch() {
   const { theme, setTheme } = useTheme();
   const [isOn, setIsOn] = useState(() => {
     if (typeof window !== "undefined") {
-      if (localStorage.getItem("theme") === "light") {
+      if (theme === "dark") {
         return true;
       } else {
         return false;
@@ -32,7 +32,6 @@ export default function DarkModeSwitch() {
         isOn && "place-content-end"
       }`}
     >
-      {/* onClick={() => setTheme(theme === "dark" ? "light" : "dark")} */}
       <motion.div
         className="flex h-[40px] w-[40px] items-center justify-center rounded-full bg-black/90"
         layout

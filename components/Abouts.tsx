@@ -23,22 +23,23 @@ const Abouts = () => {
             </div>
             <div className="w-full px-4 lg:w-1/2 xl:w-5/12">
               <div className="mt-10 lg:mt-0">
-                <span className="text-primary mb-2 block text-lg font-semibold">
-                  About us
-                </span>
-                <p className="text-gray-600 font-sans mb-8 text-base mr-24">
+                <p className="text-gray-600 font-sans mb-8 text-base mr-12">
                   I am a Full Stack Developer with 2 years of experience,
                   specializing in NodeJS, ReactJs, and NextJs. I have extensive
                   experience in developing and deploying websites utilizing
                   various open-source packages as well as Content Management
-                  Systems (CMS) such as Adminbro, sanity, and strapi. I have
-                  extensive experience in HTML, CSS, JavaScript, and various
-                  open-source frameworks such as NodeJS, ExpressJS, ReactJS,
-                  MongoDB, and NextJS. I am skilled in the use of these
+                  Systems (CMS) such as Adminbro, sanity, and strapi.
+                  <br />
+                  <br />I have extensive experience in HTML, CSS, JavaScript,
+                  and various open-source frameworks such as NodeJS, ExpressJS,
+                  ReactJS, MongoDB, and NextJS. I am skilled in the use of these
                   frameworks to develop web applications based on Single Page
                   Applications (SPA) architectures. I also possess skills in
                   writing complex no SQL queries using popular database servers
-                  such as MongoDB. My goal is always to build applications that
+                  such as MongoDB.
+                  <br />
+                  <br />
+                   My goal is always to build applications that
                   are scalable and efficient under the hood while providing
                   engaging, pixel-perfect user experiences. I am interested in a
                   role with a company promoting best practices and offering
