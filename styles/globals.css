@@ -34,7 +34,6 @@ a {
   }
 }
 
-
 ::-webkit-scrollbar {
   width: 20px;
 }
@@ -65,3 +64,4 @@ a {
   border: 6px solid transparent;
   background-clip: content-box;
 }
+
