@@ -4,6 +4,7 @@ type Props = {};
 import { motion } from "framer-motion";
 import DarkModeSwitch from "../components/design/DarkModeSwitch";
 export default function Header({}: Props) {
+  
   return (
     <header className="h-20 sticky shadow-md overflow-hidden bg-white dark:bg-black top-0 px-5 flex items-start xl:items-center justify-between w-full mx-auto z-50">
       <motion.div

@@ -1,57 +1,36 @@
-import { motion } from "framer-motion";
+import React from "react";
 import { SocialIcon } from "react-social-icons";
-import { socials } from "../constant";
-
-import styles from "../styles";
-import { footerVariants } from "../utils/motion";
-
-const Footer = () => (
-  <motion.footer
-    variants={footerVariants}
-    initial="hidden"
-    whileInView="show"
-    className={`${styles.xPaddings} py-8 relative bg-white dark:bg-black overflow-hidden`}
-  >
-    <div className="footer-gradient" />
-    <div className={`${styles.innerWidth} mx-auto flex flex-col gap-8`}>
-
-      <div className="flex flex-col">
-        <div className="mb-[50px] h-[2px] bg-black dark:bg-white" />
-
-        <div className="flex items-center justify-between">
-          <div>
-            <span className="font-extrabold text-[30px] text-purple-700 dark:text-white">
-              M
-            </span>
-            <span className="font-extrabold text-[24px] text-black dark:text-white">
-              ILAN KATIRA
-            </span>
-          </div>
-          <p className="font-normal text-[14px] text-black dark:text-white opacity-50">
-            Copyright © 2021 - 2022 Metaversus. All rights reserved.
-          </p>
-
-          <div className="flex gap-4">
-            <SocialIcon
-              url="https://github.com/milankatira"
-              fgColor="gray"
-              bgColor="transparent"
-            />
-            <SocialIcon
-              url="https://www.linkedin.com/in/milan-katira/"
-              fgColor="gray"
-              bgColor="transparent"
-            />{" "}
-            <SocialIcon
-              url="https://medium.com/@milankatira26"
-              fgColor="gray"
-              bgColor="transparent"
-            />{" "}
-          </div>
-        </div>
-      </div>
-    </div>
-  </motion.footer>
-);
-
-export default Footer;
+type Props = {};
+import { motion } from "framer-motion";
+import DarkModeSwitch from "../components/design/DarkModeSwitch";
+export default function Header({}: Props) {
+  return (
+    <header className="h-20 sticky shadow-md overflow-hidden bottom-0 px-5 flex items-center xl:items-center justify-center w-full mx-auto z-60">
+      <motion.div
+        initial={{
+          y: 500,
+          opacity: 0,
+          scale: 0.5,
+        }}
+        animate={{
+          y: 0,
+          opacity: 1,
+          scale: 1,
+        }}
+        transition={{
+          duration: 1.5,
+        }}
+        className="flex flex-row items-center h-[50px]"
+      >
+        <SocialIcon
+          onClick={() =>
+            window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
+          }
+          url="https://github.com/milankatira"
+          fgColor="gray dark:white"
+          bgColor="white"
+        />
+      </motion.div>
+    </header>
+  );
+}

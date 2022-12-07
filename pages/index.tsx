@@ -3,6 +3,7 @@ import Image from "next/image";
 import Abouts from "../components/Abouts";
 import ContactUs from "../components/ContactUs";
 import Experiance from "../components/Experiance";
+import GoToTop from "../components/GoTop";
 import Hero from "../components/Hero";
 import Portfolio from "../components/Portfolio";
 import Project from "../components/Project";
@@ -32,16 +33,20 @@ export default function Home() {
         <section className="snap-center">
           <Experiance />
         </section>
-        <Portfolio />
-        <Skills />
-        <ContactUs />
+        <section className="snap-center">
+          <Portfolio />
+        </section>
+        <section className="snap-start">
+          <Skills />
+        </section>
+        <section className="snap-center">
+          <ContactUs />
+        </section>
         <section className="snap-center">
           <Project />
         </section>
-        <section className="snap-end">
 
         <Footer />
-        </section>
       </main>
     </div>
   );
