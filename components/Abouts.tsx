@@ -1,4 +1,6 @@
+import { motion } from "framer-motion";
 import React from "react";
+import { fadeIn } from "../utils/motion";
 import SectionTitle from "./design/SectionTitle";
 
 const Abouts = () => {
@@ -21,31 +23,36 @@ const Abouts = () => {
                 </div>
               </div>
             </div>
-            <div className="w-full px-4 lg:w-1/2 xl:w-5/12">
-              <div className="mt-10 lg:mt-0">
-                <p className="text-gray-600 font-sans mb-8 text-base mr-12">
-                  I am a Full Stack Developer with 2 years of experience,
-                  specializing in NodeJS, ReactJs, and NextJs.
-                  <br />
-                  <br />I have extensive experience in HTML, CSS, JavaScript,
-                  and various open-source frameworks such as NodeJS, ExpressJS,
-                  ReactJS, MongoDB, and NextJS. I am skilled in the use of these
-                  frameworks to develop web applications based on Single Page
-                  Applications (SPA) architectures. I also possess skills in
-                  writing complex no SQL queries using popular database servers
-                  such as MongoDB.
-                  <br />
-                  <br />
-                   My goal is always to build applications that
-                  are scalable and efficient under the hood while providing
-                  engaging, pixel-perfect user experiences.
-                </p>
+            <motion.div
+              variants={fadeIn("left", "tween", 0.2, 1)}
+              className="w-full px-4 lg:w-1/2 xl:w-5/12"
+            >
+              {/* <div className="w-full px-4 lg:w-1/2 xl:w-5/12"> */}
+                <div className="mt-10 lg:mt-0">
+                  <p className="text-gray-600 font-sans mb-8 text-base mr-12">
+                    I am a Full Stack Developer with 2 years of experience,
+                    specializing in NodeJS, ReactJs, and NextJs.
+                    <br />
+                    <br />I have extensive experience in HTML, CSS, JavaScript,
+                    and various open-source frameworks such as NodeJS,
+                    ExpressJS, ReactJS, MongoDB, and NextJS. I am skilled in the
+                    use of these frameworks to develop web applications based on
+                    Single Page Applications (SPA) architectures. I also possess
+                    skills in writing complex no SQL queries using popular
+                    database servers such as MongoDB.
+                    <br />
+                    <br />
+                    My goal is always to build applications that are scalable
+                    and efficient under the hood while providing engaging,
+                    pixel-perfect user experiences.
+                  </p>
 
-                <a className="bg-purple-700 inline-flex items-center justify-center rounded-lg py-4 px-10 text-center text-base font-normal text-white hover:bg-opacity-90 lg:px-8 xl:px-10">
-                  Get Started
-                </a>
-              </div>
-            </div>
+                  <a className="bg-purple-700 inline-flex items-center justify-center rounded-lg py-4 px-10 text-center text-base font-normal text-white hover:bg-opacity-90 lg:px-8 xl:px-10">
+                    Get Started
+                  </a>
+                </div>
+              {/* </div> */}
+            </motion.div>
           </div>
         </div>
       </section>
