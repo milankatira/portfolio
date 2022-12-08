@@ -5,11 +5,11 @@ const ContactUs = () => {
   return (
     <div className="h-screen pt-20">
       <SectionTitle text="Contact Us" />
-      <section className="py-24 lg:pt-0">
+      <section className="py-0 lg:py-24 lg:pt-0">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center">
             <div className="w-full px-4">
-              <div className="flex flex-col min-w-0 break-words w-4/5 mx-auto mb-6 shadow-lg rounded-lg ">
+              <div className="flex flex-col min-w-0 break-words mx-auto mb-6 shadow-lg rounded-lg ">
                 <div className="flex-auto p-5 lg:p-10">
                   <h4 className="text-2xl font-semibold">
                     Want to work with us?
