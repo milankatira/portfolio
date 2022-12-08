@@ -7,7 +7,7 @@ const Abouts = () => {
   return (
     <div className="h-screen pt-20">
       <SectionTitle text="About us" />
-      <section className="overflow-hidden pb-12 lg:pt-[120px] lg:pb-[90px]">
+      <section className="overflow-hidden">
         <div className="container mx-auto">
           <div className="-mx-4 flex flex-wrap items-center justify-between">
             <div className="w-full lg:w-6/12">
