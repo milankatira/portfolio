@@ -28,7 +28,7 @@ export default function DarkModeSwitch() {
   return (
     <div
       onClick={toggleSwitch}
-      className={`mt-4 mx-4 flex-start flex h-[50px] w-[100px] rounded-[50px] bg-zinc-100 p-[5px] shadow-inner hover:cursor-pointer dark:bg-zinc-700 ${
+      className={`mx-4 flex-start flex h-[50px] w-[100px] rounded-[50px] bg-zinc-100 p-[5px] shadow-inner hover:cursor-pointer dark:bg-zinc-700 ${
         isOn && "place-content-end"
       }`}
     >

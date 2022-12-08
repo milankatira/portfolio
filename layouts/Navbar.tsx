@@ -6,7 +6,7 @@ import DarkModeSwitch from "../components/design/DarkModeSwitch";
 export default function Header({}: Props) {
   
   return (
-    <header className="h-20 sticky shadow-md overflow-hidden bg-white dark:bg-black top-0 px-5 flex items-start xl:items-center justify-between w-full mx-auto z-50">
+    <header className="h-20 sticky shadow-md overflow-hidden bg-white dark:bg-black top-0 pl-5 flex items-center xl:items-center justify-between w-full mx-auto z-50">
       <motion.div
         initial={{
           x: -500,
@@ -54,7 +54,7 @@ export default function Header({}: Props) {
         transition={{
           duration: 1.5,
         }}
-        className="flex flex-row items-center text-gray-300 h-[50px]"
+        className="flex flex-row items-center justify-center text-gray-300 h-[50px]"
       >
         <SocialIcon
           url="mailto:milankatira26@gmail.com"
