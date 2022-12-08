@@ -1,7 +1,9 @@
 /* eslint-disable @next/next/no-sync-scripts */
 import Head from "next/head";
 import Image from "next/image";
-import Abouts from "../components/Abouts";
+const Abouts = dynamic(() => import("../components/Abouts"), {
+  ssr: false,
+});
 import ContactUs from "../components/ContactUs";
 import Experiance from "../components/Experiance";
 import GoToTop from "../components/GoTop";
@@ -15,6 +17,7 @@ import Navbar from "../layouts/Navbar";
 import styles from "../styles/Home.module.css";
 import dynamic from "next/dynamic";
 import type { NextPage } from "next";
+import Education from "../components/Education";
 const Portfolio = dynamic(() => import("../components/Portfolio"), {
   ssr: false,
 });
@@ -37,8 +40,11 @@ export default function Home() {
         <section className="snap-center">
           <Abouts />
         </section>
-        <section className="snap-center">
+        <section className="snap-start">
           <Experiance />
+        </section>
+        <section className="snap-start">
+          <Education />
         </section>
         {/* <div className="gradient-03 z-0" /> */}
         {/* </div> */}
