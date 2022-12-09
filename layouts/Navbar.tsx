@@ -6,7 +6,7 @@ import DarkModeSwitch from "../components/design/DarkModeSwitch";
 export default function Header({}: Props) {
   
   return (
-    <header className="h-20 sticky shadow-md overflow-hidden bg-white dark:bg-black top-0 pl-5 flex items-center xl:items-center justify-between w-full mx-auto z-50">
+    <header className="h-20 sticky shadow-md overflow-hidden bg-white dark:bg-[#0e1017] top-0 pl-5 flex items-center xl:items-center justify-between w-full mx-auto z-50 border-b-[1px]">
       <motion.div
         initial={{
           x: -500,
