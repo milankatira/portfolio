@@ -3,7 +3,7 @@ import SectionTitle from './design/SectionTitle';
 
 const Experiance = () => {
   return (
-    <div className="sm:ml-24  ml-8">
+    <div className="sm:ml-24  ml-8 h-screen pt-20">
       <SectionTitle text="Experiance" />
       <section className="text-gray-600 body-font flex flex-col">
         <div className="container w-full flex flex-wrap">
@@ -34,7 +34,7 @@ const Experiance = () => {
             </div>
           </div>
           <div className="flex relative pb-20 sm:items-center md:w-2/3 mr-auto">
-            <div className="h-full w-6 absolute inset-0 flex items-center justify-center">
+            <div className="h-4/5 w-6 absolute inset-0 flex items-center justify-center">
               <div className="h-full w-1 bg-gray-200 pointer-events-none"></div>
             </div>
             <div className="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-indigo-500 text-white relative z-10 title-font font-medium text-sm">

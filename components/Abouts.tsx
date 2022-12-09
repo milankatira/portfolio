@@ -49,7 +49,6 @@ const Abouts = () => {
               }}
               className="w-full px-4 sm:w-1/2 xl:w-5/12"
             >
-              {/* <div className="w-full px-4 lg:w-1/2 xl:w-5/12"> */}
               <div className="mt-0 md:mt-10">
                 <p className="text-gray-600 font-sans mb-8 text-base mr-12">
                   I am a Full Stack Developer with 2 years of experience,
@@ -71,12 +70,23 @@ const Abouts = () => {
                   efficient under the hood while providing engaging,
                   pixel-perfect user experiences.
                 </p>
-
-                <a className="bg-purple-700 inline-flex items-center justify-center rounded-lg py-4 px-10 text-center text-base font-normal text-white hover:bg-opacity-90 lg:px-8 xl:px-10">
-                  Get Started
-                </a>
+                <motion.div
+                  initial={{
+                    x: +200,
+                    opacity: 0,
+                  }}
+                  whileInView={{
+                    x: 0,
+                    opacity: 1,
+                  }}
+                  transition={{
+                    duration: 0.5,
+                  }}
+                  className="bg-purple-700 inline-flex items-center justify-center rounded-lg py-4 px-10 text-center text-base font-normal text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
+                >
+                  Resume
+                </motion.div>
               </div>
-              {/* </div> */}
             </motion.div>
           </div>
         </div>
