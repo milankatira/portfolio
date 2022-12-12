@@ -175,7 +175,7 @@ export const headerVariants = {
     y: 0,
     transition: {
       type: "spring",
-      stiffness: 80,
+      stiffness: 40,
       delay: 0.5,
     },
   },

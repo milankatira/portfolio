@@ -52,7 +52,7 @@ export default function Home() {
         <section className="snap-center">
           <Project />
         </section>
-        <Footer />
+        {/* <Footer /> */}
       </main>
     </div>
   );

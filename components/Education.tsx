@@ -22,13 +22,15 @@ const Education = () => {
                 />
               </div>
               <div className="flex-grow sm:pl-6 mt-6 sm:mt-0">
-                <h2 className="font-medium title-font text-gray-900 mb-1 text-xl">
+                <h2 className="font-medium title-font text-gray-900 dark:text-gray-300 mb-1 text-xl">
                   Bechlor in Engineering •2021
                 </h2>
-                <p className="leading-relaxed">
+                <p className="leading-relaxed text-gray-600 dark:text-gray-400">
                   V.V.P Engineering college,Rajkot
                 </p>
-                <p className="leading-relaxed">Jan 2022 - Present</p>
+                <p className="leading-relaxed text-gray-600 dark:text-gray-400">
+                  Jan 2022 - Present
+                </p>
               </div>
             </div>
           </div>
@@ -47,13 +49,15 @@ const Education = () => {
                 />
               </div>
               <div className="flex-grow sm:pl-6 mt-6 sm:mt-0">
-                <h2 className="font-medium title-font text-gray-900 mb-1 text-xl">
+                <h2 className="font-medium title-font text-gray-900 dark:text-gray-300 mb-1 text-xl">
                   Diploma in Engineering •2018
                 </h2>
-                <p className="leading-relaxed">
+                <p className="leading-relaxed text-gray-600 dark:text-gray-400">
                   Government polytechnic porbandar
                 </p>
-                <p className="leading-relaxed">Oce 2021 - Dec 2021</p>
+                <p className="leading-relaxed text-gray-600 dark:text-gray-400">
+                  Oce 2021 - Dec 2021
+                </p>
               </div>
             </div>
           </div>

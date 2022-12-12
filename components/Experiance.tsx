@@ -22,14 +22,16 @@ const Experiance = () => {
                 />
               </div>
               <div className="flex-grow sm:pl-6 mt-6 sm:mt-0">
-                <h2 className="font-medium title-font text-gray-900 mb-1 text-xl">
+                <h2 className="font-medium title-font text-gray-900 dark:text-gray-300 mb-1 text-xl">
                   Junior Software Engineer
                 </h2>
-                <p className="leading-relaxed">
+                <p className="leading-relaxed text-gray-600 dark:text-gray-400">
                   <b>Skills:</b> MongoDB · Full-Stack Development · React.js ·
                   Node.js
                 </p>
-                <p className="leading-relaxed">Jan 2022 - Present</p>
+                <p className="leading-relaxed text-gray-600 dark:text-gray-400">
+                  Jan 2022 - Present
+                </p>
               </div>
             </div>
           </div>
@@ -48,14 +50,16 @@ const Experiance = () => {
                 />
               </div>
               <div className="flex-grow sm:pl-6 mt-6 sm:mt-0">
-                <h2 className="font-medium title-font text-gray-900 mb-1 text-xl">
+                <h2 className="font-medium title-font text-gray-900 dark:text-gray-300 mb-1 text-xl">
                   Trainee Software Engineer
                 </h2>
-                <p className="leading-relaxed">
+                <p className="leading-relaxed text-gray-600 dark:text-gray-400">
                   <b>Skills:</b> MongoDB · Full-Stack Development · React.js ·
                   Node.js
                 </p>
-                <p className="leading-relaxed">Oce 2021 - Dec 2021</p>
+                <p className="leading-relaxed text-gray-600 dark:text-gray-400">
+                  Oce 2021 - Dec 2021
+                </p>
               </div>
             </div>
           </div>

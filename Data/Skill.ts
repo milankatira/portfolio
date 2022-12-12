@@ -1,0 +1,18 @@
+export const Skill = [
+  { name: "HTML", icon: "/img/html.png" },
+  { name: "CSS", icon: "/img/css.png" },
+  { name: "SCSS", icon: "/img/scss.png" },
+  { name: "Typescript", icon: "/img/typescript.png" },
+  { name: "Javascript", icon: "/img/js.png" },
+  { name: "ReactJs", icon: "/img/react.png" },
+  { name: "NextJs", icon: "/img/nextjs.svg" },
+  { name: "NodeJs", icon: "/img/node.png" },
+  { name: "ExpressJs", icon: "/img/express.png" },
+  { name: "Nestjs", icon: "/img/nestjs.svg" },
+  { name: "MongoDB", icon: "/img/mongodb.svg" },
+  { name: "PostgreSQL", icon: "/img/postgresql.svg" },
+  { name: "Graphql", icon: "/img/graphql.png" },
+  { name: "Material UI", icon: "/img/materialui.png" },
+  { name: "Tailwind CSS", icon: "/img/tailwindcss.png" },
+  { name: "Solidity", icon: "/img/solidity.png" },
+];
