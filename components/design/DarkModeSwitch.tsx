@@ -5,22 +5,30 @@ import { RiMoonClearFill, RiSunFill } from "react-icons/ri";
 import useSound from "use-sound";
 
 export default function DarkModeSwitch() {
+
   const [ThemeSound] = useSound("/sound/switch-on.mp3");
 
   const { theme, setTheme } = useTheme();
   const [isOn, setIsOn] = useState(() => {
+
     if (typeof window !== "undefined") {
+
       if (theme === "dark") {
+
         return true;
-      } else {
-        return false;
+
       }
+      return false;
+
     }
+
   });
 
   const toggleSwitch = () => {
+
     ThemeSound();
     setTheme(theme === "dark" ? "light" : "dark"), setIsOn(!isOn);
+
   };
 
   const spring = {
@@ -42,13 +50,16 @@ export default function DarkModeSwitch() {
         transition={spring}
       >
         <motion.div whileTap={{ rotate: 360 }}>
-          {isOn ? (
-            <RiSunFill className="h-6 w-6 text-yellow-300" />
-          ) : (
-            <RiMoonClearFill className="h-6 w-6 text-slate-200" />
-          )}
+          {isOn
+            ? (
+                <RiSunFill className="h-6 w-6 text-yellow-300" />
+              )
+            : (
+                <RiMoonClearFill className="h-6 w-6 text-slate-200" />
+              )}
         </motion.div>
       </motion.div>
     </div>
   );
+
 }

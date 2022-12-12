@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 import React from "react";
-import { fadeIn } from "../utils/motion";
 import SectionTitle from "./design/SectionTitle";
+import { fadeIn } from "../utils/motion";
 
-const Abouts = () => {
+function Abouts() {
+
   return (
     <div className="h-screen pt-20">
       <SectionTitle text="About us" />
@@ -51,24 +52,19 @@ const Abouts = () => {
             >
               <div className="mt-0 md:mt-10">
                 <p className="text-gray-600 mb-8 text-base mr-12">
-                  I am a Full Stack Developer with 2 years of experience,
-                  specializing in NodeJS, ReactJs, and NextJs.
+                  I am a Full Stack Developer with 2 years of experience, specializing in NodeJS, ReactJs, and NextJs.
                   <br />
                   <br />
                   <p className="hidden lg:block">
-                    I have extensive experience in HTML, CSS, JavaScript, and
-                    various open-source frameworks such as NodeJS, ExpressJS,
-                    ReactJS, MongoDB, and NextJS. I am skilled in the use of
-                    these frameworks to develop web applications based on Single
-                    Page Applications (SPA) architectures. I also possess skills
-                    in writing complex no SQL queries using popular database
-                    servers such as MongoDB.
+                    I have extensive experience in HTML, CSS, JavaScript, and various open-source frameworks such as
+                    NodeJS, ExpressJS, ReactJS, MongoDB, and NextJS. I am skilled in the use of these frameworks to
+                    develop web applications based on Single Page Applications (SPA) architectures. I also possess
+                    skills in writing complex no SQL queries using popular database servers such as MongoDB.
                     <br />
                     <br />
                   </p>
-                  My goal is always to build applications that are scalable and
-                  efficient under the hood while providing engaging,
-                  pixel-perfect user experiences.
+                  My goal is always to build applications that are scalable and efficient under the hood while providing
+                  engaging, pixel-perfect user experiences.
                 </p>
                 <motion.div
                   initial={{
@@ -93,6 +89,7 @@ const Abouts = () => {
       </section>
     </div>
   );
-};
+
+}
 
 export default Abouts;
