@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import React from "react";
+import { TypingText } from "./TypingText";
 import styles from "../../styles";
 import { staggerContainer } from "../../utils/motion";
-import { TypingText } from "./TypingText";
 
-const SectionTitle = ({ text }: { text: string }) => {
+function SectionTitle({ text }: { text: string }) {
+
   return (
     <div className="mt-4 flex justify-center mb-2 w-full uppercase tracking-[20px] text-gray-500 text-2xl">
       <motion.div
@@ -18,6 +19,7 @@ const SectionTitle = ({ text }: { text: string }) => {
       </motion.div>
     </div>
   );
-};
+
+}
 
 export default SectionTitle;

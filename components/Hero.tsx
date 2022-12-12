@@ -3,9 +3,9 @@ import Link from "next/link";
 import React from "react";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import BackgroundCircle from "./design/BackgroundCircle";
-type Props = {};
 
-export default function Hero({}: Props) {
+export default function Hero() {
+
   const [text, count] = useTypewriter({
     words: ["Developer", "Designer", "creator"],
     loop: true,
@@ -28,8 +28,8 @@ export default function Hero({}: Props) {
           duration: 2.5,
         }}
         exit={{ opacity: 0 }}
-        initial={{ opacity: 0 ,scale: 1 }}
-        whileInView={{ opacity: 1 ,scale:1.2}}
+        initial={{ opacity: 0, scale: 1 }}
+        whileInView={{ opacity: 1, scale: 1.2 }}
         src="https://cdn.tailgrids.com/1.0/assets/images/services/image-3.jpg"
         alt=""
         className="relative rounded-full h-32 w-32 mx-auto object-cover"
@@ -40,9 +40,7 @@ export default function Hero({}: Props) {
         alt="FF"
       /> */}
       <div className="z-20">
-        <h2 className="uppercase text-gray-500 text-sm pb-2 tracking-[15px]">
-          Software Engineer
-        </h2>
+        <h2 className="uppercase text-gray-500 text-sm pb-2 tracking-[15px]">Software Engineer</h2>
         <h1 className="text-5xl lg:text-6xl font-semibold px-10">
           <span className="mr-3">{text}</span>
           <Cursor cursorColor="#F7AB0A" />
@@ -65,4 +63,5 @@ export default function Hero({}: Props) {
       </div>
     </div>
   );
+
 }

@@ -1,7 +1,8 @@
 import React from "react";
 import SectionTitle from "./design/SectionTitle";
 
-const ContactUs = () => {
+function ContactUs() {
+
   return (
     <div className="h-screen pt-20">
       <SectionTitle text="Contact Us" />
@@ -11,9 +12,7 @@ const ContactUs = () => {
             <div className="w-full px-0 sm:px-40">
               <div className="flex flex-col min-w-0 break-words mx-auto mb-6 shadow-lg rounded-lg ">
                 <div className="flex-auto p-5 lg:p-10">
-                  <h4 className="text-2xl font-semibold">
-                    Want to work with us?
-                  </h4>
+                  <h4 className="text-2xl font-semibold">Want to work with us?</h4>
 
                   <div className="w-full mb-3 mt-8">
                     <label
@@ -73,6 +72,7 @@ const ContactUs = () => {
       </section>
     </div>
   );
-};
+
+}
 
 export default ContactUs;

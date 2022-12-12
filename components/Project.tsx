@@ -1,14 +1,13 @@
 import React from "react";
-
-type Props = {};
+import { motion } from "framer-motion";
+import { SocialIcon } from "react-social-icons";
+import SectionTitle from "./design/SectionTitle";
 import styles from "../styles";
 import { footerVariants, headerVariants } from "../utils/motion";
-import { motion } from "framer-motion";
-import SectionTitle from "./design/SectionTitle";
 import { Projects } from "../Data/Projects";
-import { SocialIcon } from "react-social-icons";
 
-export default function Project({}: Props) {
+export default function Project() {
+
   return (
     <div className="h-screen pt-20">
       <SectionTitle text="Project" />
@@ -22,22 +21,16 @@ export default function Project({}: Props) {
                 img: string;
                 github?: string;
               },
-              index
+              index,
             ) => (
-              <div
-                key={index}
-                className="w-screen flex-shrink-0 snap-center flex flex-col items-center h-screen"
-              >
+              <div key={index} className="w-screen flex-shrink-0 snap-center flex flex-col items-center h-screen">
                 <motion.div
                   variants={headerVariants}
                   initial="hidden"
                   whileInView="show"
                   className={`${styles.xPaddings} overflow-hidden`}
                 >
-                  <img
-                    src={project.img}
-                    className="w-48 h-48 rounded-xl object-cover"
-                  />
+                  <img src={project.img} className="w-48 h-48 rounded-xl object-cover" />
                 </motion.div>
                 <motion.div
                   variants={footerVariants}
@@ -46,9 +39,7 @@ export default function Project({}: Props) {
                   className={`${styles.xPaddings} overflow-hidden`}
                 >
                   <div className="mt-8 px-0 md:px-10 max-w-6xl flex  flex-col items-center">
-                    <span className="text-4xl font-semibold">
-                      {project.title}
-                    </span>
+                    <span className="text-4xl font-semibold">{project.title}</span>
                     <h4 className="text-gray-500">{project.description}</h4>
                     <div className="flex items-center">
                       {project?.github && (
@@ -60,19 +51,17 @@ export default function Project({}: Props) {
                         />
                       )}
 
-                      <img
-                        src="/img/web.png"
-                        className="h-8 w-8 hover:scale-125 transition-all duration-300"
-                      />
+                      <img src="/img/web.png" className="h-8 w-8 hover:scale-125 transition-all duration-300" />
                     </div>
                   </div>
                 </motion.div>
               </div>
-            )
+            ),
           )}
         </div>
-        <div className="w-full absolute top-[30%] bg-[#F7AB0A]/10 left-0 h-[500px] -skew-y-12"></div>
+        <div className="w-full absolute top-[30%] bg-[#F7AB0A]/10 left-0 h-[500px] -skew-y-12" />
       </div>
     </div>
   );
+
 }
