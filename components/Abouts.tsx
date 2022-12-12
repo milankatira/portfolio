@@ -50,7 +50,7 @@ const Abouts = () => {
               className="w-full px-4 sm:w-1/2 xl:w-5/12"
             >
               <div className="mt-0 md:mt-10">
-                <p className="text-gray-600 font-sans mb-8 text-base mr-12">
+                <p className="text-gray-600 mb-8 text-base mr-12">
                   I am a Full Stack Developer with 2 years of experience,
                   specializing in NodeJS, ReactJs, and NextJs.
                   <br />
