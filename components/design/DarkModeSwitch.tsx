@@ -2,8 +2,11 @@ import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import React, { useState } from "react";
 import { RiMoonClearFill, RiSunFill } from "react-icons/ri";
+import useSound from "use-sound";
 
 export default function DarkModeSwitch() {
+  const [ThemeSound] = useSound("/sound/switch-on.mp3");
+
   const { theme, setTheme } = useTheme();
   const [isOn, setIsOn] = useState(() => {
     if (typeof window !== "undefined") {
@@ -16,6 +19,7 @@ export default function DarkModeSwitch() {
   });
 
   const toggleSwitch = () => {
+    ThemeSound();
     setTheme(theme === "dark" ? "light" : "dark"), setIsOn(!isOn);
   };
 
