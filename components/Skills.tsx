@@ -1,9 +1,8 @@
 import React from "react";
 import SectionTitle from "./design/SectionTitle";
-import { Skill } from "../Data/Skill";
+import { Skill } from "../constant/Skill";
 
 function Skills() {
-
   return (
     <div className="h-full md:h-screen sm:h- pt-20">
       <SectionTitle text="Skills" />
@@ -23,7 +22,6 @@ function Skills() {
       </section>
     </div>
   );
-
 }
 
 export default Skills;
