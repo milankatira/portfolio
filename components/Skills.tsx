@@ -14,7 +14,6 @@ function Skills() {
       rounded-2xl flex flex-row flex-wrap justify-center items-center mt-0 md:mt-20 mx-auto w-[90%] sm:w-[60%]"
       >
         {Skill.map((item) => (
-
           <motion.div
             whileInView={{ opacity: 1 }}
             initial={{ opacity: 0 }}

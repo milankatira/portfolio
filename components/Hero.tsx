@@ -1,16 +1,11 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import React from "react";
-import { Cursor, useTypewriter } from "react-simple-typewriter";
 import BackgroundCircle from "./design/BackgroundCircle";
 import SectionTitle from "./design/SectionTitle";
 
 export default function Hero() {
-  const [text, count] = useTypewriter({
-    words: ["Developer", "Designer", "Tester"],
-    loop: true,
-    delaySpeed: 2000,
-  });
+
   return (
     <motion.div
       whileInView={{ opacity: 1 }}
@@ -51,4 +46,5 @@ export default function Hero() {
       </div>
     </motion.div>
   );
+
 }
