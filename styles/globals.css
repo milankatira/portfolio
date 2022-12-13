@@ -3,7 +3,7 @@
 @tailwind utilities;
 @layer components {
   .heroButton {
-    @apply text-xs tracking-widest text-gray-500 px-6 py-2 border border-[#242424] rounded-full uppercase transition-all hover:border-[#F7ABBA]/40 hover:text-[#f7ab0a]/40 m-4;
+    @apply text-xs tracking-widest text-gray-500 font-bold px-6 py-2 border border-[#242424] rounded-full uppercase transition-all duration-700 dark:hover:border-gray-300 hover:border-black dark:hover:text-gray-300 hover:text-black m-4;
   }
 }
 
@@ -63,16 +63,4 @@ a {
   border-radius: 20px;
   border: 6px solid transparent;
   background-clip: content-box;
-}
-
-.gradient-03 {
-  position: absolute;
-  width: 404px;
-  height: 800px;
-  left: 20%;
-  top: 5%;
-
-  background: rgba(149, 66, 232, 0.35);
-  filter: blur(175px);
-  transform: rotate(-114.2deg);
 }
