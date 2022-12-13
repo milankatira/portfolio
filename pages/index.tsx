@@ -8,6 +8,7 @@ import Project from "../components/Project";
 import Skills from "../components/Skills";
 import Navbar from "../layouts/Navbar";
 import Education from "../components/Education";
+import SocialBar from "../components/design/SocialBar";
 
 const Abouts = dynamic(() => import("../components/Abouts"), {
   ssr: false,
@@ -28,6 +29,7 @@ export default function Home() {
       </Head>
 
       <main className="z-0">
+        <SocialBar/>
         <Navbar />
         <section className="snap-center">
           <Hero />

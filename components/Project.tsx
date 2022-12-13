@@ -1,12 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { SocialIcon } from "react-social-icons";
+import Link from "next/link";
 import SectionTitle from "./design/SectionTitle";
 import styles from "../styles";
 import { footerVariants, headerVariants } from "../utils/motion";
 import { Projects } from "../constant/Projects";
 
 export default function Project() {
+
   return (
     <div className="h-screen pt-20">
       <SectionTitle text="Project" />
@@ -19,6 +21,7 @@ export default function Project() {
                 description: string;
                 img: string;
                 github?: string;
+                url: string;
               },
               index
             ) => (
@@ -39,7 +42,7 @@ export default function Project() {
                 >
                   <div className="mt-8 px-0 md:px-10 max-w-6xl flex  flex-col items-center">
                     <span className="text-4xl font-semibold">{project.title}</span>
-                    <h4 className="text-gray-500">{project.description}</h4>
+                    <h4 className="text-gray-500 w-60">{project.description}</h4>
                     <div className="flex items-center">
                       {project?.github && (
                         <SocialIcon
@@ -49,8 +52,9 @@ export default function Project() {
                           className="hover:scale-125 transition-all duration-300"
                         />
                       )}
-
-                      <img src="/img/web.png" className="h-8 w-8 hover:scale-125 transition-all duration-300" />
+                      <a href={project.url} target="_blank" rel="noreferrer">
+                        <img src="/img/web.png" className="h-8 w-8 hover:scale-125 transition-all duration-300" />
+                      </a>
                     </div>
                   </div>
                 </motion.div>
@@ -62,4 +66,5 @@ export default function Project() {
       </div>
     </div>
   );
+
 }
