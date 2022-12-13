@@ -10,6 +10,7 @@ const style = {
 };
 
 const SocialBar = () => {
+
   return (
     <div className={style.wrapper}>
       <motion.div
@@ -30,12 +31,15 @@ const SocialBar = () => {
       >
         <div className={style.iconsContainer}>
           {PersonalData.socialMedia.map((item: string | undefined, id: Key | null | undefined) => {
+
             return <SocialIcon fgColor="gray" bgColor="transparent" url={item} key={id} />;
+
           })}
           <div className={style.line} />
         </div>
       </motion.div>
     </div>
   );
+
 };
 export default SocialBar;

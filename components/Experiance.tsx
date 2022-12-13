@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import React from "react";
-import { Experiances } from "../constant/Experiances";
 import SectionTitle from "./design/SectionTitle";
+import { Experiances } from "../constant/Experiances";
 
 function Experiance() {
 

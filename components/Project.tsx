@@ -23,7 +23,7 @@ export default function Project() {
                 github?: string;
                 url: string;
               },
-              index
+              index,
             ) => (
               <div key={index} className="w-screen flex-shrink-0 snap-center flex flex-col items-center h-screen">
                 <motion.div
@@ -59,7 +59,7 @@ export default function Project() {
                   </div>
                 </motion.div>
               </div>
-            )
+            ),
           )}
         </div>
         <div className="w-full absolute top-[30%] bg-[#F7AB0A]/10 left-0 h-[500px] -skew-y-12" />
