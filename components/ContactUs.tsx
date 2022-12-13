@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import React from "react";
 import SectionTitle from "./design/SectionTitle";
 
@@ -10,7 +11,13 @@ function ContactUs() {
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center">
             <div className="w-full px-0 sm:px-40">
-              <div className="flex flex-col min-w-0 break-words mx-auto mb-6 shadow-lg rounded-lg ">
+              <motion.div
+                whileInView={{ opacity: 1 }}
+                initial={{ opacity: 0 }}
+                transition={{ duration: 1 }}
+                className="flex flex-col min-w-0 break-words mx-auto mb-6 shadow-lg rounded-lg "
+              >
+
                 <div className="flex-auto p-5 lg:p-10">
                   <h4 className="text-2xl font-semibold">Want to work with us?</h4>
 
@@ -19,7 +26,7 @@ function ContactUs() {
                       className="block uppercase text-gray-600 dark:text-gray-300 text-xs font-bold mb-2"
                       htmlFor="full-name"
                     >
-                      Full Name
+                        Full Name
                     </label>
                     <input
                       type="text"
@@ -33,7 +40,7 @@ function ContactUs() {
                       className="block uppercase text-gray-600 dark:text-gray-300 text-xs font-bold mb-2"
                       htmlFor="email"
                     >
-                      Email
+                        Email
                     </label>
                     <input
                       type="email"
@@ -47,7 +54,7 @@ function ContactUs() {
                       className="block uppercase text-gray-600 dark:text-gray-300 text-xs font-bold mb-2"
                       htmlFor="message"
                     >
-                      Message
+                        Message
                     </label>
                     <textarea
                       rows={4}
@@ -61,11 +68,11 @@ function ContactUs() {
                       className="bg-blue-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                       type="button"
                     >
-                      Send Message
+                        Send Message
                     </button>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
