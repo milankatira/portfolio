@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
 import SectionTitle from "./design/SectionTitle";
-import { fadeIn } from "../utils/motion";
 
 function Abouts() {
 
