@@ -29,15 +29,15 @@ export default function Home() {
       </Head>
 
       <main className="z-0">
-        <SocialBar/>
+        <SocialBar />
         <Navbar />
         <section className="snap-center">
           <Hero />
         </section>
-        <section className="snap-center">
+        <section id="about" className="snap-center">
           <Abouts />
         </section>
-        <section className="snap-start">
+        <section id="experiance" className="snap-start">
           <Experiance />
         </section>
         <section className="snap-start">
@@ -46,16 +46,15 @@ export default function Home() {
         <section className="snap-start lg:snap-center">
           <Portfolio />
         </section>
-        <section className="snap-start">
+        <section id="skills" className="snap-start">
           <Skills />
         </section>
         <section className="snap-center">
           <ContactUs />
         </section>
-        <section className="snap-center">
+        <section id="project" className="snap-center">
           <Project />
         </section>
-        {/* <Footer /> */}
       </main>
     </div>
   );
