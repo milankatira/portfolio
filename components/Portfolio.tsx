@@ -11,7 +11,7 @@ function Portfolio() {
         whileInView={{ opacity: 1 }}
         initial={{ opacity: 0 }}
         transition={{ duration: 1 }}
-        className="pt-20 pb-10 lg:pt-[120px] lg:pb-20"
+        className="pt-20 pb-10 px-4 lg:pt-[120px] lg:pb-20"
       >
         <div className="container mx-auto">
           <div className="flex flex-wrap sm:w-[90%] w-full items-center justify-center mx-auto">
