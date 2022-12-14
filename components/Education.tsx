@@ -1,74 +1,52 @@
 import { motion } from "framer-motion";
 import React from "react";
-import SectionTitle from "./design/SectionTitle";
 import { Educations } from "../constant/Educations";
+import SectionTitle from "./design/SectionTitle";
 
-function Education() {
-
+const Education = () => {
   return (
-    <div className="sm:ml-24 ml-8 h-full sm:h-screen pt-20">
+    <div className="h-screen pt-20 sm:px-24 px-4">
       <SectionTitle text="Education" />
-      <motion.section
+      <motion.div
         whileInView={{ opacity: 1 }}
         initial={{ opacity: 0 }}
         transition={{ duration: 1 }}
-        className="text-gray-600 body-font flex flex-col"
+        className="flex justify-center items-center"
       >
-        <div className="container w-full flex flex-wrap">
-          {Educations.map((data, index) => (
-            <div key={data.collage} className="flex relative pt-10 pb-20 sm:items-center md:w-2/3 mr-auto">
-              <div className="h-full w-6 absolute inset-0 flex items-center justify-center">
-                <div className="h-full w-1 bg-gray-200 pointer-events-none" />
-              </div>
-              <motion.div
-                initial={{
-                  x: 0,
-                  opacity: 0,
-                }}
-                whileInView={{
-                  x: 0,
-                  opacity: 1,
-                }}
-                transition={{
-                  duration: 1,
-                }}
-                className="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-indigo-500 text-white relative z-10 title-font font-medium text-sm"
-              >
-                {index + 1}
-              </motion.div>
-
-              <motion.div
-                initial={{
-                  x: +200,
-                  opacity: 0,
-                }}
-                whileInView={{
-                  x: 0,
-                  opacity: 1,
-                }}
-                transition={{
-                  duration: 1,
-                }}
-                className="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row"
-              >
-                <div className="flex-shrink-0 w-24 h-24 bg-white text-indigo-500 rounded-full inline-flex items-center justify-center">
-                  <img src={data.img} className="p-5" />
-                </div>
-                <div className="flex-grow sm:pl-6 mt-6 sm:mt-0">
-                  <h2 className="font-medium title-font text-gray-900 dark:text-gray-300 mb-1 text-xl">
+        <ol className="mx-auto w-full md:w-1/2 mt-4 border-gray-300 dark:border-gray-700">
+          {Educations.map((data) => (
+            <li
+              key={data.course}
+              className="mb-10 ml-6 opacity-100 hover:opacity-40 transition-all duration-700 cursor-pointer"
+            >
+              <div className="flex">
+                <motion.img
+                  whileInView={{ opacity: 1 }}
+                  initial={{ opacity: 0 }}
+                  transition={{ duration: 1 }}
+                  className="h-20 w-20 rounded-full mr-4 p-5 bg-white"
+                  src={data.img}
+                />
+                <div
+                >
+                  <h2 className="flex items-center mb-1 text-xl font-semibold text-gray-900 dark:text-white">
                     {data.course}
                   </h2>
-                  <p className="leading-relaxed text-gray-600 dark:text-gray-400">{data.collage}</p>
-                  <p className="leading-relaxed text-gray-600 dark:text-gray-400">{data.duration}</p>
+                  <p
+                    className="text-lg font-light text-gray-500 dark:text-gray-400"
+                  >{data.collage}</p>
+                  <br />
+                  <time className="block mb-8 text-base font-normal leading-none text-gray-400 dark:text-gray-500">
+                    {data.duration}
+                  </time>
                 </div>
-              </motion.div>
-            </div>
+              </div>
+            </li>
           ))}
-        </div>
-      </motion.section>
+        </ol>
+      </motion.div>
     </div>
   );
-
-}
+};
 
 export default Education;

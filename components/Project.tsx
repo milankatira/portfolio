@@ -62,7 +62,7 @@ export default function Project() {
             ),
           )}
         </div>
-        <div className="w-full absolute top-[30%] bg-[#F7AB0A]/10 left-0 h-[500px] -skew-y-12" />
+        <div className="w-full absolute top-[30%]  bg-purple-300 dark:bg-gray-700 opacity-10 left-0 h-[500px] -skew-y-12" />
       </div>
     </div>
   );

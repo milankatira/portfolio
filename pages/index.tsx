@@ -31,17 +31,19 @@ export default function Home() {
       <main className="z-0">
         <SocialBar />
         <Navbar />
-        <section className="snap-center">
+        <section className="snap-center hover:opacity-70">
           <Hero />
         </section>
-        <section id="about" className="snap-center">
+        <section className="snap-center">
           <Abouts />
         </section>
-        <section id="experiance" className="snap-start">
+        <section className="snap-center">
           <Experiance />
+          {/* <Abouts /> */}
         </section>
-        <section className="snap-start">
+        <section className="snap-center">
           <Education />
+          {/* <Abouts /> */}
         </section>
         <section className="snap-start lg:snap-center">
           <Portfolio />
