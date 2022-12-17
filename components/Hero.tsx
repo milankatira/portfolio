@@ -27,20 +27,19 @@ export default function Hero() {
         className="relative rounded-full h-32 w-32 mx-auto object-cover"
       />
       <div className="z-20">
-        <SectionTitle text="software engineer" />
-
-        <div className="pt-5">
+        <h1 className="uppercase tracking-[20px] text-gray-500 text-2xl">software engineer</h1>
+        <div className="pt-5 flex flex-wrap justify-center flex-col sm:flex-row">
           <Link href="#about">
-            <button className="heroButton">About</button>
+            <button className="heroButton w-36">About</button>
           </Link>
           <Link href="#experiance">
-            <button className="heroButton">Experiance</button>
+            <button className="heroButton w-36">Experiance</button>
           </Link>
           <Link href="#skills">
-            <button className="heroButton">Skills</button>
+            <button className="heroButton w-36">Skills</button>
           </Link>
           <Link href="#project">
-            <button className="heroButton">Projects</button>
+            <button className="heroButton w-36">Projects</button>
           </Link>
         </div>
       </div>

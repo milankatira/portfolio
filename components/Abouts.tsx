@@ -73,27 +73,17 @@ function Abouts() {
                   My goal is always to build applications that are scalable and efficient under the hood while providing
                   engaging, pixel-perfect user experiences.
                 </p>
-                <motion.button
-                  initial={{
-                    x: +200,
-                    opacity: 0,
-                  }}
-                  whileInView={{
-                    x: 0,
-                    opacity: 1,
-                  }}
-                  transition={{
-                    duration: 0.5,
-                  }}
-                  className="sm:mx-4 mx-auto w-40 bg-blue-800 text-white active:bg-black text-lg uppercase px-6 py-3 rounded opacity-100 hover:shadow-2xl hover:opacity-80 outline-none focus:outline-none ease-linear transition-all duration-300"
+                <button
+                  className="sm:mx-4 mx-auto w-40  dark:border-white text-black border-2 border-black active:bg-black text-lg uppercase  rounded opacity-100 hover:shadow-2xl hover: outline-none focus:outline-none ease-linear transition-all duration-300"
                 >
-                  <a href="/milan_katira.pdf" download className="flex hover:opacity-80 duration-300 font-semibold transition-all">
+                  <a
+                    href="/milan_katira.pdf"
+                    download
+                    className="px-2 py-2 flex hover:bg-black hover:text-white dark:hover:text-black dark:text-white dark:hover:text-white hover:text-black dark:hover:bg-white duration-300 font-semibold transition-all flex justify-center items-center"
+                  >
                     Resume
-                    <svg className="ml-4 h-6 w-6 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                      <path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
-                    </svg>
                   </a>
-                </motion.button>
+                </button>
               </div>
             </motion.div>
           </div>

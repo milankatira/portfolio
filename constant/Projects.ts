@@ -1,7 +1,24 @@
 export const Projects = [
   {
+    github: "https://github.com/milankatira/lyriks",
+    title: "lyriks",
+    description:
+      "this is fully-fledged music player app with song exploration features, search, popular music around you, worldwide top charts , unlimited listening time without ads and much more.",
+    img: "/img/lyrik.png",
+    url: "https://lyriksmilankatira.netlify.app/",
+  },
+  {
+    github: "https://github.com/milankatira/crownfundings",
+    title: "crownfunding",
+    description:
+      "This is crowdfunding app with connected to the blockchain, metamask pairing, interaction with smart contracts, sending Ethereum through the blockchain network and managing records in the blockchain",
+    img: "/img/crownfunding.png",
+    url: "https://crownfunding.vercel.app/",
+  },
+  {
     title: "Alan NEWS",
-    description: "this is newz application based on voice typing like google search.using alan",
+    description:
+      "this is Voice Controlled React News Application using Alan AI.Alan AI is a speech recognition software that allows you to add voice capabilities. It allows you to control absolutely everything in the app using your voice",
     img: "/img/Alan news.png",
     url: "https://alan-ai-news-milankatira.netlify.app/",
   },
