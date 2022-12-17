@@ -8,12 +8,12 @@ const MyProject = () => {
   return (
     <div>
       <section className="text-gray-600 body-font">
-        <div className="container px-0 sm:px-20 py-24 mx-auto">
+        <div className="container px-6 sm:px-20 py-24 mx-auto">
           <SectionTitle text="project" />
           <div className="flex flex-wrap">
             {Projects.map((data) => (
-              <div key={data.title} className="xl:w-1/3 md:w-1/2 py-4 px-2">
-                <div className="bg-blue-50 dark:bg-gray-900 p-6 rounded-lg">
+              <div key={data.title} className="hover:-mt-4 transition-all duration-300 xl:w-1/3 md:w-1/2 py-4 px-2">
+                <div className="bg-blue-50 dark:bg-gray-900 p-6 rounded-xl">
                   <img className="h-40 rounded w-full object-cover object-center mb-6" src={data.img} alt="content" />
                   <h2 className="text-lg text-gray-900 dark:text-gray-300  font-medium title-font">{data.title}</h2>
                   <p className="leading-relaxed text-base">{data.description}</p>

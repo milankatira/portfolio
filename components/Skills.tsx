@@ -6,7 +6,7 @@ import { Skill } from "../constant/Skill";
 function Skills() {
 
   return (
-    <div className="h-full md:h-screen sm:h- pt-20">
+    <div className="h-full md:h-screen pt-20">
       <SectionTitle text="Skills" />
 
       <section
