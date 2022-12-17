@@ -58,14 +58,12 @@ function Abouts() {
                 className="flex flex-col mt-0 md:mt-10 text-gray-600 hover:text-gray-900
               dark:hover:text-gray-300 transition-all duration-300"
               >
-                <p className="mb-8 text-base mr-12 px-4">
+                <p className="mb-8 text-base px-4">
                   I am a Full Stack Developer with 2 years of experience, specializing in NodeJS, ReactJs, and NextJs.
                   <br />
                   <br />
-                  <p className="hidden lg:block">
-                    I have extensive experience in HTML, CSS, JavaScript, and various open-source frameworks such as
-                    NodeJS, ExpressJS, ReactJS, MongoDB, and NextJS. I am skilled in the use of these frameworks to
-                    develop web applications based on Single Page Applications (SPA) architectures. I also possess
+                  <p className="lg:block">
+                    I am skilled in develop web applications based on Single Page Applications (SPA) architectures. I also possess
                     skills in writing complex no SQL queries using popular database servers such as MongoDB.
                     <br />
                     <br />
@@ -79,7 +77,7 @@ function Abouts() {
                   <a
                     href="/milan_katira.pdf"
                     download
-                    className="px-2 py-2 flex hover:bg-black hover:text-white dark:hover:text-black dark:text-white dark:hover:text-white hover:text-black dark:hover:bg-white duration-300 font-semibold transition-all flex justify-center items-center"
+                    className="px-2 py-2 flex hover:bg-black hover:text-white dark:text-white dark:hover:text-black dark:hover:bg-white duration-300 font-semibold transition-all flex justify-center items-center"
                   >
                     Resume
                   </a>
