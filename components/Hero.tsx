@@ -22,7 +22,7 @@ export default function Hero() {
         exit={{ opacity: 0 }}
         initial={{ opacity: 0, scale: 1 }}
         whileInView={{ opacity: 1, scale: 1.2 }}
-        src="https://cdn.tailgrids.com/1.0/assets/images/services/image-3.jpg"
+        src="https://media.licdn.com/dms/image/C4D03AQFm1IfmteqAJA/profile-displayphoto-shrink_800_800/0/1652770443144?e=1677110400&v=beta&t=ZfxF0eU3lQsxWyiBRYVaFPNyrBPva4H3s8PagGs7mpg"
         alt=""
         className="relative rounded-full h-32 w-32 mx-auto object-cover"
       />

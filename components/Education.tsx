@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 import React from "react";
-import { Educations } from "../constant/Educations";
 import SectionTitle from "./design/SectionTitle";
+import { Educations } from "../constant/Educations";
 
 const Education = () => {
+
   return (
     <div className="h-screen pt-20 sm:px-24 px-4">
       <SectionTitle text="Education" />
@@ -27,14 +28,11 @@ const Education = () => {
                   className="h-20 w-20 rounded-full mr-4 p-5 bg-white"
                   src={data.img}
                 />
-                <div
-                >
+                <div>
                   <h2 className="flex items-center mb-1 text-xl font-semibold text-gray-900 dark:text-white">
                     {data.course}
                   </h2>
-                  <p
-                    className="text-lg font-light text-gray-500 dark:text-gray-400"
-                  >{data.collage}</p>
+                  <p className="text-lg font-light text-gray-500 dark:text-gray-400">{data.collage}</p>
                   <br />
                   <time className="block mb-8 text-base font-normal leading-none text-gray-400 dark:text-gray-500">
                     {data.duration}
@@ -47,6 +45,7 @@ const Education = () => {
       </motion.div>
     </div>
   );
+
 };
 
 export default Education;
