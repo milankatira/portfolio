@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 import React from "react";
-import { Experiances } from "../constant/Experiances";
 import SectionTitle from "./design/SectionTitle";
+import { Experiances } from "../constant/Experiances";
 
 const Experiance = () => {
+
   return (
     <div className="h-screen pt-20 sm:px-24 px-4">
       <SectionTitle text="Experiance" />
@@ -44,6 +45,7 @@ const Experiance = () => {
       </motion.div>
     </div>
   );
+
 };
 
 export default Experiance;

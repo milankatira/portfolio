@@ -32,7 +32,15 @@ const SocialBar = () => {
         <div className={style.iconsContainer}>
           {PersonalData.socialMedia.map((item: string | undefined, id: Key | null | undefined) => {
 
-            return <SocialIcon className="hover:scale-125 transition-all duration-700" fgColor="gray" bgColor="transparent" url={item} key={id} />;
+            return (
+              <SocialIcon
+                className="hover:scale-125 transition-all duration-700"
+                fgColor="gray"
+                bgColor="transparent"
+                url={item}
+                key={id}
+              />
+            );
 
           })}
           <div className={style.line} />

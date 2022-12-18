@@ -1,7 +1,7 @@
-import React from 'react';
-import { SocialIcon } from 'react-social-icons';
-import SectionTitle from './design/SectionTitle';
-import { Projects } from '../constant/Projects';
+import React from "react";
+import { SocialIcon } from "react-social-icons";
+import SectionTitle from "./design/SectionTitle";
+import { Projects } from "../constant/Projects";
 
 const MyProject = () => {
 
@@ -14,11 +14,11 @@ const MyProject = () => {
             {Projects.map((data) => (
               <div key={data.title} className="hover:-mt-4 transition-all duration-300 xl:w-1/3 md:w-1/2 py-4 px-2">
                 <div className="bg-blue-50 dark:bg-gray-900 p-6 rounded-xl">
-                  <img className="h-40 rounded w-full object-cover object-center mb-6" src={data.img} alt="content" />
+                  <img className="h-40 rounded w-full object-cover object-center" src={data.img} alt="content" />
                   <h2 className="text-lg text-gray-900 dark:text-gray-300  font-medium title-font">{data.title}</h2>
                   <p className="leading-relaxed text-base">{data.description}</p>
                   <div className="flex justify-start mt-2">
-                    <a href={data.url} className='flex'>
+                    <a href={data.url} className="flex">
                       <svg
                         className="h-6 w-6 my-auto fill-gray-500"
                         xmlns="http://www.w3.org/2000/svg"

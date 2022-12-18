@@ -1,9 +1,17 @@
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useState } from "react";
 import SectionTitle from "./design/SectionTitle";
 
 function ContactUs() {
 
+  const [name, setname] = useState("");
+  const [Email, setEmail] = useState("");
+  const [message, setmessage] = useState("");
+  const submitForm = () => {
+
+    window.open(`mailto:${Email}?&body=${encodeURIComponent(name)} : ${encodeURIComponent(message)}`);
+
+  };
   return (
     <div className="h-screen pt-20">
       <SectionTitle text="Contact Us" />
@@ -29,6 +37,8 @@ function ContactUs() {
                     </label>
                     <input
                       type="text"
+                      value={name}
+                      onChange={(e) => setname(e.target.value)}
                       className="border-0 px-3 py-3 placeholder-gray-300 dark:bg-gray-900 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Full Name"
                     />
@@ -43,6 +53,8 @@ function ContactUs() {
                     </label>
                     <input
                       type="email"
+                      value={Email}
+                      onChange={(e) => setEmail(e.target.value)}
                       className="border-0 px-3 py-3 placeholder-gray-300 dark:bg-gray-900 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Email"
                     />
@@ -58,13 +70,16 @@ function ContactUs() {
                     <textarea
                       rows={4}
                       cols={80}
+                      value={message}
+                      onChange={(e) => setmessage(e.target.value)}
                       className="border-0 px-3 py-3 placeholder-gray-300 dark:bg-gray-900 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
                       placeholder="Type a message..."
                     />
                   </div>
                   <div className="text-center mt-6">
                     <button
-                      className="border-2 dark:border-white border-black hover:bg-black hover:text-white dark:hover:text-black dark:text-white dark:hover:text-white hover:text-black dark:hover:bg-white duration-300 text-sm font-bold uppercase px-6 py-3 rounded  hover:shadow-2xl hover:opacity-80 outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-300"
+                      onClick={submitForm}
+                      className="border-2 dark:border-white border-black hover:bg-black hover:text-white dark:hover:text-black dark:hover:text-black dark:hover:bg-white duration-300 text-sm font-bold uppercase px-6 py-3 rounded  hover:shadow-2xl outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-300"
                       type="button"
                     >
                       Send Message
