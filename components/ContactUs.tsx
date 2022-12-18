@@ -79,7 +79,7 @@ function ContactUs() {
                   <div className="text-center mt-6">
                     <button
                       onClick={submitForm}
-                      className="border-2 dark:border-white border-black hover:bg-black hover:text-white dark:hover:text-black dark:hover:text-black dark:hover:bg-white duration-300 text-sm font-bold uppercase px-6 py-3 rounded  hover:shadow-2xl outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-300"
+                      className="border-2 dark:border-white border-black hover:bg-black hover:text-white dark:hover:text-black dark:hover:bg-white duration-300 text-sm font-bold uppercase px-6 py-3 rounded  hover:shadow-2xl outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-300"
                       type="button"
                     >
                       Send Message
