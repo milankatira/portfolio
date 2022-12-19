@@ -41,7 +41,7 @@ export default function DarkModeSwitch() {
     <div
       onClick={toggleSwitch}
       className={`mx-4 flex-start flex h-[50px] w-[100px] rounded-[50px] bg-zinc-100 p-[5px] shadow-inner hover:cursor-pointer dark:bg-zinc-700 ${
-        isOn && "place-content-end"
+        !isOn && "place-content-end"
       }`}
     >
       <motion.div
@@ -50,7 +50,7 @@ export default function DarkModeSwitch() {
         transition={spring}
       >
         <motion.div whileTap={{ rotate: 360 }}>
-          {isOn
+          {!isOn
             ? (
                 <RiSunFill className="h-6 w-6 text-yellow-300" />
               )
