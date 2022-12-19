@@ -11,16 +11,19 @@ function ContactUs() {
   const form = useRef();
   const submitForm = (e: { preventDefault: () => void }) => {
 
+    setloading(true);
     e.preventDefault();
     // @ts-ignore
     emailjs.sendForm("service_a3j1ncp", "template_kyotqu5", form.current, "OELPiSYjiMixDJ_jb").then(
       (result) => {
 
+        setloading(false);
         toast.success("thanks, email send successfully");
 
       },
       (error) => {
 
+        setloading(false);
         console.log(error.text);
 
       },
@@ -97,9 +100,9 @@ function ContactUs() {
                         className="w-52 border-2 dark:border-white border-black hover:bg-black hover:text-white dark:hover:text-black dark:hover:bg-white duration-300 text-sm font-bold uppercase px-6 py-3 rounded  hover:shadow-2xl outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-300"
                         type="submit"
                       >
-                        {!loading
-                          ? <div className="mx-auto" aria-label="Loading..." role="status">
-                              <svg className="h-6 w-6 animate-spin" viewBox="3 3 18 18">
+                        {loading
+                          ? (
+                              <svg className="mx-auto h-6 w-6 animate-spin" viewBox="3 3 18 18">
                                 <path
                                   className="fill-gray-200"
                                   d="M12 5C8.13401 5 5 8.13401 5 12C5 15.866 8.13401 19 12 19C15.866 19 19 15.866 19 12C19 8.13401 15.866 5 12 5ZM3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12Z"
@@ -109,12 +112,11 @@ function ContactUs() {
                                   d="M16.9497 7.05015C14.2161 4.31648 9.78392 4.31648 7.05025 7.05015C6.65973 7.44067 6.02656 7.44067 5.63604 7.05015C5.24551 6.65962 5.24551 6.02646 5.63604 5.63593C9.15076 2.12121 14.8492 2.12121 18.364 5.63593C18.7545 6.02646 18.7545 6.65962 18.364 7.05015C17.9734 7.44067 17.3403 7.44067 16.9497 7.05015Z"
                                 ></path>
                               </svg>
-                            </div>:
-                          "Send Message"
-                        }
+                            )
+                          : (
+                              "Send Message"
+                            )}
                       </button>
-
-
                     </div>
                   </form>
                 </div>
@@ -129,10 +131,8 @@ function ContactUs() {
 }
 
 export default ContactUs;
-function useStatw (second: any): [any, any]
-{
+function useStatw(second: any): [any, any] {
 
   throw new Error("Function not implemented.");
 
 }
-
