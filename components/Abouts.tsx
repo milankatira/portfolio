@@ -47,12 +47,11 @@ function Abouts() {
                     providing engaging, pixel-perfect user experiences.
                   </p>
                 </p>
-                <button className="mx-auto w-40  dark:border-white text-black border-2 border-black active:bg-black text-lg uppercase  rounded opacity-100 hover:shadow-2xl hover: outline-none focus:outline-none ease-linear transition-all duration-300">
-                  <a
-                    href="/milan_katira.pdf"
-                    download
-                    className="px-2 py-2 flex hover:bg-black hover:text-white dark:text-white dark:hover:text-black dark:hover:bg-white duration-300 font-semibold transition-all flex justify-center items-center"
-                  >
+                <button
+                  className="mx-auto w-40 border-2 dark:border-white border-black hover:bg-black hover:text-white dark:hover:text-black dark:hover:bg-white duration-300 text-sm font-bold uppercase px-6 py-3 rounded  hover:shadow-2xl outline-none focus:outline-none ease-linear transition-all duration-300"
+                  type="button"
+                >
+                  <a href="/milan_katira.pdf" download>
                     Resume
                   </a>
                 </button>
