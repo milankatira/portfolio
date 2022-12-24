@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import React from "react";
 import BackgroundCircle from "./design/BackgroundCircle";
-import SectionTitle from "./design/SectionTitle";
 
 export default function Hero() {
 
@@ -22,7 +21,7 @@ export default function Hero() {
         exit={{ opacity: 0 }}
         initial={{ opacity: 0, scale: 1 }}
         whileInView={{ opacity: 1, scale: 1.2 }}
-        src="https://media.licdn.com/dms/image/C4D03AQFm1IfmteqAJA/profile-displayphoto-shrink_800_800/0/1652770443144?e=1677110400&v=beta&t=ZfxF0eU3lQsxWyiBRYVaFPNyrBPva4H3s8PagGs7mpg"
+        src="https://media.licdn.com/dms/image/D4D03AQH-3pRZSfF0IA/profile-displayphoto-shrink_200_200/0/1671871264140?e=1677110400&v=beta&t=VJXdCdHmbMkRAUwN0bIStgD18ClIR0HBe21CqBXl58k"
         alt=""
         className="relative rounded-full h-32 w-32 mx-auto object-cover"
       />
