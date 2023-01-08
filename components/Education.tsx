@@ -27,6 +27,7 @@ const Education = () => {
                   transition={{ duration: 1 }}
                   className="h-20 w-20 rounded-full mr-4 p-5 bg-white"
                   src={data.img}
+                  alt={data.course}
                 />
                 <div>
                   <h2 className="flex items-center mb-1 text-xl font-semibold text-gray-900 dark:text-white">
