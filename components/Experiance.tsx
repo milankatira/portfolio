@@ -21,7 +21,7 @@ const Experiance = () => {
               className="mb-10 ml-6 opacity-100 hover:opacity-40 transition-all duration-700 cursor-pointer"
             >
               <div className="flex">
-                <img className="h-20 w-20 rounded-full mr-4" src={data.img} />
+                <img className="h-20 w-20 rounded-full mr-4" src={data.img} alt={data.position} />
                 <div>
                   <h2 className="flex items-center mb-1 text-xl font-semibold text-gray-900 dark:text-white">
                     {data.position}

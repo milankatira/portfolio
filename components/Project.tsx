@@ -32,7 +32,7 @@ export default function Project() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               src={data.img}
-              alt=""
+              alt={data.title}
               className="h-36 rounded-lg w-36 object-cover"
             />
             <div className="space-y-1 px-0 md:px-10 max-w-6xl">
