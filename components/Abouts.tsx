@@ -47,14 +47,14 @@ function Abouts() {
                     providing engaging, pixel-perfect user experiences.
                   </p>
                 </p>
-                <button
+                {/* <button
                   className="mx-auto w-40 border-2 dark:border-white border-black hover:bg-black hover:text-white dark:hover:text-black dark:hover:bg-white duration-300 text-sm font-bold uppercase px-6 py-3 rounded  hover:shadow-2xl outline-none focus:outline-none ease-linear transition-all duration-300"
                   type="button"
                 >
                   <a href="/milan_katira.pdf" download>
                     Resume
                   </a>
-                </button>
+                </button> */}
               </div>
             </motion.div>
           </div>
