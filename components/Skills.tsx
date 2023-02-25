@@ -11,7 +11,7 @@ function Skills() {
 
       <section
         className="bg-blue-50 dark:bg-gray-900
-      rounded-2xl flex flex-row flex-wrap justify-center items-center mt-0 md:mt-20 mx-auto w-[90%] sm:w-[60%]"
+      rounded-2xl flex flex-row flex-wrap justify-center items-center mt-0 md:mt-20 mx-auto w-[90%] sm:w-[60%] lg:w-[40%]"
       >
         {Skill.map((item) => (
           <motion.div
@@ -21,7 +21,11 @@ function Skills() {
             className="m-4 sm:mx-8 mx-4 flex flex-col justify-center items-center text-gray-500 dark:text-gray-400"
             key={item.name}
           >
-            <img src={item.icon} alt={item.name} className="h-10 w-10 hover:scale-125 cursor-pointer transition-all duration-300" />
+            <img
+              src={item.icon}
+              alt={item.name}
+              className="h-14 w-14 hover:scale-125 cursor-pointer transition-all duration-700"
+            />
             <p>{item.name}</p>
           </motion.div>
         ))}

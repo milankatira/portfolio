@@ -58,7 +58,7 @@ function ContactUs() {
                         required
                         type="text"
                         name="name"
-                        className="border-0 px-3 py-3 placeholder-gray-300 dark:bg-gray-900 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        className="border-0 px-3 py-3 placeholder-gray-300 dark:bg-gray-900 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-700"
                         placeholder="Full Name"
                       />
                     </div>
@@ -74,14 +74,14 @@ function ContactUs() {
                         required
                         type="email"
                         name="email"
-                        className="border-0 px-3 py-3 placeholder-gray-300 dark:bg-gray-900 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        className="border-0 px-3 py-3 placeholder-gray-300 dark:bg-gray-900 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-700"
                         placeholder="Email"
                       />
                     </div>
 
                     <div className="w-full mb-3">
                       <label
-                        className="block uppercase text-gray-600 dark:text-gray-300 text-xs font-bold mb-2"
+                        className="block uppercase text-gray-600 dark:text-gray-300 text-xs font-bold mb-2 ease-linear transition-all duration-700"
                         htmlFor="message"
                       >
                         Message
@@ -91,13 +91,13 @@ function ContactUs() {
                         rows={4}
                         cols={80}
                         name="message"
-                        className="border-0 px-3 py-3 placeholder-gray-300 dark:bg-gray-900 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                        className="border-0 px-3 py-3 placeholder-gray-300 dark:bg-gray-900 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-700"
                         placeholder="Type a message..."
                       />
                     </div>
                     <div className="text-center mt-6">
                       <button
-                        className="w-52 border-2 dark:border-white border-black hover:bg-black hover:text-white dark:hover:text-black dark:hover:bg-white duration-300 text-sm font-bold uppercase px-6 py-3 rounded  hover:shadow-2xl outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-300"
+                        className="w-52 border-2 dark:border-white border-black hover:bg-black hover:text-white dark:hover:text-black dark:hover:bg-white text-sm font-bold uppercase px-6 py-3 rounded  hover:shadow-2xl outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-300"
                         type="submit"
                       >
                         {loading

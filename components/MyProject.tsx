@@ -12,7 +12,7 @@ const MyProject = () => {
           <SectionTitle text="project" />
           <div className="flex flex-wrap">
             {Projects.map((data) => (
-              <div key={data.title} className="hover:-mt-4 transition-all duration-300 xl:w-1/3 md:w-1/2 py-4 px-2">
+              <div key={data.title} className="hover:-mt-4 transition-all duration-700 xl:w-1/3 lg:w-1/2 py-4 px-2">
                 <div className="bg-blue-50 dark:bg-gray-900 p-6 rounded-xl">
                   <img className="h-40 rounded w-full object-cover object-center" src={data.img} alt="content" />
                   <h2 className="text-lg text-gray-900 dark:text-gray-300  font-medium title-font">{data.title}</h2>
