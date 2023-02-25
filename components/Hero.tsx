@@ -21,7 +21,7 @@ export default function Hero() {
         exit={{ opacity: 0 }}
         initial={{ opacity: 0, scale: 1 }}
         whileInView={{ opacity: 1, scale: 1.2 }}
-        src="https://media.licdn.com/dms/image/D4D03AQFQVVBRRk_k_g/profile-displayphoto-shrink_800_800/0/1672032949516?e=1677715200&v=beta&t=k3gJHj_p0Lt6nIkVb2GjdAu4jewsAehfAY-F9RX1etk"
+        src="/img/profile.jpeg"
         alt="profile"
         className="relative rounded-full h-32 w-32 mx-auto object-cover"
       />

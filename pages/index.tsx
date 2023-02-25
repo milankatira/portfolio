@@ -28,7 +28,7 @@ export default function Home() {
         <script type="text/javascript" src="/js/medium.js" />
       </Head>
 
-      <main className="transition-all duration-300">
+      <main className="transition-all duration-700">
         <SocialBar />
         <Navbar />
         <section className="snap-center">

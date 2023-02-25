@@ -6,7 +6,7 @@ function Abouts() {
 
   return (
     <div className="h-screen pt-20">
-      <SectionTitle text="About us" />
+      <SectionTitle text="About" />
       <motion.section
         whileInView={{ opacity: 1 }}
         initial={{ opacity: 0 }}
@@ -27,13 +27,13 @@ function Abouts() {
               transition={{
                 duration: 1,
               }}
-              className="w-full px-4 sm:w-1/2 xl:w-5/12"
+              className="w-full px-4 sm:w-1/2 xl:w-6/12"
             >
               <div
-                className="flex flex-col mt-0 md:mt-10 text-gray-600 hover:text-gray-900
+                className="text-xl flex flex-col mt-0 md:mt-10 text-gray-600 hover:text-gray-900
               dark:hover:text-gray-100 dark:text-gray-300 transition-all duration-300"
               >
-                <p className="mb-8 text-base px-4">
+                <p className="mb-8 px-4">
                   I am a Full Stack Developer with 2 years of experience, specializing in NodeJS, ReactJs, and NextJs.
                   <br />
                   <p className="mt-2 sm:mt-4">
