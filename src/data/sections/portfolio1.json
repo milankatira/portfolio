@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "image": "/img/portfolio/lyrik.png",
+    "title": "lyriks",
+    "tags": [ "MERN stack"],
+    "filterCategory": ["web"],
+    "link":"https://lyriksmilankatira.netlify.app/"
+  },
+  {
+    "id": 2,
+    "image": "/img/portfolio/crownfunding.png",
+    "title": "crownfunding",
+    "tags": ["React js", "nodejs"],
+    "filterCategory": ["blockchain"],
+    "link":"https://crownfunding.vercel.app/"
+  },
+  {
+    "id": 3,
+    "image": "/img/portfolio/jobsift.png",
+    "title": "job shift",
+    "tags": ["React native", "expo"],
+    "filterCategory": ["mobile"],
+    "link":"https://expo.dev/accounts/milan_katira/projects/jobsift/builds/53e7ed4f-50db-4a0c-a1da-e88e11bb6036"
+
+  },
+  {
+    "id": 4,
+    "image": "/img/portfolio/Word hunt.png",
+    "title": "word hunt",
+    "tags": ["React js"],
+    "filterCategory": ["web"],
+    "link":"https://wordsearch-milankatira.netlify.app/"
+  },
+  {
+    "id": 5,
+    "image": "/img/portfolio/expanse tracker.png",
+    "title": "expense tracker",
+    "tags": ["React js"],
+    "filterCategory": ["web"],
+    "link":"https://expense-tracker-milankatira.netlify.app/"
+  },
+  {
+    "id": 6,
+    "image": "/img/portfolio/Alan news.png",
+    "title": "alan news",
+    "tags": ["React js"],
+    "filterCategory": ["web"],
+    "link":"https://alan-ai-news-milankatira.netlify.app/"
+  }
+]
