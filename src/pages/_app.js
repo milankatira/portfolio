@@ -6,7 +6,7 @@ import ScrollToTop from "../components/Scroll-to-top";
 import LoadingScreen from "../components/Loading-Screen";
 import "../styles/globals.css";
 import { Toaster } from "react-hot-toast";
-
+import { Analytics } from '@vercel/analytics/react';
 function MyApp({ Component, pageProps }) {
   return (
     <>
@@ -18,6 +18,7 @@ function MyApp({ Component, pageProps }) {
       <Cursor />
       <LoadingScreen />
       <ScrollToTop />
+       <Analytics />
       <Component {...pageProps} />
 
       <Script id="wow" src="/js/wow.min.js"></Script>
