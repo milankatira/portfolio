@@ -6,19 +6,18 @@ import ScrollToTop from "../components/Scroll-to-top";
 import LoadingScreen from "../components/Loading-Screen";
 import "../styles/globals.css";
 import { Toaster } from "react-hot-toast";
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from "@vercel/analytics/react";
 function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Milan katira-Portfolio</title>
-        {/* <link rel="icon" href="/img/favicon.ico" /> */}
+        <title>Milan katira </title>
       </Head>
       <Toaster />
       <Cursor />
       <LoadingScreen />
       <ScrollToTop />
-       <Analytics />
+      <Analytics />
       <Component {...pageProps} />
 
       <Script id="wow" src="/js/wow.min.js"></Script>
