@@ -1,6 +1,5 @@
 import React from "react";
 import Split from "../Split";
-import Link from "next/link";
 
 const CallToAction = ({ img, theme, subBG }) => {
   return (
@@ -27,15 +26,17 @@ const CallToAction = ({ img, theme, subBG }) => {
           </div>
 
           <div className="col-md-4 col-lg-3 valign">
-              <a
-                href="mailto:milankatira26@gmail.com" target="_blank"  rel="noopener noreferrer"
-                className={`btn-curve ${
-                  theme == "light" ? "btn-blc" : "btn-lit"
-                } wow fadeInUp`}
-                data-wow-delay=".5s"
-              >
-                <span>Get In Touch</span>
-              </a>
+            <a
+              href="mailto:milankatira26@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`btn-curve ${
+                theme == "light" ? "btn-blc" : "btn-lit"
+              } wow fadeInUp`}
+              data-wow-delay=".5s"
+            >
+              <span>Get In Touch</span>
+            </a>
           </div>
         </div>
       </div>
