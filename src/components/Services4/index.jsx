@@ -9,12 +9,16 @@ const Services4 = ({ withBG, withPadding, halfBG, withOutTitle }) => {
         withBG ? "sub-bg" : ""
       }`}
     >
+
       <div className="container">
         {!withOutTitle && (
           <div className="sec-head custom-font text-center">
             <h6 className="wow fadeIn" data-wow-delay=".5s">
               Best Features
             </h6>
+
+
+            
             <Split>
               <h3 className="wow words chars splitting" data-splitting>
                 Services.
