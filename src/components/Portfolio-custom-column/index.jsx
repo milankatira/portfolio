@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
-import Split from "../Split";
 import Link from "next/link";
+import React from "react";
 import initIsotope from "../../common/initIsotope";
 import portfolio1Data from "../../data/sections/portfolio1.json";
+import Split from "../Split";
 
 const PortfolioCustomColumn = ({
   column,
@@ -63,50 +63,41 @@ const PortfolioCustomColumn = ({
 
           <div className="gallery full-width">
             {portfolio1Data.map((item, index) => (
-              <a 
-              key={item.id}
-              href={item.link}
-              target="_blank"
-              rel="noopener noreferrer"
+              <a
+                key={item.id}
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-              <div
-                className={`${
-                  column === 3
-                    ? "col-lg-4 col-md-6"
-                    : column === 2
-                    ? "col-md-6"
-                    : "col-12"
-                } items ${item.filterCategory} wow fadeInUp ${
-                  item.id === 2 && column == 3
-                    ? "lg-mr"
-                    : item.id === 1 && column == 2
-                    ? "lg-mr"
-                    : ""
-                }`}
-                data-wow-delay=".4s"
-              >
-                <div className="item-img">
-                  {/* <Link href="/project-details2/project-details2-dark"> */}
+                <div
+                  className={`${"col-md-6"} items ${
+                    item.filterCategory
+                  } wow fadeInUp ${"lg-mr"}`}
+                  data-wow-delay=".4s"
+                >
+                  <div className="item-img">
                     <a className="imago wow">
-                      <img src={item.image} alt="image" />
+                      <img
+                        src={item.image}
+                        alt="image"
+                        style={{ height: "400px", width: "400px" , objectFit:"contain" }}
+                      />
                       <div className="item-img-overlay"></div>
                     </a>
-                  {/* </Link> */}
+                  </div>
+                  <div className="cont">
+                    <h6>{item.title}</h6>
+                    <span>
+                      {item.tags.map((tag, index) => (
+                        <React.Fragment key={index * 3}>
+                          <Link href="/works4/works4-dark">{tag}</Link>
+                          {index == item.tags.length - 1 ? "" : ","}
+                        </React.Fragment>
+                      ))}
+                    </span>
+                  </div>
                 </div>
-                <div className="cont">
-                  <h6>{item.title}</h6>
-                  <span>
-                    {item.tags.map((tag, index) => (
-                      <React.Fragment key={index * 3}>
-                        <Link href="/works4/works4-dark">{tag}</Link>
-                        {index == item.tags.length - 1 ? "" : ","}
-                      </React.Fragment>
-                    ))}
-                  </span>
-                </div>
-              </div>
               </a>
-
             ))}
           </div>
         </div>
