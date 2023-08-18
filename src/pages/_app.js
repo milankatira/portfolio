@@ -20,19 +20,25 @@ function MyApp({ Component, pageProps }) {
       <Analytics />
       <Component {...pageProps} />
 
-      <Script id="wow" src="/js/wow.min.js"></Script>
+      <Script rel="prefetch" id="wow" src="/js/wow.min.js"></Script>
       <Script
         strategy="beforeInteractive"
         id="splitting"
+        rel="prefetch"
         src="/js/splitting.min.js"
       ></Script>
       <Script id="simpleParallax" src="/js/simpleParallax.min.js"></Script>
       <Script
         id="isotope"
+        rel="prefetch"
         strategy="beforeInteractive"
         src="/js/isotope.pkgd.min.js"
       ></Script>
-      <Script id="initWow" strategy="lazyOnload">{`new WOW().init();`}</Script>
+      <Script
+        id="initWow"
+        rel="prefetch"
+        strategy="lazyOnload"
+      >{`new WOW().init();`}</Script>
     </>
   );
 }

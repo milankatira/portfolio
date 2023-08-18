@@ -1,8 +1,9 @@
 {
-  "name": "avo2-react",
+  "name": "milan katira portfolio",
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "anayzed": "cross-env ANALYZE=true next build",
     "build": "next build",
     "export": "next build && next export",
     "start": "next start",
@@ -25,6 +26,8 @@
     "swiper": "^7.4.1"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^13.4.16",
+    "cross-env": "^7.0.3",
     "eslint": "8.6.0",
     "eslint-config-next": "12.0.7"
   }
