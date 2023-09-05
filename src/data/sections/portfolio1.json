@@ -39,13 +39,5 @@
     "tags": ["React js"],
     "filterCategory": ["web"],
     "link":"https://expense-tracker-milankatira.netlify.app/"
-  },
-  {
-    "id": 6,
-    "image": "/img/portfolio/Alan news.png",
-    "title": "alan news",
-    "tags": ["React js"],
-    "filterCategory": ["web"],
-    "link":"https://alan-ai-news-milankatira.netlify.app/"
   }
 ]
