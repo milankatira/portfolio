@@ -33,4 +33,4 @@ const scrollToTop = () => {
   });
 };
 
-export default scrollToTop
+export default scrollToTop;

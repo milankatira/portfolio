@@ -24,10 +24,10 @@ const AboutWithSkills = () => {
                 Hello! I’m Milan Katira. Web designer from Ahmedabad, india.
                 With extensive experience in website development and a passion for creating innovative digital solutions, I am dedicated to building websites that are not only functional, but also visually striking and user-friendly.
               </p>
-              {/* <a href="/Milan katira-resume.pdf" download 
+              <a href="/Milan katira-resume.pdf" download 
               className="simple-btn mt-40">
                 Download C.V
-              </a> */}
+              </a>
             </div>
           </div>
           <div className="col-lg-6 valign">

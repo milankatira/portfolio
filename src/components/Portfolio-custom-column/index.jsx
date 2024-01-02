@@ -14,11 +14,11 @@ const PortfolioCustomColumn = ({
   const [pageLoaded, setPageLoaded] = React.useState(false);
   React.useEffect(() => {
     setPageLoaded(true);
-    // if (pageLoaded) {
-    //   setTimeout(() => {
-    //     initIsotope();
-    //   }, 1000);
-    // }
+    if (pageLoaded) {
+      setTimeout(() => {
+        initIsotope();
+      }, 1000);
+    }
   }, [pageLoaded]);
   return (
     <section className="portfolio section-padding pb-70">
