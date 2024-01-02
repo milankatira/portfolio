@@ -27,13 +27,13 @@ function MyApp({ Component, pageProps }) {
         rel="prefetch"
         src="/js/splitting.min.js"
       ></Script>
-      <Script id="simpleParallax" src="/js/simpleParallax.min.js"></Script>
-      <Script
+      {/* <Script id="simpleParallax" src="/js/simpleParallax.min.js"></Script> */}
+      {/* <Script
         id="isotope"
         rel="prefetch"
         strategy="beforeInteractive"
         src="/js/isotope.pkgd.min.js"
-      ></Script>
+      ></Script> */}
       <Script
         id="initWow"
         rel="prefetch"
