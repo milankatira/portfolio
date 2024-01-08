@@ -1,15 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-import { Formik, Form, Field } from "formik";
 import Link from "next/link";
-import appData from "../../data/app.json";
 import {
   handleDropdown,
   handleMobileDropdown,
   handleSearch,
 } from "../../common/navbar";
 
-const Navbar = ({ lr, nr, theme }) => {
+const Navbar = ({ lr, nr, theme, handleChange }) => {
   React.useEffect(() => {
     handleSearch();
   }, []);
@@ -22,12 +20,10 @@ const Navbar = ({ lr, nr, theme }) => {
     >
       <div className="container">
         <Link href="/">
-          <a className="logo">
-            MilanKatira
-          </a>
+          <a className="logo">MilanKatira</a>
         </Link>
 
-        {/* <button
+        <button
           className="navbar-toggler"
           type="button"
           onClick={handleMobileDropdown}
@@ -137,13 +133,16 @@ const Navbar = ({ lr, nr, theme }) => {
               </Link>
             </li>
           </ul>
-          <div className="search">
-            <span className="icon pe-7s-search cursor-pointer"></span>
-            <div className="search-form text-center custom-font">
+          <div className="search cursor-pointer" onClick={() => handleChange()}>
+            <span
+              onClick={() => handleChange()}
+              className="icon pe-7s-sun cursor-pointer"
+            ></span>
+            {/* <div className="search-form text-center custom-font">
               <span className="close pe-7s-close cursor-pointer"></span>
-            </div>
+            </div> */}
           </div>
-        </div> */}
+        </div>
       </div>
     </nav>
   );
