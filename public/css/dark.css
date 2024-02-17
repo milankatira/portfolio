@@ -911,7 +911,7 @@ span:hover {
 
 /* ====================== [ End Helper Classes  ] ====================== */
 /* ====================== [ Start Preloader ] ====================== */
-.pace {
+/* .pace {
   pointer-events: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -954,9 +954,9 @@ span:hover {
 }
 .pace.pace-inactive .pace-progress {
   max-width: 100vw;
-}
+} */
 
-#preloader {
+/* #preloader {
   width: 100%;
   height: 100vh;
   overflow: hidden;
@@ -996,8 +996,8 @@ span:hover {
   -webkit-transition-delay: 1s;
   -o-transition-delay: 1s;
   transition-delay: 1s;
-}
-
+} */
+/* 
 .loading-text {
   font-weight: 300;
   text-transform: uppercase;
@@ -1021,7 +1021,7 @@ span:hover {
   -webkit-transition-delay: 0.5s;
   -o-transition-delay: 0.5s;
   transition-delay: 0.5s;
-}
+} */
 
 /* ====================== [ End Preloader ] ====================== */
 /* ====================== [ Start Text Animation & Images ] ====================== */
@@ -1526,6 +1526,7 @@ body {
 .btn-curve.btn-lit:after {
   background: #fff;
 }
+
 .btn-curve.btn-blc {
   background: #1e1e1e;
 }
@@ -2563,6 +2564,16 @@ body {
 .freelancer .cont {
   margin-top: 50px;
 }
+
+.footer-info {
+  display: block;
+}
+@media (max-width: 767.98px) {
+  .footer-info {
+    display: none;
+  }
+}
+
 .freelancer .cont h6 {
   color: #75dab4;
   font-size: 14px;
@@ -6263,3 +6274,10 @@ body {
 }
 
 /* ====================== [ End Responsive ] ====================== */
+
+
+
+*{
+  margin: 0;
+  scroll-behavior: smooth;
+}

@@ -6,7 +6,9 @@ const AboutWithSkills = () => {
     heroSkillsProgress();
   }, []);
   return (
-    <div className="hero-sec section-padding">
+    <div 
+    id='about'
+    className="hero-sec section-padding">
       <div className="container">
         <div className="row">
           <div className="col-lg-6">
@@ -20,7 +22,7 @@ const AboutWithSkills = () => {
               <h3 className="main-title wow" data-splitting>
                 My mission is design develop the best Websites around.
               </h3>
-              <p className="wow fadeInUp" data-wow-delay=".5s">
+              <p className="wow fadeInUp" data-wow-delay=".9s">
                 Hello! I’m Milan Katira. Web designer from Ahmedabad, india.
                 With extensive experience in website development and a passion for creating innovative digital solutions, I am dedicated to building websites that are not only functional, but also visually striking and user-friendly.
               </p>

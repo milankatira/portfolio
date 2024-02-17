@@ -21,7 +21,7 @@ const PortfolioCustomColumn = ({
     }
   }, [pageLoaded]);
   return (
-    <section className="portfolio section-padding pb-70">
+    <section id="portfolio" className="portfolio section-padding pb-70">
       {!hideSectionTitle && (
         <div className="container">
           <div className="sec-head custom-font">
@@ -72,7 +72,7 @@ const PortfolioCustomColumn = ({
                 <div
                   className={`${"col-md-6"} items ${
                     item.filterCategory
-                  } wow fadeInUp ${"lg-mr"}`}
+                  } wow fadeIn ${"lg-mr"}`}
                   data-wow-delay=".4s"
                 >
                   <div className="item-img">
@@ -80,7 +80,11 @@ const PortfolioCustomColumn = ({
                       <img
                         src={item.image}
                         alt="image"
-                        style={{ height: "400px", width: "400px" , objectFit:"contain" }}
+                        style={{
+                          height: "400px",
+                          width: "400px",
+                          objectFit: "contain",
+                        }}
                       />
                       <div className="item-img-overlay"></div>
                     </a>
