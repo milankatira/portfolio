@@ -1,8 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
-import { Formik, Form, Field } from "formik";
 import Link from "next/link";
-import appData from "../../data/app.json";
+import React from "react";
 import {
   handleDropdown,
   handleMobileDropdown,
@@ -22,12 +20,10 @@ const Navbar = ({ lr, nr, theme }) => {
     >
       <div className="container">
         <Link href="/">
-          <a className="logo">
-            MilanKatira
-          </a>
+          <a className="logo">MilanKatira</a>
         </Link>
 
-        {/* <button
+        <button
           className="navbar-toggler"
           type="button"
           onClick={handleMobileDropdown}
@@ -44,106 +40,29 @@ const Navbar = ({ lr, nr, theme }) => {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ml-auto">
-            <li className="nav-item dropdown" onClick={handleDropdown}>
-              <span
-                className="nav-link dropdown-toggle"
-                data-toggle="dropdown"
-                role="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Home
-              </span>
-              <div className="dropdown-menu">
-                <Link href="/home/home1-dark">
-                  <a className="dropdown-item">Main Home</a>
-                </Link>
-                <Link href="/home/home2-dark">
-                  <a className="dropdown-item">Creative Studio</a>
-                </Link>
-                <Link href="/home/home3-dark">
-                  <a className="dropdown-item">Business Startup</a>
-                </Link>
-                <Link href="/home/home4-dark">
-                  <a className="dropdown-item">One Page</a>
-                </Link>
-                <Link href="/home/home5-dark">
-                  <a className="dropdown-item">Freelancer</a>
-                </Link>
-              </div>
+            <li className="nav-item">
+              <Link href="/blog">
+                <a className="nav-link">blog</a>
+              </Link>
             </li>
 
-            <li className="nav-item dropdown" onClick={handleDropdown}>
-              <span
-                className="nav-link dropdown-toggle"
-                data-toggle="dropdown"
-                role="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Showcases
-              </span>
-              <div className="dropdown-menu">
-                <Link href="/showcase/showcase-dark">
-                  <a className="dropdown-item">Full Screen</a>
-                </Link>
-                <Link href="/showcase2/showcase2-dark">
-                  <a className="dropdown-item">Creative Carousel</a>
-                </Link>
-                <Link href="/showcase3/showcase3-dark">
-                  <a className="dropdown-item">Radius Carousel</a>
-                </Link>
-                <Link href="/showcase4/showcase4-dark">
-                  <a className="dropdown-item">Columns Carousel</a>
-                </Link>
-                <Link href="/showcase5/showcase5-dark">
-                  <a className="dropdown-item">Boxed Carousel</a>
-                </Link>
-              </div>
-            </li>
             <li className="nav-item">
-              <Link href="/about/about-dark">
+              <Link href="/#about">
                 <a className="nav-link">About</a>
               </Link>
             </li>
-            <li className="nav-item dropdown" onClick={handleDropdown}>
-              <span
-                className="nav-link dropdown-toggle"
-                data-toggle="dropdown"
-                role="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                portfolio
-              </span>
-              <div className="dropdown-menu">
-                <Link href="/works/works-dark">
-                  <a className="dropdown-item">Mouse Info</a>
-                </Link>
-                <Link href="/works2/works2-dark">
-                  <a className="dropdown-item">Masonry 3 Columns</a>
-                </Link>
-                <Link href="/works3/works3-dark">
-                  <a className="dropdown-item">Masonry 2 Columns</a>
-                </Link>
-                <Link href="/works4/works4-dark">
-                  <a className="dropdown-item">Pinterest List</a>
-                </Link>
-              </div>
+            <li className="nav-item">
+              <Link href="/#portfolio">
+                <a className="nav-link">portfolio</a>
+              </Link>
             </li>
             <li className="nav-item">
-              <Link href="/contact/contact-dark">
+              <Link href="/#contact">
                 <a className="nav-link">Contact</a>
               </Link>
             </li>
           </ul>
-          <div className="search">
-            <span className="icon pe-7s-search cursor-pointer"></span>
-            <div className="search-form text-center custom-font">
-              <span className="close pe-7s-close cursor-pointer"></span>
-            </div>
-          </div>
-        </div> */}
+        </div>
       </div>
     </nav>
   );

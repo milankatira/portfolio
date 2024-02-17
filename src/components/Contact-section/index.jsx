@@ -29,7 +29,9 @@ const ContactSection = () => {
   } ;
 
   return (
-    <section className="contact-sec section-padding">
+    <section 
+    id='contact'
+    className="contact-sec section-padding">
       <div className="container">
         <div className="sec-head custom-font text-center">
           <h6 className="wow fadeIn" data-wow-delay=".5s">
