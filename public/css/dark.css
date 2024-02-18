@@ -911,7 +911,8 @@ span:hover {
 
 /* ====================== [ End Helper Classes  ] ====================== */
 /* ====================== [ Start Preloader ] ====================== */
-/* .pace {
+/* 
+.pace {
   pointer-events: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -954,9 +955,9 @@ span:hover {
 }
 .pace.pace-inactive .pace-progress {
   max-width: 100vw;
-} */
+} 
 
-/* #preloader {
+#preloader {
   width: 100%;
   height: 100vh;
   overflow: hidden;
@@ -996,7 +997,7 @@ span:hover {
   -webkit-transition-delay: 1s;
   -o-transition-delay: 1s;
   transition-delay: 1s;
-} */
+}  */
 /* 
 .loading-text {
   font-weight: 300;

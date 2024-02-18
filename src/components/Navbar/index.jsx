@@ -1,11 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import React from "react";
-import {
-  handleDropdown,
-  handleMobileDropdown,
-  handleSearch,
-} from "../../common/navbar";
+import { handleMobileDropdown, handleSearch } from "../../common/navbar";
 
 const Navbar = ({ lr, nr, theme }) => {
   React.useEffect(() => {
@@ -19,7 +15,7 @@ const Navbar = ({ lr, nr, theme }) => {
       }`}
     >
       <div className="container">
-        <Link href="/">
+        <Link legacyBehavior href="/">
           <a className="logo">MilanKatira</a>
         </Link>
 
@@ -41,23 +37,23 @@ const Navbar = ({ lr, nr, theme }) => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <Link href="/blog">
+              <Link legacyBehavior href="/blog">
                 <a className="nav-link">blog</a>
               </Link>
             </li>
 
             <li className="nav-item">
-              <Link href="/#about">
+              <Link legacyBehavior href="/#about">
                 <a className="nav-link">About</a>
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="/#portfolio">
+              <Link legacyBehavior href="/#portfolio">
                 <a className="nav-link">portfolio</a>
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="/#contact">
+              <Link legacyBehavior href="/#contact">
                 <a className="nav-link">Contact</a>
               </Link>
             </li>
