@@ -1,4 +1,4 @@
-import "highlight.js/styles/atom-one-dark.min.css";
+import "highlight.js/styles/github-dark-dimmed.min.css";
 import React, { useEffect, useState } from "react"; // Import React, useEffect, and useState
 import { PiTerminalThin } from "react-icons/pi";
 import Markdown from "react-markdown";
