@@ -21,12 +21,6 @@ export default function MarkdownComp({
   useEffect(() => {
     // Log the element and its text content after the component has rendered
     if (id) {
-      console.log(
-        document.getElementById(id)?.textContent,
-        // document.getElementById(id),
-        id,
-        "innercontent"
-      );
       settextToCopy(document.getElementById(id)?.textContent);
     }
   }, [id]); // Run this effect whenever the id changes

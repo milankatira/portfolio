@@ -12,7 +12,6 @@ import ScrollToTop from "../components/Scroll-to-top";
 import NextNProgress from "nextjs-progressbar";
 import "../styles/globals.css";
 function MyApp({ Component, pageProps }) {
-
   const navbarRef = useRef(null);
   const logoRef = useRef(null);
 
