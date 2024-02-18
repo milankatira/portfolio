@@ -1,8 +1,7 @@
-import React, { useRef, useEffect } from "react";
 import dynamic from "next/dynamic";
-import DarkTheme from "../layouts/Dark";
+import React, { useEffect, useRef } from "react";
+import WithLoader from "../layouts/Loader";
 import axiosInstance from "../utils/axiosInstance";
-
 const Navbar = dynamic(() => import("../components/Navbar"));
 const IntroTxt = dynamic(() => import("../components/Intro-txt"));
 const PortfolioCustomColumn = dynamic(() =>
@@ -20,7 +19,6 @@ const Footer = dynamic(() => import("../components/Footer"));
 
 const Homepage2 = ({ blogs }) => {
   const navbarRef = useRef(null);
-  const logoRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,9 +37,10 @@ const Homepage2 = ({ blogs }) => {
   }, [navbarRef]);
 
   return (
-    <DarkTheme>
-      {/* <Navbar nr={navbarRef} lr={logoRef} /> */}
-      <IntroTxt subBG />
+    <>
+      <WithLoader>
+        <IntroTxt subBG />
+      </WithLoader>
       <PortfolioCustomColumn column={2} filterPosition="left" />
 
       <Services4 halfBG />
@@ -53,12 +52,11 @@ const Homepage2 = ({ blogs }) => {
         <ContactSection />
       </div>
       {/* <Footer /> */}
-    </DarkTheme>
+    </>
   );
 };
 
 export default Homepage2;
-
 
 export async function getServerSideProps() {
   try {

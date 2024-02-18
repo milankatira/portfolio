@@ -10,11 +10,11 @@ const Blog = ({ subBG, blogs }) => {
       <div className="container">
         <div className="sec-head custom-font text-center">
           <h6 className="wow fadeIn" data-wow-delay=".5s">
-            Latest News
+             Latest Blogs
           </h6>
           <Split>
             <h3 className="wow words chars splitting" data-splitting>
-              Our Blogs.
+              My Blogs.
             </h3>
           </Split>
           <span className="tbg">Blogs</span>
