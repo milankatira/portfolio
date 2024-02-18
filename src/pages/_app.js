@@ -1,15 +1,42 @@
-import React from "react";
+import ProgressBar from "@badrap/bar-of-progress";
+import { Analytics } from "@vercel/analytics/react";
 import Head from "next/head";
 import Script from "next/script";
-import Cursor from "../components/Cursor";
-import ScrollToTop from "../components/Scroll-to-top";
-import LoadingScreen from "../components/Loading-Screen";
-import "../styles/globals.css";
+import React, { useEffect, useRef } from "react";
 import { Toaster } from "react-hot-toast";
-import { Analytics } from "@vercel/analytics/react";
+import Cursor from "../components/Cursor";
+import Footer from "../components/Footer";
+import LoadingScreen from "../components/Loading-Screen";
+import Navbar from "../components/Navbar";
+import ScrollToTop from "../components/Scroll-to-top";
+import NextNProgress from "nextjs-progressbar";
+import "../styles/globals.css";
 function MyApp({ Component, pageProps }) {
+
+  const navbarRef = useRef(null);
+  const logoRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const navbar = navbarRef.current;
+      if (window.pageYOffset > 300) {
+        navbar?.classList.add("nav-scroll");
+      } else {
+        navbar?.classList.remove("nav-scroll");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [navbarRef]);
   return (
     <>
+      <NextNProgress
+        options={{ easing: "ease", speed: 500, showSpinner: false }}
+        color="#75dab4"
+      />
       <Head>
         <title>Milan katira </title>
       </Head>
@@ -18,7 +45,10 @@ function MyApp({ Component, pageProps }) {
       <LoadingScreen />
       <ScrollToTop />
       <Analytics />
+
+      <Navbar nr={navbarRef} lr={logoRef} />
       <Component {...pageProps} />
+      <Footer />
 
       <Script rel="prefetch" id="wow" src="/js/wow.min.js"></Script>
       <Script

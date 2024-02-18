@@ -63,20 +63,20 @@ const PortfolioCustomColumn = ({
 
           <div className="gallery full-width">
             {portfolio1Data.map((item, index) => (
-              <a
-                key={item.id}
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <Link href={item.link} key={item.id} legacyBehavior>
                 <div
-                  className={`${"col-md-6"} items ${
-                    item.filterCategory
-                  } wow fadeIn ${"lg-mr"}`}
-                  data-wow-delay=".4s"
+
+                // target="_blank"
+                // rel="noopener noreferrer"
                 >
-                  <div className="item-img">
-                    <a className="imago wow">
+                  <div
+                    className={`${"col-md-6"} items ${
+                      item.filterCategory
+                    } wow fadeIn ${"lg-mr"}`}
+                    data-wow-delay=".4s"
+                  >
+                    <div className="item-img">
+                      {/* <a className="imago wow"> */}
                       <img
                         src={item.image}
                         alt="image"
@@ -87,21 +87,24 @@ const PortfolioCustomColumn = ({
                         }}
                       />
                       <div className="item-img-overlay"></div>
-                    </a>
-                  </div>
-                  <div className="cont">
-                    <h6>{item.title}</h6>
-                    <span>
-                      {item.tags.map((tag, index) => (
-                        <React.Fragment key={index * 3}>
-                          <Link href="/works4/works4-dark">{tag}</Link>
-                          {index == item.tags.length - 1 ? "" : ","}
-                        </React.Fragment>
-                      ))}
-                    </span>
+                      {/* </a> */}
+                    </div>
+                    <div className="cont">
+                      <h6>{item.title}</h6>
+                      <span>
+                        {item.tags.map((tag, index) => (
+                          <React.Fragment key={index * 3}>
+                            <Link legacyBehavior href="/works4/works4-dark">
+                              {tag}
+                            </Link>
+                            {index == item.tags.length - 1 ? "" : ","}
+                          </React.Fragment>
+                        ))}
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
