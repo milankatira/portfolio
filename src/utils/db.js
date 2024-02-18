@@ -1,9 +1,6 @@
-// utils/db.js
-
 import mongoose from "mongoose";
 
-const MONGO_URL =
-  "mongodb+srv://milan:GJ37M2652@cluster0.bvjixce.mongodb.net/blog?retryWrites=true&w=majority";
+const MONGO_URL = process.env.NEXT_PUBLIC_MONGO_URL;
 
 if (!MONGO_URL) {
   throw new Error(

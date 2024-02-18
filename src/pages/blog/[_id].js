@@ -1,9 +1,8 @@
 import React from "react";
-import axiosInstance from "../../utils/axiosInstance";
 import Markdown from "../../components/Markdown";
+import axiosInstance from "../../utils/axiosInstance";
 
 const BlogDetailsDark = ({ blogs }) => {
-
   return (
     <>
       <section className="page-header blg">
@@ -18,10 +17,8 @@ const BlogDetailsDark = ({ blogs }) => {
         </div>
       </section>
       <div className="container">
-
-      <Markdown content={blogs?.content} />
+        <Markdown content={blogs?.content} />
       </div>
-
     </>
   );
 };
@@ -33,7 +30,6 @@ export async function getServerSideProps(context) {
     const { params } = context;
     const { _id } = params;
     const response = await axiosInstance.get(`/blog/${_id}`); // Replace with your actual API endpoint
-    console.log(response, "response");
     const blogs = response.data; // Assuming your API returns an array of blog objects
 
     return {
