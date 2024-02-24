@@ -1,30 +1,12 @@
-import { NextSeo } from "next-seo";
 import Head from "next/head";
 import React from "react";
 import Markdown from "../../components/Markdown";
 import { revertSlug } from "../../utils/slug";
+import axiosInstance from "../../utils/axiosInstance";
 
 const BlogDetailsDark = ({ blogs }) => {
   return (
     <>
-      <NextSeo
-        title={blogs?.title}
-        description={blogs?.description}
-        openGraph={{
-          title: blogs?.title,
-          description: blogs?.description,
-          images: [
-            {
-              url: blogs?.thumbnail,
-              width: 800,
-              height: 600,
-              alt: "Thumbnail",
-            },
-          ],
-          url: "https://milankatira.vercel.app",
-          type: "article",
-        }}
-      />
       <Head>
         <title>{blogs?.title}</title>
         <meta name="description" content={blogs?.description} />
@@ -34,7 +16,7 @@ const BlogDetailsDark = ({ blogs }) => {
         <meta property="og:image:width" content="800" />
         <meta property="og:image:height" content="600" />
         <meta property="og:url" content="https://milankatira.vercel.app" />
-        <meta property="og:type" content="article"></meta>
+        <meta property="og:type" content="article"/>
       </Head>
       <section className="page-header blg">
         <div className="container">
