@@ -1,8 +1,8 @@
 import Head from "next/head";
 import React from "react";
 import Markdown from "../../components/Markdown";
-import { revertSlug } from "../../utils/slug";
 import axiosInstance from "../../utils/axiosInstance";
+import { revertSlug } from "../../utils/slug";
 
 const BlogDetailsDark = ({ blogs }) => {
   return (
@@ -13,10 +13,11 @@ const BlogDetailsDark = ({ blogs }) => {
         <meta property="og:title" content={blogs?.title} />
         <meta property="og:description" content={blogs?.description} />
         <meta property="og:image" content={blogs?.thumbnail} />
+        <meta property="og:url" content={blogs?.thumbnail} />
+        <meta property="cononical" content={blogs?.thumbnail} />
         <meta property="og:image:width" content="800" />
         <meta property="og:image:height" content="600" />
-        <meta property="og:url" content="https://milankatira.vercel.app" />
-        <meta property="og:type" content="article"/>
+        <meta property="og:type" content="article" />
       </Head>
       <section className="page-header blg">
         <div className="container">
