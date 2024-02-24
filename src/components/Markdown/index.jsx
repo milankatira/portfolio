@@ -74,7 +74,7 @@ export default function MarkdownComp({
                   <CopyButton textToCopy={textToCopy} />
                 </div>
                 <div className="card-body p-0">
-                  <div className="p-4" id={id}>
+                  <div className="p-4 description" id={id}>
                     {children}
                   </div>
                 </div>

@@ -1,6 +1,5 @@
 @import "/css/dark.css";
 
-
 ::-webkit-scrollbar {
   width: 15px;
 }
@@ -139,23 +138,21 @@ section.team.section-padding {
   overflow: hidden;
 }
 
-
-
 .hover-underline-animation {
   display: inline-block;
   position: relative;
-  color: #FFF;
+  color: #fff;
 }
 
 .hover-underline-animation::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   transform: scaleX(0);
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #FFF;
+  background-color: #fff;
   transform-origin: bottom right;
   transition: transform 0.5s ease-out;
 }
@@ -163,4 +160,9 @@ section.team.section-padding {
 .hover-underline-animation:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+
+.description > p {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
