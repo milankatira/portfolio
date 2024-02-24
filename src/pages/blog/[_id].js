@@ -2,7 +2,7 @@ import Head from "next/head";
 import React from "react";
 import Markdown from "../../components/Markdown";
 import axiosInstance from "../../utils/axiosInstance";
-import { revertSlug } from "../../utils/slug";
+import { revertSlug, toSlug } from "../../utils/slug";
 
 const BlogDetailsDark = ({ blogs }) => {
   return (
@@ -22,10 +22,7 @@ const BlogDetailsDark = ({ blogs }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="preconnect" href="https://res.cloudinary.com" />
 
-        <meta
-          name="description"
-          content={blogs?.description}
-        />
+        <meta name="description" content={blogs?.description} />
         <link rel="author" href="https://milankatira.vercel.app/" />
         <meta name="author" content="Milan katira" />
         <meta
@@ -36,7 +33,7 @@ const BlogDetailsDark = ({ blogs }) => {
         <link rel="assets" href={blogs?.thumbnail} />
         <link
           rel="canonical"
-          href={`https://milankatira.vercel.app/blog/${_id}/`}
+          href={`https://milankatira.vercel.app/blog/${toSlug(blogs?.title)}/`}
         />
         <link
           rel="alternate"
@@ -47,7 +44,9 @@ const BlogDetailsDark = ({ blogs }) => {
         <meta property="og:description" content={blogs?.description} />
         <meta
           property="og:url"
-          content={`https://milankatira.vercel.app/blog/${_id}/`}
+          content={`https://milankatira.vercel.app/blog/${toSlug(
+            blogs?.title
+          )}/`}
         />
         <meta property="og:site_name" content="Milan katira" />
         <meta property="og:image" content={blogs?.thumbnail} />
