@@ -27,7 +27,7 @@ const BlogDetailsDark = ({ blogs }) => {
         <meta name="author" content="Milan katira" />
         <meta
           name="keywords"
-          content="nextjs,react,typescript,tailwindcss,express,nodejs,mongodb,mysql,javascript,docker,github,Milan katira,kubernetes,solidity developer,Reetesh kumar blog,Full Stack Developer,Web Developer,how to use walletconnect in next.js"
+          content="nextjs,react,typescript,tailwindcss,express,nodejs,mongodb,mysql,javascript,docker,github,Milan katira,kubernetes,solidity developer"
         />
         <meta name="robots" content="index, follow" />
         <link rel="assets" href={blogs?.thumbnail} />
