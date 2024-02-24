@@ -1,6 +1,7 @@
 import React from "react";
 import Markdown from "../../components/Markdown";
 import axiosInstance from "../../utils/axiosInstance";
+import { revertSlug } from "../../utils/slug";
 
 const BlogDetailsDark = ({ blogs }) => {
   return (
@@ -29,7 +30,7 @@ export async function getServerSideProps(context) {
   try {
     const { params } = context;
     const { _id } = params;
-    const response = await axiosInstance.get(`/blog/${_id}`); // Replace with your actual API endpoint
+    const response = await axiosInstance.get(`/blog/${revertSlug(_id)}`); // Replace with your actual API endpoint
     const blogs = response.data; // Assuming your API returns an array of blog objects
 
     return {

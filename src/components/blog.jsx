@@ -3,6 +3,7 @@ import moment from "moment";
 import Link from "next/link";
 import React from "react";
 import Split from "./Split";
+import { toSlug } from "../utils/slug";
 
 const Blog = ({ subBG, blogs }) => {
   return (
@@ -10,7 +11,7 @@ const Blog = ({ subBG, blogs }) => {
       <div className="container">
         <div className="sec-head custom-font text-center">
           <h6 className="wow fadeIn" data-wow-delay=".5s">
-             Latest Blogs
+            Latest Blogs
           </h6>
           <Split>
             <h3 className="wow words chars splitting" data-splitting>
@@ -32,26 +33,23 @@ const Blog = ({ subBG, blogs }) => {
                     <img src={i.thumbnail} alt="" />
                   </div>
                   <div className="cont">
-                      <a className="date custom-font">
-                        <span>
-                          <i>{moment(i.createdAt).date()}</i>{" "}
-                          {moment(i.createdAt).format("MMMM")}
-                        </span>
-                      </a>
+                    <a className="date custom-font">
+                      <span>
+                        <i>{moment(i.createdAt).date()}</i>{" "}
+                        {moment(i.createdAt).format("MMMM")}
+                      </span>
+                    </a>
                     <div className="info custom-font">
-                        <a className="tag">{i?.tags?.join(", ")}</a>
+                      <a className="tag">{i?.tags?.join(", ")}</a>
                     </div>
 
                     <h6>
-                      <Link
-                        href={`/blog/${i._id}`}
-                        legacyBehavior
-                      >
+                      <Link href={`/blog/${toSlug(i.title)}`} legacyBehavior>
                         {i.title}
                       </Link>
                     </h6>
                     <div className="btn-more custom-font">
-                      <Link href={`/blog/${i._id}`} legacyBehavior>
+                      <Link href={`/blog/${toSlug(i.title)}`} legacyBehavior>
                         <a className="simple-btn">Read More</a>
                       </Link>
                     </div>
