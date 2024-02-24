@@ -138,3 +138,29 @@ section.next-prog {
 section.team.section-padding {
   overflow: hidden;
 }
+
+
+
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: #FFF;
+}
+
+.hover-underline-animation::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #FFF;
+  transform-origin: bottom right;
+  transition: transform 0.5s ease-out;
+}
+
+.hover-underline-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}

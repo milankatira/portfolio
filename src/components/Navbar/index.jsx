@@ -16,7 +16,7 @@ const Navbar = ({ lr, nr, theme }) => {
     >
       <div className="container">
         <Link legacyBehavior href="/">
-          <a className="logo">MilanKatira</a>
+          <a className="logo">Milan Katira</a>
         </Link>
 
         <button
@@ -38,23 +38,23 @@ const Navbar = ({ lr, nr, theme }) => {
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
               <Link legacyBehavior href="/blog">
-                <a className="nav-link">blog</a>
+                <a className="nav-link hover-underline-animation">blog</a>
               </Link>
             </li>
 
             <li className="nav-item">
               <Link legacyBehavior href="/#about">
-                <a className="nav-link">About</a>
+                <a className="nav-link hover-underline-animation">About</a>
               </Link>
             </li>
             <li className="nav-item">
               <Link legacyBehavior href="/#portfolio">
-                <a className="nav-link">portfolio</a>
+                <a className="nav-link hover-underline-animation">portfolio</a>
               </Link>
             </li>
             <li className="nav-item">
               <Link legacyBehavior href="/#contact">
-                <a className="nav-link">Contact</a>
+                <a className="nav-link hover-underline-animation">Contact</a>
               </Link>
             </li>
           </ul>
