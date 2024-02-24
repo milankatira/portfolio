@@ -36,7 +36,7 @@ const BlogDetailsDark = ({ blogs }) => {
         <link rel="assets" href={blogs?.thumbnail} />
         <link
           rel="canonical"
-          href={`https://milankatira.vercel.app/blog/${id}/`}
+          href={`https://milankatira.vercel.app/blog/${_id}/`}
         />
         <link
           rel="alternate"
@@ -47,7 +47,7 @@ const BlogDetailsDark = ({ blogs }) => {
         <meta property="og:description" content={blogs?.description} />
         <meta
           property="og:url"
-          content={`https://milankatira.vercel.app/blog/${id}/`}
+          content={`https://milankatira.vercel.app/blog/${_id}/`}
         />
         <meta property="og:site_name" content="Milan katira" />
         <meta property="og:image" content={blogs?.thumbnail} />
