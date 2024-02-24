@@ -32,23 +32,19 @@ const Blog = ({ subBG, blogs }) => {
                     <img src={i.thumbnail} alt="" />
                   </div>
                   <div className="cont">
-                    <Link href="/blog/blog-dark" legacyBehavior>
                       <a className="date custom-font">
                         <span>
                           <i>{moment(i.createdAt).date()}</i>{" "}
                           {moment(i.createdAt).format("MMMM")}
                         </span>
                       </a>
-                    </Link>
                     <div className="info custom-font">
-                      <Link href="/blog/blog-dark" legacyBehavior>
                         <a className="tag">{i?.tags?.join(", ")}</a>
-                      </Link>
                     </div>
 
                     <h6>
                       <Link
-                        href="/blog-details/blog-details-dark"
+                        href={`/blog/${i._id}`}
                         legacyBehavior
                       >
                         {i.title}
