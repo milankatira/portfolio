@@ -1,12 +1,30 @@
 import React from "react";
+import { NextSeo } from "next-seo";
 import Markdown from "../../components/Markdown";
 import axiosInstance from "../../utils/axiosInstance";
 import { revertSlug } from "../../utils/slug";
-import { commonMetaData } from "../../utils/commonMetaData";
 
 const BlogDetailsDark = ({ blogs }) => {
   return (
     <>
+      <NextSeo
+        title={blogs?.title}
+        description={blogs?.description}
+        openGraph={{
+          title: blogs?.title,
+          description: blogs?.description,
+          images: [
+            {
+              url: blogs?.thumbnail,
+              width: 800,
+              height: 600,
+              alt: "Thumbnail",
+            },
+          ],
+          url: "https://milankatira.vercel.app",
+          type: "article",
+        }}
+      />
       <section className="page-header blg">
         <div className="container">
           <div className="row justify-content-center">
@@ -26,21 +44,13 @@ const BlogDetailsDark = ({ blogs }) => {
 };
 
 export default BlogDetailsDark;
-export async function generateMetadata({ blogs }) {
-  const metadata = commonMetaData({
-    name: blogs.title,
-    desc: blogs.description,
-    image: blogs.thumbnail,
-    url: "https://milankatira.vercel.app",
-  });
-  return metadata;
-}
+
 export async function getServerSideProps(context) {
   try {
     const { params } = context;
     const { _id } = params;
-    const response = await axiosInstance.get(`/blog/${revertSlug(_id)}`); // Replace with your actual API endpoint
-    const blogs = response.data; // Assuming your API returns an array of blog objects
+    const response = await axiosInstance.get(`/blog/${revertSlug(_id)}`);
+    const blogs = response.data;
     return {
       props: {
         blogs,
