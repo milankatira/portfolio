@@ -14,78 +14,53 @@ const BlogDetailsDark = ({ blogs }) => {
         <meta property="og:description" content={blogs?.description} />
         <meta property="og:image" content={blogs?.thumbnail} />
         <meta property="og:url" content={blogs?.thumbnail} />
-        <meta property="cononical" content={blogs?.thumbnail} />
+        <meta property="canonical" content={blogs?.thumbnail} />
         <meta property="og:image:width" content="800" />
         <meta property="og:image:height" content="600" />
         <meta property="og:type" content="article" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="preconnect" href="https://res.cloudinary.com" />
-        <link
-          rel="preload"
-          href="https://www.googletagmanager.com/gtag/js?id=G-XY0Y1HDGMT"
-          as="script"
-        />
-        <title>
-          Web3 Wallets connection using WalletConnect in Next.js | Reetesh Kumar
-        </title>
+
         <meta
           name="description"
-          content="WalletConnect allows to connect mobile wallet to different decentralized applications and other wallets. This allows to interact with dapps and sign transactions securely from wallet."
+          content={blogs?.description}
         />
-        <link rel="author" href="https://reetesh.in/" />
-        <meta name="author" content="Reetesh Kumar" />
+        <link rel="author" href="https://milankatira.vercel.app/" />
+        <meta name="author" content="Milan katira" />
         <meta
           name="keywords"
-          content="nextjs,react,typescript,tailwindcss,express,nodejs,mongodb,mysql,javascript,docker,github,Reetesh Kumar,kubernetes,solidity developer,Reetesh kumar blog,Full Stack Developer,Web Developer,how to use walletconnect in next.js,metamask connection in next.js using walletconnect,how to setup walletconnect in next.js,walletconnect in next.js"
+          content="nextjs,react,typescript,tailwindcss,express,nodejs,mongodb,mysql,javascript,docker,github,Milan katira,kubernetes,solidity developer,Reetesh kumar blog,Full Stack Developer,Web Developer,how to use walletconnect in next.js"
         />
         <meta name="robots" content="index, follow" />
-        <link
-          rel="assets"
-          href="https://res.cloudinary.com/dw6wav4jg/image/upload/v1708271565/walletconnect_p28rex.png"
-        />
+        <link rel="assets" href={blogs?.thumbnail} />
         <link
           rel="canonical"
-          href="https://milankatira.vercel.app/blog/typescript-first-zod-validation/"
+          href={`https://milankatira.vercel.app/blog/${id}/`}
         />
-        <link rel="alternate" hrefLang="en-US" href="https://reetesh.in/" />
-        <meta
-          property="og:title"
-          content="Web3 Wallets connection using WalletConnect in Next.js"
+        <link
+          rel="alternate"
+          hrefLang="en-US"
+          href="https://milankatira.vercel.app"
         />
-        <meta
-          property="og:description"
-          content="WalletConnect allows to connect mobile wallet to different decentralized applications and other wallets. This allows to interact with dapps and sign transactions securely from wallet."
-        />
+        <meta property="og:title" content={blogs?.title} />
+        <meta property="og:description" content={blogs?.description} />
         <meta
           property="og:url"
-          content="https://milankatira.vercel.app/blog/typescript-first-zod-validation/"
+          content={`https://milankatira.vercel.app/blog/${id}/`}
         />
-        <meta property="og:site_name" content="Reetesh Kumar" />
-        <meta
-          property="og:image"
-          content="https://res.cloudinary.com/dw6wav4jg/image/upload/v1708271565/walletconnect_p28rex.png"
-        />
+        <meta property="og:site_name" content="Milan katira" />
+        <meta property="og:image" content={blogs?.thumbnail} />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:creator" content="@imbitcoinb" />
-        <meta
-          name="twitter:title"
-          content="Web3 Wallets connection using WalletConnect in Next.js | Reetesh Kumar"
-        />
-        <meta
-          name="twitter:description"
-          content="WalletConnect allows to connect mobile wallet to different decentralized applications and other wallets. This allows to interact with dapps and sign transactions securely from wallet."
-        />
-        <meta
-          name="twitter:image"
-          content="https://res.cloudinary.com/dw6wav4jg/image/upload/v1708271565/walletconnect_p28rex.png"
-        />
-       
+        <meta name="twitter:creator" content="@milankatira26" />
+        <meta name="twitter:title" content={blogs?.title} />
+        <meta name="twitter:description" content={blogs?.description} />
+        <meta name="twitter:image" content={blogs?.thumbnail} />
+
         <meta name="next-size-adjust" />
-       
+
         <meta name="googlebot" content="index, follow" />
-       
       </Head>
       <section className="page-header blg">
         <div className="container">
