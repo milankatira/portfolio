@@ -9,10 +9,8 @@ const BlogDetailsDark = ({ blogs }) => {
     <>
       <Head>
         <title>{blogs?.title}</title>
-
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="preconnect" href="https://res.cloudinary.com" />
-
         <meta name="description" content={blogs?.description} />
         <link rel="author" href="https://milankatira.vercel.app/" />
         <meta name="author" content="Milan katira" />
@@ -22,7 +20,7 @@ const BlogDetailsDark = ({ blogs }) => {
         />
         <meta name="author" content="Milan katira" />
         <meta name="author_url" content="https://milankatira.vercel.app/" />
-
+        <link rel="author" href="https://milankatira.vercel.app/" />
         <meta
           name="keywords"
           content="nextjs,react,typescript,tailwindcss,express,nodejs,mongodb,mysql,javascript,docker,github,Milan katira,kubernetes,solidity developer"
@@ -54,7 +52,6 @@ const BlogDetailsDark = ({ blogs }) => {
         <meta name="twitter:title" content={blogs?.title} />
         <meta name="twitter:description" content={blogs?.description} />
         <meta name="twitter:image" content={blogs?.thumbnail} />
-
         <meta name="next-size-adjust" />
         <meta name="googlebot" content="index, follow" />
       </Head>
