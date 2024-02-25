@@ -17,6 +17,11 @@ const BlogDetailsDark = ({ blogs }) => {
         <link rel="author" href="https://milankatira.vercel.app/" />
         <meta name="author" content="Milan katira" />
         <meta
+          property="article:author"
+          content="https://milankatira.vercel.app/"
+        />
+
+        <meta
           name="keywords"
           content="nextjs,react,typescript,tailwindcss,express,nodejs,mongodb,mysql,javascript,docker,github,Milan katira,kubernetes,solidity developer"
         />
@@ -48,12 +53,8 @@ const BlogDetailsDark = ({ blogs }) => {
         <meta name="twitter:description" content={blogs?.description} />
         <meta name="twitter:image" content={blogs?.thumbnail} />
 
-        {/* Add additional meta tags for better SEO */}
         <meta name="next-size-adjust" />
         <meta name="googlebot" content="index, follow" />
-
-        {/* Remove duplicate meta tags */}
-        {/* Title and description are already set */}
       </Head>
       <section className="page-header blg">
         <div className="container">
