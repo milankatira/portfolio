@@ -21,6 +21,13 @@ const BlogDetailsDark = ({ blogs }) => {
         <meta name="author" content="Milan katira" />
         <meta name="author_url" content="https://milankatira.vercel.app/" />
         <link rel="author" href="https://milankatira.vercel.app/" />
+
+        <meta
+          property="og:article:author"
+          content="https://milankatira.vercel.app/"
+        />
+        <meta property="og:article:author:name" content="Milan katira" />
+
         <meta
           name="keywords"
           content="nextjs,react,typescript,tailwindcss,express,nodejs,mongodb,mysql,javascript,docker,github,Milan katira,kubernetes,solidity developer"
