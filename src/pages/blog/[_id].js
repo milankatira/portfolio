@@ -9,15 +9,15 @@ const BlogDetailsDark = ({ blogs }) => {
     <>
       <Head>
         <title>{blogs?.title}</title>
-        <meta name="description" content={blogs?.description} />
+        {/* <meta name="description" content={blogs?.description} />
         <meta property="og:title" content={blogs?.title} />
         <meta property="og:description" content={blogs?.description} />
         <meta property="og:image" content={blogs?.thumbnail} />
-        <meta property="og:url" content={blogs?.thumbnail} />
-        <meta property="canonical" content={blogs?.thumbnail} />
+        <meta property="og:url" content={blogs?.thumbnail} /> */}
+        {/* <meta property="canonical" content={blogs?.thumbnail} />
         <meta property="og:image:width" content="800" />
         <meta property="og:image:height" content="600" />
-        <meta property="og:type" content="article" />
+        <meta property="og:type" content="article" /> */}
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="preconnect" href="https://res.cloudinary.com" />
@@ -60,6 +60,51 @@ const BlogDetailsDark = ({ blogs }) => {
         <meta name="next-size-adjust" />
 
         <meta name="googlebot" content="index, follow" />
+
+        <title>Typescript first Zod validation</title>
+        <meta
+          name="description"
+          content="Zod is a TypeScript-first schema declaration and validation library. It allows you to define schemas for your data and validate them against those schemas."
+        />
+
+        {/* <!-- Google / Search Engine Tags --> */}
+        <meta itemProp="name" content="Typescript first Zod validation" />
+        <meta
+          itemProp="description"
+          content="Zod is a TypeScript-first schema declaration and validation library. It allows you to define schemas for your data and validate them against those schemas."
+        />
+        <meta
+          itemProp="image"
+          content="http://res.cloudinary.com/da5rta12e/image/upload/v1708790047/Step_36_1_abwkys.png"
+        />
+
+        {/* <!-- Facebook Meta Tags --> */}
+        <meta
+          property="og:url"
+          content="https://milankatira.vercel.app/blog/typescript-first-zod-validation"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Typescript first Zod validation" />
+        <meta
+          property="og:description"
+          content="Zod is a TypeScript-first schema declaration and validation library. It allows you to define schemas for your data and validate them against those schemas."
+        />
+        <meta
+          property="og:image"
+          content="http://res.cloudinary.com/da5rta12e/image/upload/v1708790047/Step_36_1_abwkys.png"
+        />
+
+        {/* <!-- Twitter Meta Tags --> */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Typescript first Zod validation" />
+        <meta
+          name="twitter:description"
+          content="Zod is a TypeScript-first schema declaration and validation library. It allows you to define schemas for your data and validate them against those schemas."
+        />
+        <meta
+          name="twitter:image"
+          content="http://res.cloudinary.com/da5rta12e/image/upload/v1708790047/Step_36_1_abwkys.png"
+        />
       </Head>
       <section className="page-header blg">
         <div className="container">
