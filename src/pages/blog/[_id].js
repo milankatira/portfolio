@@ -75,7 +75,7 @@ const BlogDetailsDark = ({ blogs }) => {
         />
         <meta
           itemProp="image"
-          content="http://res.cloudinary.com/da5rta12e/image/upload/v1708790047/Step_36_1_abwkys.png"
+          content="https://res.cloudinary.com/da5rta12e/image/upload/v1708790047/Step_36_1_abwkys.png"
         />
 
         {/* <!-- Facebook Meta Tags --> */}
@@ -91,7 +91,7 @@ const BlogDetailsDark = ({ blogs }) => {
         />
         <meta
           property="og:image"
-          content="http://res.cloudinary.com/da5rta12e/image/upload/v1708790047/Step_36_1_abwkys.png"
+          content="https://res.cloudinary.com/da5rta12e/image/upload/v1708790047/Step_36_1_abwkys.png"
         />
 
         {/* <!-- Twitter Meta Tags --> */}
@@ -103,7 +103,7 @@ const BlogDetailsDark = ({ blogs }) => {
         />
         <meta
           name="twitter:image"
-          content="http://res.cloudinary.com/da5rta12e/image/upload/v1708790047/Step_36_1_abwkys.png"
+          content="https://res.cloudinary.com/da5rta12e/image/upload/v1708790047/Step_36_1_abwkys.png"
         />
       </Head>
       <section className="page-header blg">
