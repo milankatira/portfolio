@@ -20,6 +20,8 @@ const BlogDetailsDark = ({ blogs }) => {
           property="article:author"
           content="https://milankatira.vercel.app/"
         />
+        <meta name="author" content="Milan katira" />
+        <meta name="author_url" content="https://milankatira.vercel.app/" />
 
         <meta
           name="keywords"
