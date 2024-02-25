@@ -124,11 +124,11 @@ h6 {
 
 p {
   color: #c8c8c8;
-  font-size: 15px;
-  font-weight: 300;
-  line-height: 2;
+  /* font-size: 15px; */
+  /* font-weight: 300; */
+  /* line-height: 2; */
   margin: 20px 0px
-}
+} 
 
 a,
 span {
