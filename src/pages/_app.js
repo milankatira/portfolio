@@ -64,9 +64,9 @@ function MyApp({ Component, pageProps }) {
         src="/js/isotope.pkgd.min.js"
       ></Script>
       <Script
+        strategy="beforeInteractive"
         id="initWow"
         rel="prefetch"
-        strategy="lazyOnload"
       >{`new WOW().init();`}</Script>
     </>
   );

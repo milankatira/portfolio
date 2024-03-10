@@ -73,7 +73,7 @@ export default function MarkdownComp({
                   </div>
                   <CopyButton textToCopy={textToCopy} />
                 </div>
-                <div className="card-body p-0">
+                <div className="card-body p-0 " style={{overflow:"scroll"}}>
                   <div className="p-4 description" id={id}>
                     {children}
                   </div>

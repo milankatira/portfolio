@@ -3,10 +3,7 @@ import Link from "next/link";
 import React from "react";
 import { handleMobileDropdown, handleSearch } from "../../common/navbar";
 
-const Navbar = ({ lr, nr, theme }) => {
-  React.useEffect(() => {
-    handleSearch();
-  }, []);
+const Navbar = ({ nr, theme }) => {
   return (
     <nav
       ref={nr}
