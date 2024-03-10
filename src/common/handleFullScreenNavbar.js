@@ -1,5 +1,5 @@
 import appData from "../data/app.json";
-import { getSiblings, animateEl, delay } from "./customFunctions";
+import { animateEl, delay, getSiblings } from "./customFunctions";
 
 const handleFullScreenNavbar = () => {
   function noScroll() {
@@ -77,9 +77,11 @@ const handleFullScreenNavbar = () => {
       item.addEventListener("click", function () {
         document.querySelector(".main-menu").classList.add("gosub");
         getSiblings(this.parentNode.parentNode).forEach((item) => {
-          item.childNodes[1]
-            ? item.childNodes[1].classList.remove("sub-open")
-            : "";
+          if (item.childNodes[1]) {
+            item.childNodes[1].classList.remove("sub-open");
+          } else {
+            ("");
+          }
         });
         this.parentNode.parentNode.childNodes[1].classList.add("sub-open");
       });

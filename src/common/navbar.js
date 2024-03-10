@@ -1,4 +1,4 @@
-import { getSiblings, fadeIn, fadeOut } from "./customFunctions";
+import { getSiblings } from "./customFunctions";
 
 export const handleDropdown = (e) => {
   getSiblings(e.target.parentElement)
@@ -21,21 +21,4 @@ export const handleMobileDropdown = (e) => {
   document
     .getElementById("navbarSupportedContent")
     .classList.toggle("show-with-trans");
-};
-
-export const handleSearch = () => {
-  let searchForm = document.querySelector(".navbar .search .search-form");
-  // document
-    // .querySelector(".navbar .search .icon")
-    // .addEventListener("click", function () {
-    //   searchForm.style.display = "block";
-    //   fadeIn(searchForm, 200);
-    // });
-
-  // document
-  //   .querySelector(".navbar .search .search-form .close")
-  //   .addEventListener("click", function () {
-  //     searchForm.style.display = "none";
-  //     fadeOut(searchForm, 200);
-  //   });
 };
