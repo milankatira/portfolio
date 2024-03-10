@@ -1,13 +1,3 @@
-/*-----------------------------------------------------------------------------------
-
-    Theme Name: Avo
-    Theme URI: http://
-    Description: Creative Agency & Portfolio
-    Author: ThemesCamp
-    Author URI: http://themeforest.net/user/ThemesCamp
-    Version: 1.0
-
------------------------------------------------------------------------------------*/
 /* ----------------------------------------------------------------
 
 == Table Of Content
@@ -48,8 +38,8 @@
 ---------------------------------------------------------------- */
 /* ====================== [ Start Typography  ] ====================== */
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap"); */
+/* @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap"); */
 @import "/css/bootstrap.min.css";
 @import "/css/animate.css";
 @import "/css/font-awesome.min.css";
@@ -4322,50 +4312,6 @@ body {
 }
 
 /* ====================== [ End Work ] ====================== */
-/* ====================== [ Start services ] ====================== */
-.process .coulmn {
-  position: relative;
-}
-.process .coulmn:after {
-  position: absolute;
-  content: "";
-  width: 75px;
-  border-top: 2px dashed #75dab4;
-  top: 75px;
-  right: -35px;
-}
-
-.process .item {
-  text-align: center;
-}
-.process .item .bg-img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  margin: 0 auto 30px;
-  text-align: center;
-  position: relative;
-}
-.process .item .bg-img:after {
-  content: "";
-  position: absolute;
-  top: 7px;
-  left: 7px;
-  right: 7px;
-  bottom: 7px;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.25);
-}
-.process .item .bg-img h3 {
-  color: #fff;
-  font-size: 40px;
-  font-weight: 300;
-  line-height: 150px;
-  position: relative;
-  z-index: 3;
-}
-
-/* ====================== [ End services ] ====================== */
 /* ====================== [ Start progress bar ] ====================== */
 .skills-circle .item {
   display: -webkit-box;
@@ -4485,132 +4431,6 @@ body {
 }
 
 /* ====================== [ Start tabs & list ] ====================== */
-/* ====================== [ Start Team ] ====================== */
-.team {
-  position: relative;
-}
-.team .team-container {
-  width: 140%;
-  position: relative;
-}
-.team .team-container:after {
-  content: "";
-  position: absolute;
-  top: -120px;
-  bottom: -120px;
-  right: 0;
-  width: 80%;
-  background: #1a1e25;
-  z-index: -1;
-}
-.team .item {
-  padding: 0 15px;
-}
-.team .item .info {
-  padding: 15px;
-  background: #11141b;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.team .item .info h5 {
-  font-size: 18px;
-  margin-bottom: 2px;
-  -webkit-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
-}
-.team .item .info span {
-  color: #999;
-  font-size: 14px;
-  -webkit-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
-}
-.team .item .info .social {
-  position: absolute;
-  bottom: -300px;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding: 30px 5px 0;
-  z-index: 2;
-  opacity: 0;
-  -webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  transition: all 0.4s;
-}
-.team .item .info .social a {
-  font-size: 13px;
-  margin: 0 8px;
-  color: #75dab4;
-}
-.team .item:hover .info h5,
-.team .item:hover .info span {
-  opacity: 0;
-}
-.team .item:hover .info .social {
-  bottom: 0;
-  opacity: 1;
-}
-.team .navs .prev,
-.team .navs .next {
-  color: #ccc;
-  font-size: 13px;
-  width: 55px;
-  height: 55px;
-  line-height: 55px;
-  text-align: center;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  position: static;
-}
-.team .slick-dots {
-  bottom: -40px;
-}
-.team .slick-dots li.slick-active button {
-  background: #75dab4;
-}
-.team .slick-dots li button {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  opacity: 0.8;
-}
-.team .slick-dots li button:before {
-  content: "";
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  line-height: 1;
-  background: #75dab4;
-  opacity: 1;
-}
-
-.team-crv .img-box .img {
-  min-width: 150px !important;
-}
-.team-crv .img-box .img.sizxl {
-  width: 90%;
-}
-.team-crv .img-box .img.sizmd {
-  width: 65%;
-}
-.team-crv .img-box .img.sizsm {
-  width: 50%;
-}
-
-.team-crv .img-box .toright .img {
-  margin-left: auto;
-}
-
-.team-crv .img-box .toleft .img {
-  margin-right: auto;
-}
-
 /* ====================== [ End Team ] ====================== */
 /* ====================== [ Start Testimonials ] ====================== */
 .testimonials .item {
@@ -5889,15 +5709,6 @@ body {
     padding-left: 0;
     margin-top: 50px;
   }
-  .team .navs {
-    position: absolute;
-    top: 60px;
-    right: 0;
-    margin-top: 0 !important;
-  }
-  .team {
-    position: relative;
-  }
   .min-area .content,
   .min-area .img {
     padding: 120px 0;
@@ -6143,9 +5954,6 @@ body {
   .skills-circle .item {
     margin-bottom: 50px;
   }
-  .team .navs {
-    top: 20px;
-  }
   .block-sec .vid-area .cont h3 {
     font-size: 34px;
   }
@@ -6154,14 +5962,6 @@ body {
   }
   .portfolio .filtering span {
     margin: 5px 15px;
-  }
-  .team-crv .img-box .img.sizxl,
-  .team-crv .img-box .img.sizmd,
-  .team-crv .img-box .img.sizsm {
-    width: 100%;
-  }
-  .team-crv .img-box .img.sizmd {
-    margin-bottom: 30px;
   }
 }
 
@@ -6275,8 +6075,6 @@ body {
 }
 
 /* ====================== [ End Responsive ] ====================== */
-
-
 
 *{
   margin: 0;

@@ -42,7 +42,7 @@ class Testimonials1 extends React.Component {
         style={{
           backgroundImage: `${
             this.props.withBG && !this.props.imgSrc
-              ? "url(/img/testimonials-bg.jpg)"
+              ? "url(/img/testimonials-bg.avif)"
               : this.props.imgSrc
               ? `url(${this.props.imgSrc})`
               : "none"
