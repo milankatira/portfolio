@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "image": "/img/portfolio/lyrik.png",
+    "image": "/img/portfolio/lyrik.avif",
     "title": "lyriks",
     "tags": [ "MERN stack"],
     "filterCategory": ["web"],
@@ -9,7 +9,7 @@
   },
   {
     "id": 2,
-    "image": "/img/portfolio/crownfunding.png",
+    "image": "/img/portfolio/crownfunding.webp",
     "title": "crownfunding",
     "tags": ["React js", "nodejs"],
     "filterCategory": ["blockchain"],
@@ -17,7 +17,7 @@
   },
   {
     "id": 3,
-    "image": "/img/portfolio/jobsift.png",
+    "image": "/img/portfolio/jobsift.avif",
     "title": "job shift",
     "tags": ["React native", "expo"],
     "filterCategory": ["mobile"],
@@ -26,7 +26,7 @@
   },
   {
     "id": 4,
-    "image": "/img/portfolio/Word hunt.png",
+    "image": "/img/portfolio/Word_hunt.avif",
     "title": "word hunt",
     "tags": ["React js"],
     "filterCategory": ["web"],
@@ -34,7 +34,7 @@
   },
   {
     "id": 5,
-    "image": "/img/portfolio/expanse tracker.png",
+    "image": "/img/portfolio/expanse_tracker.png",
     "title": "expense tracker",
     "tags": ["React js"],
     "filterCategory": ["web"],

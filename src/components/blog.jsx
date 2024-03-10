@@ -2,8 +2,9 @@
 import moment from "moment";
 import Link from "next/link";
 import React from "react";
-import Split from "./Split";
 import { toSlug } from "../utils/slug";
+import Split from "./Split";
+import Image from "next/image";
 
 const Blog = ({ subBG, blogs }) => {
   return (
@@ -30,7 +31,8 @@ const Blog = ({ subBG, blogs }) => {
                   data-wow-delay=".3s"
                 >
                   <div className="img">
-                    <img src={i.thumbnail} alt="" />
+                    <Image src={i.thumbnail} alt="" loading="lazy"   width="100"
+  height="100" />
                   </div>
                   <div className="cont">
                     <a className="date custom-font">

@@ -3,7 +3,7 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
 const DeadCodePlugin = require("webpack-deadcode-plugin");
-
+//res.cloudinary.com
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
   sassOptions: {
@@ -15,6 +15,12 @@ module.exports = withBundleAnalyzer({
   },
   eslint: {
     ignoreDuringBuilds: false,
+  },
+  images: {
+    remotePatterns: [
+      { hostname: "res.cloudinary.com" },
+      { hostname: "instaservice-dev.s3.us-west-2.amazonaws.com" },
+    ],
   },
   webpack(config, options) {
     // Add the DeadCodePlugin to the webpack config

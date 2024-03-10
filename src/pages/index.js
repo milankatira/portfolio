@@ -2,7 +2,6 @@ import dynamic from "next/dynamic";
 import React, { useEffect, useRef } from "react";
 import WithLoader from "../layouts/Loader";
 import axiosInstance from "../utils/axiosInstance";
-const Navbar = dynamic(() => import("../components/Navbar"));
 const IntroTxt = dynamic(() => import("../components/Intro-txt"));
 const PortfolioCustomColumn = dynamic(() =>
   import("../components/Portfolio-custom-column")
@@ -15,7 +14,6 @@ const Blog = dynamic(() => import("../components/blog"));
 const CallToAction = dynamic(() => import("../components/Call-to-action"));
 const Testimonials1 = dynamic(() => import("../components/Testimonials1"));
 const ContactSection = dynamic(() => import("../components/Contact-section"));
-const Footer = dynamic(() => import("../components/Footer"));
 
 const Homepage2 = ({ blogs }) => {
   const navbarRef = useRef(null);
@@ -51,7 +49,6 @@ const Homepage2 = ({ blogs }) => {
       <div id="contactus">
         <ContactSection />
       </div>
-      {/* <Footer /> */}
     </>
   );
 };
@@ -60,8 +57,8 @@ export default Homepage2;
 
 export async function getServerSideProps() {
   try {
-    const response = await axiosInstance.get("/blog"); // Replace with your actual API endpoint
-    const blogs = response.data; // Assuming your API returns an array of blog objects
+    const response = await axiosInstance.get("/blog"); 
+    const blogs = response.data;
 
     return {
       props: {

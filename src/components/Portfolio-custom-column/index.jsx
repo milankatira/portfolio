@@ -78,6 +78,7 @@ const PortfolioCustomColumn = ({
                     <div className="item-img">
                       {/* <a className="imago wow"> */}
                       <img
+                      loading="lazy"
                         src={item.image}
                         alt="image"
                         style={{
@@ -87,7 +88,6 @@ const PortfolioCustomColumn = ({
                         }}
                       />
                       <div className="item-img-overlay"></div>
-                      {/* </a> */}
                     </div>
                     <div className="cont">
                       <h6>{item.title}</h6>
