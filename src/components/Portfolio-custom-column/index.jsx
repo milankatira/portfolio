@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import initIsotope from "../../common/initIsotope";
@@ -77,10 +78,12 @@ const PortfolioCustomColumn = ({
                   >
                     <div className="item-img">
                       {/* <a className="imago wow"> */}
-                      <img
-                      loading="lazy"
+                      <Image
+                        loading="lazy"
                         src={item.image}
                         alt="image"
+                        height={400}
+                        width={400}
                         style={{
                           height: "400px",
                           width: "400px",
