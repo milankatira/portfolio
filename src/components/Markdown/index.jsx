@@ -5,6 +5,7 @@ import Markdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
 import { icons } from "../../utils/icon";
 import CopyButton from "./CopyButton";
+import Codeblog from "./codeblog";
 
 export default function MarkdownComp({
   content,
@@ -57,28 +58,9 @@ export default function MarkdownComp({
             }
 
             return (
-              <div
-                style={{
-                  background: "#000",
-                }}
-                className="card border border-secondary mb-4 text-light"
-              >
-                <div className="card-body d-flex justify-content-between align-items-center px-4 py-2 border-bottom border-secondary">
-                  <div className="d-flex align-items-center gap-2">
-                    <Icon />
-                    <p className="text-muted small">
-                      {/* @ts-ignore  */}
-                      {node?.data?.meta}
-                    </p>
-                  </div>
-                  <CopyButton textToCopy={textToCopy} />
-                </div>
-                <div className="card-body p-0 " style={{overflow:"scroll"}}>
-                  <div className="p-4 description" id={id}>
-                    {children}
-                  </div>
-                </div>
-              </div>
+              <Codeblog Icon={Icon} node={node}>
+                {children}
+              </Codeblog>
             );
           } else {
             return (
