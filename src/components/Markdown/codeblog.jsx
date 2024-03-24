@@ -33,7 +33,7 @@ const Codeblog = ({Icon,node,children}) => {
         </div>
         <CopyButton textToCopy={textToCopy} />
       </div>
-      <div className="card-body p-0 " style={{ overflow: "scroll" }}>
+      <div className="card-body p-0 " style={{ overflow: "auto" }}>
         <div className="p-4 description" id={id}>
           {children}
         </div>
