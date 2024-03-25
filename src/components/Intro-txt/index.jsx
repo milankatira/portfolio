@@ -4,7 +4,7 @@ const IntroTxt = ({subBG}) => {
   return (
     <header
       className={`freelancer ${subBG ? "sub-bg" : ""} valign bg-img parallaxie`}
-      style={{ backgroundImage: "url(/img/slid/freelancer.jpg)"}}
+      style={{ backgroundImage: "url(/img/slid/freelancer.avif)"}}
       data-overlay-dark="4"
     >
       <div className="container">
