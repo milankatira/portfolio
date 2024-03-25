@@ -13,7 +13,6 @@ const ContactSection = () => {
     e.preventDefault();
     emailjs.sendForm("service_a3j1ncp", "template_kyotqu5", form.current, "OELPiSYjiMixDJ_jb").then(
       (result) => {
-        console.log(result,"result")
         toast.success("thanks, email send successfully");
       },
       (error) => {
