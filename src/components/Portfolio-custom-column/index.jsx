@@ -64,7 +64,7 @@ const PortfolioCustomColumn = ({
 
           <div className="gallery full-width">
             {portfolio1Data.map((item, index) => (
-              <Link href={item.link} key={item.id} legacyBehavior>
+              <Link passHref href={item.link} key={item.id} legacyBehavior>
                 <div
 
                 // target="_blank"
@@ -97,9 +97,8 @@ const PortfolioCustomColumn = ({
                       <span>
                         {item.tags.map((tag, index) => (
                           <React.Fragment key={index * 3}>
-                            <Link legacyBehavior href="/works4/works4-dark">
-                              {tag}
-                            </Link>
+                            {tag}
+
                             {index == item.tags.length - 1 ? "" : ","}
                           </React.Fragment>
                         ))}
