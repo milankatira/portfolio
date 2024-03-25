@@ -3,13 +3,8 @@ import Blog from "../components/blog";
 import axiosInstance from "../utils/axiosInstance";
 
 const BlogDetailsDark = ({ blogs }) => {
-  return (
-    <>
-      <Blog blogs={blogs} />
-    </>
-  );
+  return <Blog blogs={blogs} />;
 };
-
 export default BlogDetailsDark;
 
 export async function getServerSideProps() {

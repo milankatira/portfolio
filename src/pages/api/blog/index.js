@@ -1,8 +1,3 @@
-// pages/api/blog/index.js
-
-import BlogPost from "../../../model/index";
-import connectDB from "../../../utils/db";
-
 export default async function handler(req, res) {
   const { method } = req;
 

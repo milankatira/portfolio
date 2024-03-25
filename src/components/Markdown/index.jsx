@@ -4,28 +4,12 @@ import { PiTerminalThin } from "react-icons/pi";
 import Markdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
 import { icons } from "../../utils/icon";
-import CopyButton from "./CopyButton";
 import Codeblog from "./codeblog";
 
 export default function MarkdownComp({
   content,
   className = "p-4", // Change Tailwind padding class to Bootstrap padding class
 }) {
-  const [id, setId] = useState(""); // State to store the generated id
-  const [textToCopy, settextToCopy] = useState("");
-  useEffect(() => {
-    // Generate and set the id when the component mounts
-    const generatedId = (Math.floor(Math.random() * 100) + 1).toString();
-    setId(generatedId);
-  }, []); // Empty dependency array to run this effect only once, after the component mounts
-
-  useEffect(() => {
-    // Log the element and its text content after the component has rendered
-    if (id) {
-      settextToCopy(document.getElementById(id)?.textContent);
-    }
-  }, [id]); // Run this effect whenever the id changes
-
   return (
     <Markdown
       data-overlay-light="10"
