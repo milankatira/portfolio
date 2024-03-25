@@ -9,27 +9,11 @@ function show(el) {
     clearInterval(intervalID);
   }
 }
-function hide(el) {
-  opacity = Number(window.getComputedStyle(el).getPropertyValue("opacity"));
-  if (opacity > 0) {
-    opacity = 0;
-    el.style.opacity = opacity;
-  } else {
-    clearInterval(intervalID);
-  }
-}
 
 export const delay = (time, callback) => {
   setTimeout(function () {
     callback;
   }, time);
-};
-
-export const fadeIn = (el, time) => {
-  setInterval(show(el), time);
-};
-export const fadeOut = (el, time) => {
-  setInterval(hide(el), time);
 };
 
 export const getSiblings = (e) => {

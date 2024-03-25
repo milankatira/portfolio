@@ -7,9 +7,6 @@ import "slick-carousel/slick/slick-theme.css";
 import removeOverlay from "../../common/removeOverlay";
 
 class Testimonials1 extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   renderArrows = () => {
     return (
       <div className="arrows">
@@ -17,7 +14,7 @@ class Testimonials1 extends React.Component {
           onClick={() => this.slider.slickNext()}
           className="next cursor-pointer"
         >
-          <span className="pe-7s-angle-right"></span>
+          <span className="pe-7s-angle-right" />
         </div>
         <div
           onClick={() => this.slider.slickPrev()}
