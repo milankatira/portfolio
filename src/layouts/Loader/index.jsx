@@ -5,9 +5,9 @@ import Head from "next/head";
 const WithLoader = ({ children }) => {
   return (
     <>
-      <Head>
+      {/* <Head>
         <link rel="stylesheet" href="/css/loader.module.css" />
-      </Head>
+      </Head> */}
       {children}
     </>
   );
