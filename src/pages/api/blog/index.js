@@ -1,3 +1,6 @@
+
+import connectDB from "../../../utils/db";
+import BlogPost from "../../../model/index";
 export default async function handler(req, res) {
   const { method } = req;
 
@@ -5,7 +8,7 @@ export default async function handler(req, res) {
 
   if (method === "GET") {
     try {
-      const posts = await BlogPost.find();
+      const posts = await BlogPost.find({}, { title:1, thumbnail:1, _id:1 });
       res.status(200).json(posts);
     } catch (error) {
       res.status(500).json({ message: error.message });
