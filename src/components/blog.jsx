@@ -7,6 +7,8 @@ import { toSlug } from "../utils/slug";
 import Split from "./Split";
 
 const Blog = ({ subBG, blogs }) => {
+
+  console.log(blogs,"blogs")
   return (
     <section className={`blog-grid section-padding ${subBG ? "sub-bg" : ""}`}>
       <div className="container">
