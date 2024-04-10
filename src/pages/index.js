@@ -59,7 +59,7 @@ export async function getServerSideProps() {
   try {
     const response = await axiosInstance.get("/blog"); 
     const blogs = response.data;
-
+console.log(blogs,"blogs")
     return {
       props: {
         blogs,
