@@ -8,7 +8,6 @@ const DeadCodePlugin = require("webpack-deadcode-plugin");
 module.exports = MillionLint.next()(
   withBundleAnalyzer({
     reactStrictMode: true,
-    profiler: true,
     sassOptions: {
       includePaths: [path.join(__dirname, "css")],
     },
