@@ -55,15 +55,15 @@ const Homepage2 = ({ blogs }) => {
 
 export default Homepage2;
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   try {
-    const response = await axiosInstance.get("/blog"); 
+    const response = await axiosInstance.get("/blog");
     const blogs = response.data;
-console.log(blogs,"blogs")
     return {
       props: {
         blogs,
       },
+      revalidate: 10, // Revalidate at most once every 10 seconds
     };
   } catch (error) {
     console.error("Error fetching blogs:", error);
