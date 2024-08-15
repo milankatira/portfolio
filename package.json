@@ -16,7 +16,7 @@
     "@million/lint": "^0.0.73",
     "@vercel/analytics": "^1.0.1",
     "@vercel/speed-insights": "^1.0.10",
-    "axios": "^1.6.7",
+    "axios": "^1.7.4",
     "clsx": "^2.1.0",
     "formik": "^2.2.9",
     "highlight.js": "^11.9.0",
