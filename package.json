@@ -42,7 +42,7 @@
     "slick-carousel": "^1.8.1",
     "swiper": "^7.4.1",
     "tailwind": "^4.0.0",
-    "tailwind-merge": "^2.2.1",
+    "tailwind-merge": "^2.4.0",
     "terser-webpack-plugin": "^5.3.10"
   },
   "devDependencies": {
