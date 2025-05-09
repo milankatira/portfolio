@@ -38,6 +38,51 @@ function MyApp({ Component, pageProps }) {
       />
       <Head>
         <title>Milan katira </title>
+        <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="author" href="https://milankatira.vercel.app/" />
+        <meta name="author" content="Milan katira" />
+        <meta
+          property="article:author"
+          content="https://milankatira.vercel.app/"
+        />
+        <meta name="author" content="Milan katira" />
+        <meta name="author_url" content="https://milankatira.vercel.app/" />
+        <link rel="author" href="https://milankatira.vercel.app/" />
+
+        <meta
+          property="og:article:author"
+          content="https://milankatira.vercel.app/"
+        />
+        <meta property="og:article:author:name" content="Milan katira" />
+
+        <meta
+          name="keywords"
+          content="milan katira,milan katira portfolio,nextjs,react,typescript,tailwindcss,express,nodejs,mongodb,mysql,javascript,docker,github,Milan katira,kubernetes,solidity developer"
+        />
+        <meta name="robots" content="index, follow" />
+        <link
+          rel="canonical"
+          href={`https://milankatira.vercel.app/`}
+        />
+        <link
+          rel="alternate"
+          hrefLang="en-US"
+          href="https://milankatira.vercel.app"
+        />
+        <meta property="og:title" content="milan katira" />
+        <meta property="og:description" content="milan katira portfolio" />
+        <meta
+          property="og:url"
+          content={`https://milankatira.vercel.app`}
+        />
+        <meta property="og:site_name" content="Milan katira" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:creator" content="@milankatira26" />
+        <meta name="next-size-adjust" />
+        <meta name="googlebot" content="index, follow" />
+      </Head>
       </Head>
       <Toaster />
       <Cursor />
