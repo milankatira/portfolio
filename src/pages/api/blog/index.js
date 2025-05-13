@@ -1,7 +1,7 @@
 
 import connectDB from "../../../utils/db";
 import BlogPost from "../../../model/index";
-export default async function handler(req, res) {
+const handler = async (req, res) => {
   const { method } = req;
 
   await connectDB();
@@ -17,4 +17,6 @@ export default async function handler(req, res) {
     res.setHeader("Allow", ["GET"]);
     res.status(405).end(`Method ${method} Not Allowed`);
   }
-}
+};
+
+export default handler;
