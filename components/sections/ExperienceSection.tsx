@@ -220,7 +220,7 @@ export function ExperienceSection() {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
             )}
           >
-            I switch a lot of companies. It's mostly about the culture.
+   Built through meaningful shifts
           </p>
         </div>
 

@@ -106,34 +106,29 @@ export const projects = [
 
 export const testimonials = [
   {
-    quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+    quote: "I highly recommend Milan Katira for any full-stack development project. Their technical expertise, attention to detail, and problem-solving skills are second to none.",
+    name: "Shraddha Choudhary",
+    title: "Senior Software Developer at York IE"
   },
   {
-    quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+    quote: "Working with Milan Katira was a pleasure. They have a deep understanding of both front-end and back-end development, and were able to deliver a high-quality product within a tight deadline.",
+    name: "Bhavik Lotia",
+    title: "Senior Software Engineer at ShineInfosoft"
   },
   {
-    quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+    quote: "Milan Katira is an exceptional full-stack developer. They are able to seamlessly integrate different technologies and platforms to create robust and scalable solutions that meet business needs.",
+    name: "Rohit Raj",
+    title: "Software Engineer at Cerebry"
   },
   {
-    quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+    quote: "Milan's ability to architect complex systems while maintaining clean, maintainable code is impressive. They delivered our enterprise solution ahead of schedule with zero critical bugs.",
+    name: "Ashish gupta",
+    title: "Qa Analyst at instaService"
   },
   {
-    quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+    quote: "As an independent contractor, Milan designed a highly scalable system architecture that now handles 5x our original traffic with minimal resource usage. Their ability to own projects end-to-end makes them invaluable.",
+    name: "Mukesh singh",
+    title: "Senior Qa at cerebry"
   },
 ];
 
