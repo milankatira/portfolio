@@ -1,8 +1,21 @@
 'use client'
 import { FaLocationArrow } from "react-icons/fa6";
 import MagicButton from "@/components/ui/MagicButton";
-
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 export const Footer = () => {
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100
+      }
+    }
+  };
   return (
     <footer className="w-full pt-20 pb-10 bg-white dark:bg-black-100" id="contact">
 
@@ -25,17 +38,31 @@ export const Footer = () => {
           Reach out to me today and let&apos;s discuss how I can help you
           achieve your goals.
         </p>
-        <a  href="mailto:milankatira26@gmail.com">
-          <MagicButton
-            title="Let's get in touch"
-            icon={<FaLocationArrow />}
-            position="right"
-          />
-        </a>
+        <motion.div variants={itemVariants}>
+          <Button
+            asChild
+            size="lg"
+            className={cn(
+              "relative group bg-gradient-to-br from-black to-gray-900 border border-gray-800",
+              "hover:shadow-md hover:border-gray-700 hover:from-black hover:to-gray-800",
+              "transition-all duration-300 ease-out"
+            )}
+          >
+
+            <a href="mailto:milankatira26@gmail.com" className="flex items-center gap-2 text-white">
+              <span>Let's get in touch</span>
+              <span className="inline-block transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 duration-200">
+                <FaLocationArrow className="h-4 w-4" />
+              </span>
+
+              <span className="absolute -inset-0.5 -z-10 rounded-lg bg-gradient-to-b from-blue-600/20 to-purple-600/20 opacity-0 blur-xl transition-opacity group-hover:opacity-100" />
+            </a>
+          </Button>
+        </motion.div>
       </div>
       <div className="flex mt-16 md:flex-row flex-col justify-center items-center opacity-70">
         <p className="md:text-base text-sm md:font-normal font-light">
-          Copyright © {new Date().getFullYear()} @ milankatira
+          Copyright © {new Date().getFullYear()}  milankatira
         </p>
       </div>
     </footer>

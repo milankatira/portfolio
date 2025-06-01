@@ -206,16 +206,16 @@ const Hero = () => {
           </motion.a>
 
           <motion.a
-            href="/resume.pdf"
-            download
-            className="group p-2 bg-gray-900/50 hover:bg-green-700 rounded-full transition-colors duration-300"
-            variants={socialItemVariants}
-            aria-label="Download Resume"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Download className="h-5 w-5 text-gray-200 group-hover:text-white transition-colors" />
-          </motion.a>
+      href="/milan_katira_resume.pdf"
+      download="milan_katira_resume.pdf"
+      className="group p-2 bg-gray-900/50 hover:bg-green-700 rounded-full transition-colors duration-300"
+      variants={socialItemVariants}
+      aria-label="Download Resume"
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      <Download className="h-5 w-5 text-gray-200 group-hover:text-white transition-colors" />
+    </motion.a>
         </motion.div>
 
         <motion.div variants={itemVariants}>
