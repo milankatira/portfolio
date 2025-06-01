@@ -8,6 +8,15 @@ importers:
 
   .:
     dependencies:
+      '@content-collections/core':
+        specifier: ^0.8.0
+        version: 0.8.2(typescript@5.8.3)
+      '@content-collections/next':
+        specifier: ^0.2.4
+        version: 0.2.6(@content-collections/core@0.8.2(typescript@5.8.3))(next@15.1.6(@babel/core@7.26.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))
+      '@eslint/eslintrc':
+        specifier: ^3
+        version: 3.3.1
       '@million/lint':
         specifier: ^1.0.14
         version: 1.0.14
@@ -26,9 +35,24 @@ importers:
       '@radix-ui/react-toast':
         specifier: ^1.2.6
         version: 1.2.14(@types/react-dom@19.1.5(@types/react@19.1.5))(@types/react@19.1.5)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@tailwindcss/typography':
+        specifier: ^0.5.16
+        version: 0.5.16(tailwindcss@3.4.17)
       '@types/canvas-confetti':
         specifier: ^1.9.0
         version: 1.9.0
+      '@types/node':
+        specifier: ^20
+        version: 20.17.50
+      '@types/nodemailer':
+        specifier: ^6.4.17
+        version: 6.4.17
+      '@types/react':
+        specifier: ^19
+        version: 19.1.5
+      '@types/react-dom':
+        specifier: ^19
+        version: 19.1.5(@types/react@19.1.5)
       autoprefixer:
         specifier: ^10.4.21
         version: 10.4.21(postcss@8.5.3)
@@ -53,6 +77,12 @@ importers:
       embla-carousel-react:
         specifier: ^8.5.2
         version: 8.6.0(react@19.1.0)
+      eslint:
+        specifier: ^9
+        version: 9.27.0(jiti@1.21.7)
+      eslint-config-next:
+        specifier: 15.1.6
+        version: 15.1.6(eslint@9.27.0(jiti@1.21.7))(typescript@5.8.3)
       framer-motion:
         specifier: ^12.12.1
         version: 12.12.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -80,6 +110,9 @@ importers:
       nodemailer:
         specifier: ^6.10.0
         version: 6.10.1
+      postcss:
+        specifier: ^8
+        version: 8.5.3
       react:
         specifier: ^19.0.0
         version: 19.1.0
@@ -101,52 +134,18 @@ importers:
       tailwind-merge:
         specifier: ^3.0.1
         version: 3.3.0
-      tailwindcss-animate:
-        specifier: ^1.0.7
-        version: 1.0.7(tailwindcss@3.4.17)
-      zustand:
-        specifier: ^5.0.3
-        version: 5.0.5(@types/react@19.1.5)(react@19.1.0)(use-sync-external-store@1.5.0(react@19.1.0))
-    devDependencies:
-      '@content-collections/core':
-        specifier: ^0.8.0
-        version: 0.8.2(typescript@5.8.3)
-      '@content-collections/next':
-        specifier: ^0.2.4
-        version: 0.2.6(@content-collections/core@0.8.2(typescript@5.8.3))(next@15.1.6(@babel/core@7.26.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))
-      '@eslint/eslintrc':
-        specifier: ^3
-        version: 3.3.1
-      '@tailwindcss/typography':
-        specifier: ^0.5.16
-        version: 0.5.16(tailwindcss@3.4.17)
-      '@types/node':
-        specifier: ^20
-        version: 20.17.50
-      '@types/nodemailer':
-        specifier: ^6.4.17
-        version: 6.4.17
-      '@types/react':
-        specifier: ^19
-        version: 19.1.5
-      '@types/react-dom':
-        specifier: ^19
-        version: 19.1.5(@types/react@19.1.5)
-      eslint:
-        specifier: ^9
-        version: 9.27.0(jiti@1.21.7)
-      eslint-config-next:
-        specifier: 15.1.6
-        version: 15.1.6(eslint@9.27.0(jiti@1.21.7))(typescript@5.8.3)
-      postcss:
-        specifier: ^8
-        version: 8.5.3
       tailwindcss:
         specifier: ^3.4.1
         version: 3.4.17
+      tailwindcss-animate:
+        specifier: ^1.0.7
+        version: 1.0.7(tailwindcss@3.4.17)
       typescript:
         specifier: ^5
         version: 5.8.3
+      zustand:
+        specifier: ^5.0.3
+        version: 5.0.5(@types/react@19.1.5)(react@19.1.0)(use-sync-external-store@1.5.0(react@19.1.0))
 
 packages:
 
