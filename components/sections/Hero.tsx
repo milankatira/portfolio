@@ -149,7 +149,7 @@ const Hero = () => {
           className="mt-4 text-center md:tracking-wider mb-8 text-sm md:text-base lg:text-lg text-gray-400"
           variants={itemVariants}
         >
-          I'm Milan Katira — a full-stack engineer with a frontend soul and backend brawn. From React components to blockchain APIs, I build performant, scalable, and delightful digital experiences.
+          I'm Milan Katira — a full-stack engineer with a frontend soul and backend brawn. From React components to APIs, I build performant, scalable, and delightful digital experiences.
         </motion.p>
 
         <motion.p
