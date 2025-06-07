@@ -142,7 +142,7 @@ const Hero = () => {
           className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-center leading-tight tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400"
           variants={itemVariants}
         >
-          I Build Product. I write code. <div className="text-cyan-500">I build magic.</div>
+          I build products that scale. I write clean code. <div className="text-cyan-500">I create digital experiences.</div>
         </motion.h1>
 
         <motion.p
@@ -156,7 +156,7 @@ const Hero = () => {
           className="mb-6 text-center text-sm md:text-base text-amber-400"
           variants={itemVariants}
         >
-          Coffee-powered. TypeScript-native. Tailwind-lover. 🔥
+          Powered by clean code, TypeScript expertise, and modern frameworks.
         </motion.p>
 
         {/* Social Icons */}
@@ -198,7 +198,7 @@ const Hero = () => {
             rel="noopener noreferrer"
             className="group p-2 bg-gray-900/50 hover:bg-blue-500 rounded-full transition-colors duration-300"
             variants={socialItemVariants}
-            aria-label="Twitter Profile"
+            aria-label="Email Contact"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >

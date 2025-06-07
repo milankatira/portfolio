@@ -16,7 +16,6 @@ interface ExperienceEntry {
   color: string
 }
 
-// Define the work experience data with professional colors
 const workExperience: ExperienceEntry[] = [
   {
     id: "instaservice",
@@ -26,9 +25,9 @@ const workExperience: ExperienceEntry[] = [
     location: "Remote (USA)",
     color: "#06b6d4", // Changed color to a brighter red
     details: [
-      "Led the end-to-end development of Instaservice.com, a scalable on-demand services platform, using TypeScript, React, React Query, and tailwind css.",
+      "Led the end-to-end development of Instaservice.com, a scalable on-demand services platform, using TypeScript, React, React Query, and Tailwind CSS.",
       "Designed and implemented a robust design system and reusable component library using Storybook, enabling consistent UI/UX and accelerating team-wide development.",
-      "Architected and shipped full-featured platforms including:",
+      "Developed and deployed comprehensive platforms including:",
       "  - Customer Web App: dynamic service listings, real-time booking and scheduling, quote requests, timezone-aware interfaces, and localized i18n.",
       "  - Business Owner Dashboard: real-time chat, service request handling, analytics, and availability management.",
       "Integrated SEO optimization strategies (meta tags, structured data, server hints) and improved Core Web Vitals—driving significant growth in organic reach.",
@@ -190,17 +189,7 @@ export function ExperienceSection() {
       className="min-h-screen lg:h-screen py-12 relative overflow-hidden w-screen bg-white dark:bg-black-100 z-10"
       aria-labelledby="experience-heading"
     >
-      {/* Background elements */}
-      {/* <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:30px_30px]" />
-      <div className="absolute inset-0 bg-gradient-radial from-gray-900/0 to-gray-950 pointer-events-none" /> */}
 
-      {/* <div className="w-full absolute left-0 bottom-0 min-h-96">
-        <img
-          src="/footer-grid.svg"
-          alt="grid"
-          className="w-full h-full opacity-50"
-        />
-      </div> */}
 
 
       <div className="container mx-auto px-4 h-full flex flex-col max-w-7xl">
@@ -212,7 +201,7 @@ export function ExperienceSection() {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
             )}
           >
-            Work Experience
+            Professional Experience
           </h2>
           <p
             className={cn(
@@ -220,7 +209,7 @@ export function ExperienceSection() {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
             )}
           >
-   Built through meaningful shifts
+            Building scalable solutions across diverse technology stacks
           </p>
         </div>
 
