@@ -1,9 +1,9 @@
 'use client'
 import { FaLocationArrow } from "react-icons/fa6";
-import MagicButton from "@/components/ui/MagicButton";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+
 export const Footer = () => {
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
@@ -16,16 +16,15 @@ export const Footer = () => {
       }
     }
   };
+
   return (
     <footer className="w-full pt-20 pb-10 bg-white dark:bg-black-100" id="contact">
-
-      {/* <div className="relative mx-auto mb-8 h-px w-full bg-transparent"><div className="absolute top-0 left-1/2 w-[224px] -translate-x-1/2 bg-gradient-to-r from-transparent via-white/70 to-transparent blur-[2px] h-[2px]"></div></div> */}
-      {/* background grid */}
+      {/* Background grid */}
       <div className="w-full absolute left-0 bottom-0 min-h-96">
         <img
           src="/footer-grid.svg"
           alt="grid"
-          className="w-full h-full opacity-50 "
+          className="w-full h-full opacity-50"
         />
       </div>
 
@@ -48,25 +47,22 @@ export const Footer = () => {
               "transition-all duration-300 ease-out"
             )}
           >
-
             <a href="mailto:milankatira26@gmail.com" className="flex items-center gap-2 text-white">
-              <span>Let's get in touch</span>
+              <span>Let&apos;s get in touch</span>
               <span className="inline-block transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 duration-200">
                 <FaLocationArrow className="h-4 w-4" />
               </span>
-
               <span className="absolute -inset-0.5 -z-10 rounded-lg bg-gradient-to-b from-blue-600/20 to-purple-600/20 opacity-0 blur-xl transition-opacity group-hover:opacity-100" />
             </a>
           </Button>
         </motion.div>
       </div>
+
       <div className="flex mt-16 md:flex-row flex-col justify-center items-center opacity-70">
         <p className="md:text-base text-sm md:font-normal font-light">
-          Copyright © {new Date().getFullYear()}  milankatira
+          Copyright © {new Date().getFullYear()} Milan Katira
         </p>
       </div>
     </footer>
   );
 };
-
-
