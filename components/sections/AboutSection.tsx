@@ -1,194 +1,135 @@
 "use client"
 
-import { useEffect, useState } from 'react'
-import { cn } from '@/lib/utils'
-import { GlowCard } from '@/components/ui/animations/glow-card'
-import { Award, Book, Code, Lightbulb, User, Wrench, GraduationCap } from 'lucide-react' // Added icons for new sections
+import { motion } from "framer-motion"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
-// Define data for different sections within the About page
-const aboutSections = [
-  {
-    id: 'bio',
-    name: 'Bio',
-    icon: <User className="h-5 w-5 mr-2" />, // Icon for Bio
-    content: (
-      <div className="space-y-4 text-muted-foreground">
-        <p>
-          With over 4 years of experience in full-stack development, I specialize in building responsive, performant, and accessible web applications that solve real-world problems.
-        </p>
-        <p>
-          My journey began with a deep fascination for web technologies and a desire to create meaningful digital experiences. Since then, I've worked with a diverse range of clients and projects, from startups to enterprise applications.
-        </p>
-        <p>
-          I'm particularly passionate about front-end architecture, state management, and creating delightful user experiences that marry form and function seamlessly.
-        </p>
-        <p>
-          When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, or sharing my knowledge through technical writing and mentorship.
-        </p>
-      </div>
-    ),
-  },
-  {
-    id: 'highlights',
-    name: 'Highlights',
-    icon: <Lightbulb className="h-5 w-5 mr-2" />, // Icon for Highlights
-    content: (
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {/* Existing highlights data */}
-        {[
-          {
-            icon: <Code className="h-8 w-8 text-primary" />,
-            title: "Web Development",
-            description: "Expert in React, TypeScript, Next.js, and Node.js for building modern web applications."
-          },
-          {
-            icon: <Award className="h-8 w-8 text-chart-1" />,
-            title: "Quality Focus",
-            description: "Dedicated to writing clean, maintainable code with comprehensive testing strategies."
-          },
-          {
-            icon: <Book className="h-8 w-8 text-chart-2" />,
-            title: "Continuous Learning",
-            description: "Always learning new technologies and best practices to stay at the cutting edge."
-          },
-          {
-            icon: <Lightbulb className="h-8 w-8 text-chart-4" />,
-            title: "Problem Solver",
-            description: "Analytical thinker who enjoys finding elegant solutions to complex problems."
-          }
-        ].map((highlight, index) => (
-          <GlowCard
-            key={index}
-            className="p-6 h-full"
-          >
-            <div className="flex flex-col h-full">
-              <div className="mb-4">{highlight.icon}</div>
-              <h3 className="text-xl font-bold mb-2">{highlight.title}</h3>
-              <p className="text-muted-foreground text-sm">{highlight.description}</p>
-            </div>
-          </GlowCard>
-        ))}
-      </div>
-    ),
-  },
-  // You can add more sections here, e.g., Skills, Education, Interests
-  // {
-  //   id: 'skills',
-  //   name: 'Skills',
-  //   icon: <Wrench className="h-5 w-5 mr-2" />,
-  //   content: (
-  //     <div>
-  //       <h3 className="text-2xl font-bold mb-4">Skills</h3>
-  //       {/* Add your skills content here */}
-  //     </div>
-  //   ),
-  // },
-  // {
-  //   id: 'education',
-  //   name: 'Education',
-  //   icon: <GraduationCap className="h-5 w-5 mr-2" />,
-  //   content: (
-  //     <div>
-  //       <h3 className="text-2xl font-bold mb-4">Education</h3>
-  //       {/* Add your education content here */}
-  //     </div>
-  //   ),
-  // },
+const defaultTechnologies = [
+  "React",
+  "TypeScript",
+  "Next.js",
+  "Node.js",
+  "Python",
+  "PostgreSQL",
+  "AWS",
+  "Docker",
+  "GraphQL",
+  "REST APIs",
 ]
 
-export function AboutSection() {
-  const [isVisible, setIsVisible] = useState(false)
-  const [selectedSectionId, setSelectedSectionId] = useState(aboutSections[0].id) // State to track selected section
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      duration: 0.6,
+    },
+  },
+}
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-          observer.disconnect()
-        }
-      },
-      { threshold: 0.2 }
-    )
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+}
 
-    const section = document.getElementById('about')
-    if (section) {
-      observer.observe(section)
-    }
+const techVariants = {
+  hidden: { opacity: 0, scale: 0.85 },
+  visible: (i: number) => ({
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delay: i * 0.05,
+      duration: 0.35,
+      ease: "easeOut",
+    },
+  }),
+}
 
-    return () => {
-      observer.disconnect()
-    }
-  }, [])
-
-  const selectedSection = aboutSections.find(section => section.id === selectedSectionId)
-
+export default function AboutSection({ technologies = defaultTechnologies }) {
   return (
     <section
       id="about"
-      className="py-24 relative bg-muted/30"
+      aria-label="About Me"
+      className="text-gray-300 py-20 px-6 md:px-8 z-50 w-full max-w-[1200px] mx-auto"
     >
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2
-            className={cn(
-              "text-3xl md:text-4xl font-bold mb-4 transition-all duration-700",
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            )}
-          >
-            About Me
-          </h2>
-          <p
-            className={cn(
-              "text-xl text-muted-foreground max-w-2xl mx-auto transition-all duration-700 delay-100",
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            )}
-          >
-            A passionate developer dedicated to crafting exceptional digital experiences.
-          </p>
+      <motion.div
+        className="grid md:grid-cols-3 gap-10 items-start"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={containerVariants}
+      >
+        {/* Left: About Text */}
+        <div className="md:col-span-2 space-y-6">
+          <motion.p className="text-lg leading-8" variants={itemVariants}>
+            I'm a <span className="text-cyan-400 font-semibold">full-stack engineer</span> with a passion for building performant, scalable, and elegant digital products. With{" "}
+            <span className="text-white font-semibold">5+ years of experience</span>, I specialize in creating AI-driven SaaS platforms, responsive user interfaces, and modern backend systems.
+          </motion.p>
+
+          <motion.p className="text-lg leading-8" variants={itemVariants}>
+            I work with <span className="text-cyan-400 font-semibold">React, TypeScript, Node.js, and scalable design systems</span> to architect frontends and collaborate closely with backend and product teams. I've contributed to platforms serving{" "}
+            <span className="text-white font-semibold">20,000+ active users weekly</span>.
+          </motion.p>
+
+          <motion.p className="text-lg leading-8" variants={itemVariants}>
+            Outside of engineering, I mentor junior developers, contribute to open-source, and share my learnings through articles and tech talks.
+          </motion.p>
+
+          <motion.p className="text-lg leading-8" variants={itemVariants}>
+            Currently focused on DX with React 18+, internal tooling, and scaling UI systems across teams with clean code and modern frameworks.
+          </motion.p>
+
+          <motion.div variants={itemVariants}>
+            <Button
+              asChild
+            >
+              <Link
+                href="/Milan_Katira_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Download Resume
+              </Link>
+            </Button>
+          </motion.div>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-8 md:gap-12">
-          {/* Left Column: Section Navigation */}
-          <div
-            className={cn(
-              "w-full md:w-1/4 flex flex-col space-y-4 transition-all duration-700 delay-200",
-              isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
-            )}
+        {/* Right: Core Technologies */}
+        <motion.div className="space-y-4" variants={itemVariants}>
+          <motion.h3
+            className="text-2xl font-semibold text-white mb-4"
+            variants={itemVariants}
           >
-            {aboutSections.map((section) => (
-              <button
-                key={section.id}
-                className={cn(
-                  "flex items-center px-4 py-3 rounded-lg text-left transition-colors",
-                  selectedSectionId === section.id
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground hover:bg-muted"
-                )}
-                onClick={() => setSelectedSectionId(section.id)}
+            Core Technologies
+          </motion.h3>
+          <div className="flex flex-wrap gap-3">
+            {technologies.map((tech, index) => (
+              <motion.div
+                key={tech}
+                custom={index}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={techVariants}
+                whileHover={{ scale: 1.08 }}
               >
-                {section.icon}
-                <span className="font-medium">{section.name}</span>
-              </button>
+                <Badge className="bg-[#1e293b] hover:bg-[#334155] text-cyan-400 border border-[#334155] py-1.5 px-4 text-sm rounded-full transition-colors duration-200">
+                  {tech}
+                </Badge>
+              </motion.div>
             ))}
           </div>
-
-          {/* Right Column: Section Content */}
-          <div
-            className={cn(
-              "w-full md:w-3/4 transition-all duration-700 delay-300",
-              isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"
-            )}
-          >
-            {selectedSection && (
-              <div className="space-y-6">
-                 <h3 className="text-2xl font-bold">{selectedSection.name}</h3> {/* Add section title */}
-                {selectedSection.content}
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   )
 }

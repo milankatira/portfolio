@@ -7,6 +7,7 @@ import ProjectSection from '@/components/sections/ProjectSection';
 import Testimonials from '@/components/Testimonials';
 import { BlogSection } from '@/components/sections/BlogSection';
 import axios from 'axios';
+import AboutSection from '@/components/sections/AboutSection';
 
 export default async function Home() {
   interface BlogPost {
@@ -29,6 +30,7 @@ export default async function Home() {
       <Hero />
       <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">
         <FloatingNav navItems={navItems} />
+        <AboutSection />
         <ExperienceSection />
         <div className="max-w-7xl w-full">
           <TechStackSection />
