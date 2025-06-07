@@ -23,9 +23,9 @@ const workExperience: ExperienceEntry[] = [
     title: "Senior Software Engineer",
     duration: "Aug 2023 – Present",
     location: "Remote (USA)",
-    color: "#06b6d4", // Changed color to a brighter red
+    color: "#06b6d4",
     details: [
-      "Led the end-to-end development of Instaservice.com, a scalable on-demand services platform, using TypeScript, React, React Query, and Tailwind CSS.",
+      "Led the end-to-end frontend development of Instaservice.com, a scalable on-demand services platform, using TypeScript, React, React Query, and Tailwind CSS.",
       "Designed and implemented a robust design system and reusable component library using Storybook, enabling consistent UI/UX and accelerating team-wide development.",
       "Developed and deployed comprehensive platforms including:",
       "  - Customer Web App: dynamic service listings, real-time booking and scheduling, quote requests, timezone-aware interfaces, and localized i18n.",
@@ -42,11 +42,14 @@ const workExperience: ExperienceEntry[] = [
     title: "Senior Software Engineer",
     duration: "Feb 2023 – Aug 2023",
     location: "Remote (Singapore)",
-    color: "#6366F1", // Professional indigo
+    color: "#6366F1",
     details: [
-      "Improved UI/UX, reducing user friction by 15% and boosting task completion by 10%.",
-      "Mentored 3 junior developers, ensuring production-level output.",
-      "Participated in hiring 3 top candidates from 20+ interviews.",
+      "Contributed to the frontend of a high-scale AI-powered edtech platform used by 20,000+ active students weekly.",
+      "Built responsive and scalable user interfaces using React and Preact, styled with SCSS, and integrated advanced charting libraries for visualizing learning progress.",
+      "Enhanced user experience through design collaboration, resulting in a 15% reduction in friction and a 10% increase in task completion.",
+      "Implemented analytics tools such as Google Analytics and Google Tag Manager to track key user interactions and improve engagement.",
+      "Mentored three junior developers and deployed frontend features in coordination with backend Node.js services via CI/CD pipelines.",
+      "Participated in hiring by conducting technical interviews for 20+ candidates and onboarding three successful hires.",
     ],
   },
   {
@@ -55,16 +58,21 @@ const workExperience: ExperienceEntry[] = [
     title: "Junior Software Engineer",
     duration: "Oct 2021 – Feb 2023",
     location: "Ahmedabad, India",
-    color: "#2DD4BF", // Professional teal
+    color: "#2DD4BF",
     details: [
-      "Worked across frontend (React/Next) and backend (NodeJS, MongoDB) using test-driven development.",
-      "Led projects like Revolt-Summit, Hirefast, and Revolt-DTC.",
-      "Contributed to Nike's codebase with 100% test coverage for utility functions.",
-      "Scaled Revolt Summit API to handle 8.7M requests in 48h and 15k users daily.",
-      "Built smart contracts in Solidity for BSC and Hedera Hashgraph.",
+      "Developed and maintained full-stack applications using ReactJS, NextJS, NodeJS, and MongoDB, applying test-driven development to ensure high code quality and reliability.",
+      "Designed RESTful APIs and created scalable database models, supporting multiple production-level systems across different use cases.",
+      "build frontend and backend development efforts on several large-scale platforms:",
+      "  - Engineered a backend system that handled 8.7 million API requests within 48 hours and supported over 15,000 unique users per day.",
+      "  - Built a comprehensive interview and hiring platform with Google Meet and Zoom integration, online coding and MCQ assessments, and optimized memory usage (1.2 GB RAM handling 300+ sessions).",
+      "  - Delivered reusable UI components and dynamic user flows for a high-volume video content platform using ReactJS and modular design principles.",
+      "Contributed to a global retail technology project by writing utility functions with 100% unit test coverage and implementing complex modal and interface logic.",
+      "Collaborated with blockchain developers to write and deploy smart contracts in Solidity, integrating with Binance Smart Chain (BSC) and Hedera Hashgraph.",
+      "Participated in the backend architecture for a distributed application ecosystem, incorporating tools like Contentful CMS, Customer.io, and JW Player API to enable content management and automation.",
     ],
   },
-]
+];
+
 
 export function ExperienceSection() {
   const [isVisible, setIsVisible] = useState(false)
