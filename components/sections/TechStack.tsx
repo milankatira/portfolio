@@ -49,7 +49,6 @@ const devTools = [
 
   // Payment Gateways
   { name: "Stripe", slug: "stripe" },
-  { name: "Lemon Squeezy", slug: "lemonsqueezy" },
 ];
 
 const frontEndIcons = frontEndTech.map((tech) => ({
