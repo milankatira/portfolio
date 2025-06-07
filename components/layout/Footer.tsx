@@ -3,6 +3,7 @@ import { FaLocationArrow } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 export const Footer = () => {
   const itemVariants = {
@@ -58,11 +59,44 @@ export const Footer = () => {
         </motion.div>
       </div>
 
-      <div className="flex mt-16 md:flex-row flex-col justify-center items-center opacity-70">
+      <div className="flex mt-16 md:flex-row flex-col items-center opacity-70 justify-between">
         <p className="md:text-base text-sm md:font-normal font-light">
           Copyright © {new Date().getFullYear()} Milan Katira
         </p>
+<motion.div variants={itemVariants} className="flex gap-4">
+  <motion.a
+    href="https://github.com/milankatira"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="group p-2 bg-gray-900/50 hover:bg-gray-800 rounded-full transition-colors duration-300"
+    whileHover={{ scale: 1.1 }}
+    whileTap={{ scale: 0.95 }}
+  >
+    <Github className="h-5 w-5 text-gray-200 group-hover:text-white transition-colors" />
+  </motion.a>
+
+  <motion.a
+    href="https://linkedin.com/in/milankatira"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="group p-2 bg-gray-900/50 hover:bg-blue-600 rounded-full transition-colors duration-300"
+    whileHover={{ scale: 1.1 }}
+    whileTap={{ scale: 0.95 }}
+  >
+    <Linkedin className="h-5 w-5 text-gray-200 group-hover:text-white transition-colors" />
+  </motion.a>
+
+  <motion.a
+    href="mailto:milankatira26@gmail.com"
+    className="group p-2 bg-gray-900/50 hover:bg-cyan-600 rounded-full transition-colors duration-300"
+    whileHover={{ scale: 1.1 }}
+    whileTap={{ scale: 0.95 }}
+  >
+    <Mail className="h-5 w-5 text-gray-200 group-hover:text-white transition-colors" />
+  </motion.a>
+</motion.div>
       </div>
     </footer>
   );
 };
+
