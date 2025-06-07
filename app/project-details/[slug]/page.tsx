@@ -1,12 +1,8 @@
 import { notFound } from 'next/navigation';
-import { Button } from '@/components/ui/button'; // Assuming you have a Button component
-import { ExternalLink, Github } from 'lucide-react'; // Assuming you have lucide-react installed
-import Image from 'next/image'; // Assuming you use Next.js Image component
+import { Button } from '@/components/ui/button';
+import { ExternalLink, Github } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
-
-// This function is required for Next.js dynamic routes with generateStaticParams
-// It tells Next.js which slugs to pre-render at build time.
-
 
 interface ProjectDetailsPageProps {
     params: {
@@ -14,139 +10,145 @@ interface ProjectDetailsPageProps {
     };
 }
 
-export default function ProjectDetailsPage({ params }: ProjectDetailsPageProps) {
-    // data/projects.ts
-
-    const project =
+const projects = [
     {
-        slug: 'awesome-project',
-        title: 'Awesome Project',
-        category: 'web',
-        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        fullDescription: 'This is an awesome web project showcasing my frontend skills.',
-        technologies: ['React', 'Next.js', 'Tailwind CSS'],
+        slug: 'shipright',
+        title: 'Shipright',
+        category: 'Web Application',
+        status: 'Completed',
+        goal: 'Build a user feedback tool for product teams to prioritize roadmap items.',
+        image: 'https://cdn.jsdelivr.net/gh/milankatira/project-videos/shipright/shipright-1.png',
+        fullDescription:
+            'Shipright is a comprehensive user feedback and feature voting platform. It empowers product managers to collect, manage, and act on user insights efficiently through a visual dashboard. With features like customizable themes and real-time analytics, Shipright helps businesses prioritize what truly matters to their users.',
+        technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Clerk', 'Prisma', 'MongoDB'],
         features: [
-            'Responsive Design',
-            'SEO Optimized',
-            'Fast Loading',
+            'Feature voting system with prioritization',
+            'Real-time analytics dashboard',
+            'Customizable themes and branding',
+            'User authentication integration',
+            'Responsive design for all devices',
         ],
         images: [
-            'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-            'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-          ],
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/shipright/shipright-1.png',
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/shipright/shipright-2.png',
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/shipright/shipright-3.png',
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/shipright/shipright-4.png',
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/shipright/shipright-5.png',
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/shipright/shipright-6.png',
+        ],
         videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-        demoUrl: 'https://example.com/awesome-project',
-        repoUrl: 'https://github.com/yourname/awesome-project',
-    }
+        demoUrl: 'https://shipright.example.com',
+        repoUrl: 'https://github.com/yourname/shipright',
+    },
+];
 
+export default function ProjectDetailsPage({ params }: ProjectDetailsPageProps) {
+    const project = projects.find((p) => p.slug === params.slug);
+
+    if (!project) return notFound();
 
     return (
-        <div className="container mx-auto px-4 py-12">
-            <div className="max-w-4xl mx-auto">
-                {/* Back button */}
-                <Link href="/#projects" className="text-primary hover:underline mb-8 inline-block">
+        <div className="container mx-auto px-4 py-12 text-white z-50">
+            <div className="max-w-5xl mx-auto">
+                <Link href="/#projects" className="text-primary hover:underline mb-6 inline-block">
                     &larr; Back to Projects
                 </Link>
 
-                {/* Project Title */}
-                <h1 className="text-4xl md:text-5xl font-bold mb-6">{project.title}</h1>
+                <h1 className="text-4xl md:text-5xl font-bold mb-4">{project.title}</h1>
 
-                {/* Project Category */}
-                <span className="px-3 py-1 text-sm rounded-full bg-primary/10 text-primary mb-8 inline-block">
-                    {project.category.charAt(0).toUpperCase() + project.category.slice(1)}
+                <span className="inline-block mb-6 px-3 py-1 text-sm rounded-full bg-primary/10 text-primary">
+                    {project.category}
                 </span>
 
-                {/* Main Image */}
                 {project.image && (
-                    <div className="relative w-full h-80 md:h-96 rounded-lg overflow-hidden mb-8">
-                        <Image
-                            src={project.image}
-                            alt={project.title}
-                            fill
-                            className="object-cover"
-                        />
+                    <div className="relative w-full h-80 md:h-[28rem] rounded-xl overflow-hidden mb-10 shadow-lg">
+                        <Image src={project.image} alt={project.title} fill className="object-cover" />
                     </div>
                 )}
 
-                {/* Full Description */}
-                <div className="prose dark:prose-invert max-w-none mb-8">
-                    <p>{project.fullDescription}</p>
-                    {/* You can add more structured content here based on your data */}
-                </div>
+                {/* Overview Section */}
+                <section className="mb-12">
+                    <h2 className="text-2xl font-semibold mb-4">Project Overview</h2>
+                    <div className="prose dark:prose-invert max-w-none">
+                        <p>{project.fullDescription}</p>
+                    </div>
 
-                {/* Technologies Used */}
-                {project.technologies && project.technologies.length > 0 && (
-                    <div className="mb-8">
-                        <h2 className="text-2xl font-bold mb-4">Technologies Used</h2>
-                        <div className="flex flex-wrap gap-2">
-                            {project.technologies.map((tech, index) => (
-                                <span
-                                    key={index}
-                                    className="px-3 py-1 text-sm rounded-full bg-secondary text-secondary-foreground"
-                                >
-                                    {tech}
-                                </span>
-                            ))}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 text-sm text-muted-foreground">
+                        <div>
+                            <strong>Status:</strong> {project.status}
+                        </div>
+                        <div>
+                            <strong>Goal:</strong> {project.goal}
                         </div>
                     </div>
-                )}
+                </section>
+
+                {/* Technologies */}
+                <section className="mb-12">
+                    <h2 className="text-2xl font-semibold mb-4">Technologies Used</h2>
+                    <div className="flex flex-wrap gap-2">
+                        {project.technologies.map((tech, i) => (
+                            <span
+                                key={i}
+                                className="bg-secondary text-secondary-foreground text-sm px-3 py-1 rounded-full"
+                            >
+                                {tech}
+                            </span>
+                        ))}
+                    </div>
+                </section>
 
                 {/* Features */}
-                {project.features && project.features.length > 0 && (
-                    <div className="mb-8">
-                        <h2 className="text-2xl font-bold mb-4">Key Features</h2>
-                        <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                            {project.features.map((feature, index) => (
-                                <li key={index}>{feature}</li>
-                            ))}
-                        </ul>
-                    </div>
-                )}
+                <section className="mb-12">
+                    <h2 className="text-2xl font-semibold mb-4">Key Features</h2>
+                    <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
+                        {project.features.map((feature, i) => (
+                            <li key={i}>{feature}</li>
+                        ))}
+                    </ul>
+                </section>
 
-                {/* Additional Images */}
-                {project.images && project.images.length > 0 && (
-                    <div className="mb-8">
-                        <h2 className="text-2xl font-bold mb-4">Screenshots</h2>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            {project.images.map((imgSrc, index) => (
-                                <div key={index} className="relative w-full h-48 rounded-lg overflow-hidden">
-                                    <Image
-                                        src={imgSrc}
-                                        alt={`${project.title} Screenshot ${index + 1}`}
-                                        fill
-                                        className="object-cover"
-                                    />
-                                </div>
-                            ))}
-                        </div>
+                {/* Screenshots */}
+                <section className="mb-12">
+                    <h2 className="text-2xl font-semibold mb-4">Screenshots</h2>
+                    <div className='flex gap-4 flex-col'>
+                        {project.images.map((src, i) => (
+                            <div key={i} className="relative w-full h-full rounded-lg overflow-hidden shadow">
+                                <Image
+                                    src={src}
+                                    alt={`${project.title} Screenshot ${i + 1}`}
+                              width={1000}
+                              height={1000}
+                                    className="object-cover h-full w-full"
+                                />
+                            </div>
+                        ))}
                     </div>
-                )}
+                </section>
 
                 {/* Video */}
                 {project.videoUrl && (
-                    <div className="mb-8">
-                        <h2 className="text-2xl font-bold mb-4">Video Demo</h2>
-                        <div className="relative w-full aspect-video rounded-lg overflow-hidden">
-                            {/* You might need a component to handle different video sources (YouTube, Vimeo, etc.) */}
+                    <section className="mb-12">
+                        <h2 className="text-2xl font-semibold mb-4">Video Demo</h2>
+                        <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
                             <iframe
-                                src={project.videoUrl.replace("watch?v=", "embed/")} // Basic YouTube embed conversion
-                                title={`${project.title} Video Demo`}
+                                src={project.videoUrl.replace('watch?v=', 'embed/')}
+                                title={`${project.title} Demo`}
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowFullScreen
                                 className="absolute top-0 left-0 w-full h-full"
                             ></iframe>
                         </div>
-                    </div>
+                    </section>
                 )}
 
-
                 {/* Action Buttons */}
-                <div className="flex flex-wrap gap-4 mt-8">
+                <div className="flex flex-wrap gap-4 mt-10">
                     {project.demoUrl && (
                         <Button asChild size="lg">
                             <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer">
                                 <ExternalLink className="h-5 w-5 mr-2" />
-                                View Live Demo
+                                Live Demo
                             </Link>
                         </Button>
                     )}
