@@ -5,7 +5,7 @@ export default function ProjectSection() {
     // <section id="about">
     <section className="container py-16" id="about">
       <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-12">
-        All My Projects
+      Featured Projects
       </h1>
 
       <ProjectCard />
