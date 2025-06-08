@@ -59,7 +59,7 @@ export default function AboutSection({ technologies = defaultTechnologies }) {
     <section
       id="about"
       aria-label="About Me"
-      className="text-gray-300 py-20 px-6 md:px-8 z-50 w-full max-w-[1200px] mx-auto"
+      className="text-gray-300 py-20 px-6 sm:px-0 z-50 w-full max-w-[1200px] mx-auto"
     >
       <motion.div
         className="grid md:grid-cols-3 gap-10 items-start"
