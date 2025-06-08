@@ -12,6 +12,46 @@ interface ProjectDetailsPageProps {
 
 const projects = [
     {
+        slug: 'pingpanda',
+        title: 'Ping Panda',
+        category: 'Web Application',
+        status: 'Completed',
+        goal: 'Provide real‑time SaaS insights via Discord alerts for custom and critical events',
+        image: 'https://cdn.jsdelivr.net/gh/milankatira/project-videos/ping-panda/ping-panda-1.png',
+        fullDescription: 'Ping Panda is a modern SaaS platform that delivers real‑time event notifications (sales, sign‑ups, errors, etc.) to Discord, featuring a visual dashboard for tracking activity, Stripe-powered PRO plans, and easy setup through an intuitive API.',
+        technologies: [
+            'Next.js',
+            'Prisma (database ORM)',
+            'Node.js',
+            'TypeScript',
+            'Stripe API',
+            'Postgresql',
+            'Discord API',
+            'Tailwind CSS'
+        ],
+        features: [
+            'Complete SaaS built in modern Next.js',
+            'Beautiful landing page included',
+            'Custom artworks made by a professional illustrator',
+            'Real-time event messages via Discord',
+            'Clean & intuitive event monitoring dashboard',
+            'Secure payments using Stripe',
+            'Customers can purchase your PRO plan',
+            'Clean, modern UI on top of shadcn-ui',
+            'Authentication using Clerk',
+            '100% written in TypeScript'
+        ],
+        images: [
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/ping-panda/ping-panda-1.png',
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/ping-panda/ping-panda-2.png',
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/ping-panda/ping-panda-3.png',
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/ping-panda/ping-panda-4.png',
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/ping-panda/ping-panda-5.png'
+        ],
+        videoUrl: 'https://www.youtube.com/watch?v=pingpanda-demo',
+        repoUrl: 'https://github.com/milankatira/pingpanda'
+    },
+    {
         slug: 'shipright',
         title: 'Shipright',
         category: 'Web Application',
@@ -117,8 +157,8 @@ export default function ProjectDetailsPage({ params }: ProjectDetailsPageProps) 
                                 <Image
                                     src={src}
                                     alt={`${project.title} Screenshot ${i + 1}`}
-                              width={1000}
-                              height={1000}
+                                    width={1000}
+                                    height={1000}
                                     className="object-cover h-full w-full"
                                 />
                             </div>
