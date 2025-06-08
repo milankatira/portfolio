@@ -328,7 +328,7 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsPageP
                 </section>
 
                 {/* Video */}
-                {project.videoUrl && (
+                {/* {project.videoUrl && (
                     <section className="mb-12">
                         <h2 className="text-2xl font-semibold mb-4">Video Demo</h2>
                         <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
@@ -341,7 +341,7 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsPageP
                             ></iframe>
                         </div>
                     </section>
-                )}
+                )} */}
 
                 {/* Action Buttons */}
                 <div className="flex flex-wrap gap-4 mt-10">
