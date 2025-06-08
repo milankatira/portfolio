@@ -82,16 +82,23 @@ const projects = [
     },
 ];
 
-export default function ProjectDetailsPage({ params }: ProjectDetailsPageProps) {
-    const project = projects.find((p) => p.slug === params.slug);
+export default async function ProjectDetailsPage({ params }: ProjectDetailsPageProps) {
+    const { slug } = await params;
+    const project = projects.find((p) => p.slug === slug);
 
     if (!project) return notFound();
 
     return (
-        <div className="container mx-auto px-4 py-12 text-white z-50">
+        <div className="container mx-auto px-4 py-12 text-white z-50 relative">
             <div className="max-w-5xl mx-auto">
-                <Link href="/#projects" className="text-primary hover:underline mb-6 inline-block">
-                    &larr; Back to Projects
+                <Link
+                    href="/"
+                >
+                    <div
+                        className="text-primary  mb-6 inline-block cursor-pointer"
+                    >
+                        &larr; Back to Projects
+                    </div>
                 </Link>
 
                 <h1 className="text-4xl md:text-5xl font-bold mb-4">{project.title}</h1>
