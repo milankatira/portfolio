@@ -123,7 +123,56 @@ const projects = [
         ],
         videoUrl: '',
         repoUrl: 'https://github.com/milankatira/use-popup'
-    }
+    },
+    {
+        slug: 'feedspark',
+        title: 'FeedSpark',
+        category: 'SaaS Web Application',
+        status: 'Completed',
+        goal: 'Empower product teams to gather, analyze, and act on customer feedback to improve engagement and retention.',
+        image:'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-main.png',
+        fullDescription: `
+      FeedSpark is a full-featured feedback analytics platform that helps product teams turn user opinions into actionable insights. With customizable feedback forms, sentiment analysis, and detailed dashboards, teams can gather feedback from multiple touchpoints and understand what truly matters to their users. The platform includes automation via Slack/Email/Discord integrations and allows teams to close the loop with real-time updates and feedback workflows. Built with a full modern stack and clean UI, FeedSpark simplifies feedback collection, analytics, and response automation.
+        `.trim(),
+        technologies: [
+          'Next.js 14 (App Router)',
+          'TypeScript',
+          'Tailwind CSS',
+          'Shadcn UI',
+          'Lucide Icons',
+          'Prisma ORM',
+          'Mongodb',
+          'Zod',
+          'React Hook Form',
+          'React Query',
+        ],
+        features: [
+          'Customizable feedback forms with live preview and theming',
+          'Real-time analytics: sentiment breakdown, rating distribution, NPS',
+          'Feedback dashboard with filters and download options',
+          'Multi-channel automation: Slack, Email, Discord',
+          'Integrations module to manage and test connections',
+          'Insightful charts: customer trends, satisfaction scores, sentiment graphs',
+          'Campaign-level feedback flows with submission counts',
+          'Authentication using NextAuth.js (e.g., GitHub)',
+          'Responsive dark-mode UI using Shadcn UI & Tailwind',
+          'Feedback-based conditional automations (e.g., if rating ≤ 2, alert team)'
+        ],
+        images: [
+          'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-1.png',
+          'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-2.png',
+          'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-3.png',
+          'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-4.png',
+          'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-5.png',
+          'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-6.png',
+          'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-7.png',
+          'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-8.png',
+        ],
+        videoUrl: '',
+        demoUrl: 'https://feed-spark.vercel.app/',
+        repoUrl: 'https://github.com/milankatira/feed-spark'
+      }
+
 ];
 
 export default async function ProjectDetailsPage({ params }: ProjectDetailsPageProps) {
