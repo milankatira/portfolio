@@ -72,7 +72,7 @@ export default function AboutSection({ technologies = defaultTechnologies }) {
         <div className="md:col-span-2 space-y-6">
           <motion.p className="text-lg leading-8" variants={itemVariants}>
             I'm a <span className="text-cyan-400 font-semibold">full-stack engineer</span> with a passion for building performant, scalable, and elegant digital products. With{" "}
-            <span className="text-white font-semibold">5+ years of experience</span>, I specialize in creating AI-driven SaaS platforms, responsive user interfaces, and modern backend systems.
+            <span className="text-white font-semibold">4+ years of experience</span>, I specialize in creating AI-driven SaaS platforms, responsive user interfaces, and modern backend systems.
           </motion.p>
 
           <motion.p className="text-lg leading-8" variants={itemVariants}>
