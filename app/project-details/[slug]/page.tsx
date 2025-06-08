@@ -80,6 +80,50 @@ const projects = [
         demoUrl: 'https://shipright.example.com',
         repoUrl: 'https://github.com/yourname/shipright',
     },
+    {
+        slug: 'usepopup',
+        title: 'UsePopup',
+        category: 'SaaS Web Application',
+        status: 'Completed',
+        goal: 'Enable users to create, customize, and deploy notification popups across multiple domains without writing code',
+        image: 'https://cdn.jsdelivr.net/gh/milankatira/project-videos/use-popup/use-popup-1.png',
+        fullDescription: `
+      UsePopup is a lightweight yet powerful SaaS platform for building custom notification popups. With a visual editor and live preview, users can design, target, and deploy popups across multiple websites using a simple embed script—no coding required. Backed by authentication, domain management, and soon, analytics, UsePopup streamlines engagement and conversion via modal messages.
+        `.trim(),
+        technologies: [
+            'Next.js',
+            'TypeScript',
+            'Tailwind CSS',
+            'MongoDB',
+            'Clerk (Auth)',
+            'Shadcn UI',
+            'Lucide Icons',
+        ],
+        features: [
+            'Manage multiple websites/domains under one dashboard',
+            'Unique embed script per website for easy integration',
+            'Visual popup editor with custom icons, text, styles, and animations',
+            'Advanced targeting: schedules, triggers, domain filtering',
+            'One-click script installation with auto loader',
+            'Live preview during design',
+            'User authentication and dark mode support',
+            'Responsive design across devices',
+            'Popup edit, delete, and management from the dashboard',
+            '📊 Analytics coming soon: view impressions, clicks, and CTR',
+        ],
+        images: [
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/use-popup/use-popup-1.png',
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/use-popup/use-popup-2.png',
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/use-popup/use-popup-3.png',
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/use-popup/use-popup-4.png',
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/use-popup/use-popup-5.png',
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/use-popup/use-popup-6.png',
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/use-popup/use-popup-7.png',
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/use-popup/use-popup-8.png',
+        ],
+        videoUrl: '',
+        repoUrl: 'https://github.com/milankatira/use-popup'
+    }
 ];
 
 export default async function ProjectDetailsPage({ params }: ProjectDetailsPageProps) {
