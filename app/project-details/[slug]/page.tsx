@@ -130,48 +130,109 @@ const projects = [
         category: 'SaaS Web Application',
         status: 'Completed',
         goal: 'Empower product teams to gather, analyze, and act on customer feedback to improve engagement and retention.',
-        image:'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-main.png',
+        image: 'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-main.png',
         fullDescription: `
       FeedSpark is a full-featured feedback analytics platform that helps product teams turn user opinions into actionable insights. With customizable feedback forms, sentiment analysis, and detailed dashboards, teams can gather feedback from multiple touchpoints and understand what truly matters to their users. The platform includes automation via Slack/Email/Discord integrations and allows teams to close the loop with real-time updates and feedback workflows. Built with a full modern stack and clean UI, FeedSpark simplifies feedback collection, analytics, and response automation.
         `.trim(),
         technologies: [
-          'Next.js 14 (App Router)',
-          'TypeScript',
-          'Tailwind CSS',
-          'Shadcn UI',
-          'Lucide Icons',
-          'Prisma ORM',
-          'Mongodb',
-          'Zod',
-          'React Hook Form',
-          'React Query',
+            'Next.js 14 (App Router)',
+            'TypeScript',
+            'Tailwind CSS',
+            'Shadcn UI',
+            'Lucide Icons',
+            'Prisma ORM',
+            'Mongodb',
+            'Zod',
+            'React Hook Form',
+            'React Query',
         ],
         features: [
-          'Customizable feedback forms with live preview and theming',
-          'Real-time analytics: sentiment breakdown, rating distribution, NPS',
-          'Feedback dashboard with filters and download options',
-          'Multi-channel automation: Slack, Email, Discord',
-          'Integrations module to manage and test connections',
-          'Insightful charts: customer trends, satisfaction scores, sentiment graphs',
-          'Campaign-level feedback flows with submission counts',
-          'Authentication using NextAuth.js (e.g., GitHub)',
-          'Responsive dark-mode UI using Shadcn UI & Tailwind',
-          'Feedback-based conditional automations (e.g., if rating ≤ 2, alert team)'
+            'Customizable feedback forms with live preview and theming',
+            'Real-time analytics: sentiment breakdown, rating distribution, NPS',
+            'Feedback dashboard with filters and download options',
+            'Multi-channel automation: Slack, Email, Discord',
+            'Integrations module to manage and test connections',
+            'Insightful charts: customer trends, satisfaction scores, sentiment graphs',
+            'Campaign-level feedback flows with submission counts',
+            'Authentication using NextAuth.js (e.g., GitHub)',
+            'Responsive dark-mode UI using Shadcn UI & Tailwind',
+            'Feedback-based conditional automations (e.g., if rating ≤ 2, alert team)'
         ],
         images: [
-          'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-1.png',
-          'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-2.png',
-          'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-3.png',
-          'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-4.png',
-          'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-5.png',
-          'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-6.png',
-          'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-7.png',
-          'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-8.png',
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-1.png',
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-2.png',
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-3.png',
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-4.png',
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-5.png',
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-6.png',
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-7.png',
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-8.png',
         ],
         videoUrl: '',
         demoUrl: 'https://feed-spark.vercel.app/',
         repoUrl: 'https://github.com/milankatira/feed-spark'
-      }
+    },
+    {
+        slug: 'uptime',
+        title: 'Uptime',
+        category: 'Monitoring Dashboard',
+        status: 'Completed',
+        goal: 'Provide real-time monitoring, alerting, and incident management for websites and APIs with rich visual dashboards.',
+        image: 'https://cdn.jsdelivr.net/gh/milankatira/project-videos/uptime/uptime-main.png',
+        fullDescription: `
+        Uptime is a production-grade monitoring and incident response platform designed to ensure 24/7 uptime and observability for web services. Built with scalability and performance at its core, it offers a powerful dashboard for website and API health, real-time uptime tracking, detailed latency analytics, and rich alerting systems.
+
+        It leverages **Redis** for caching and **BullMQ** workers to run background uptime checks efficiently and asynchronously. Built with **Clerk** for secure user authentication and organization-level access management, Uptime enables multi-team collaboration with role-based controls.
+
+        This project combines UI excellence with backend robustness—ideal for dev teams and ops engineers managing mission-critical deployments.
+          `.trim(),
+        technologies: [
+            'TurboRepo (Monorepo)',
+            'Next.js 15 (App Router)',
+            'TypeScript',
+            'Tailwind CSS',
+            'Shadcn UI',
+            'Prisma ORM',
+            'MongoDB',
+            'Redis',
+            'BullMQ',
+            'Lucide Icons',
+            'NextAuth.js',
+            'Zod',
+            'Chart.js',
+            'Clerk (Auth & Org Management)',
+            'Turbo repo',
+            'Node js'
+        ],
+        features: [
+            'Real-time uptime and latency tracking per endpoint',
+            'Redis-powered cache layer for efficient response handling',
+            'BullMQ-based background workers for distributed uptime checks',
+            'Incident management with logs, status, and resolution flow',
+            'Custom heartbeat monitoring for server or cron activity',
+            'Slack, Discord, and Email notifications (custom templates)',
+            'Public Status Page generator with live updates',
+            'User authentication and organization management via Clerk',
+            'Team roles, invites, and member access controls',
+            'TurboRepo monorepo with multiple packages and apps',
+            'Interactive dashboards with analytics on uptime, latency, NPS'
+          ],
+        images: [
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/uptime/uptime-1.png',
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/uptime/uptime-2.png',
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/uptime/uptime-3.png',
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/uptime/uptime-4.png',
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/uptime/uptime-5.png',
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/uptime/uptime-6.png',
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/uptime/uptime-7.png',
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/uptime/uptime-8.png',
+            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/uptime/uptime-9.png',
+        ],
+        videoUrl: '', // Optional: embed YouTube video demo if available
+        demoUrl: 'https://uptime-snowy.vercel.app/',
+        repoUrl: 'https://github.com/milankatira/uptime'
+    }
+
 
 ];
 

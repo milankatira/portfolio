@@ -1,118 +1,135 @@
 "use client";
 import Link from "next/link";
 
-import { ExternalLink } from "lucide-react";
-
+import { ExternalLink, Github } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
 const Projects = [
   {
-    title: "ShipRight",
-    description:
-      "A modern product feedback tool built for SaaS teams to collect, manage, and prioritize user feedback.",
-    short: "https://cdn.jsdelivr.net/gh/milankatira/project-videos/shipright.mp4",
-    features: [
-      "User feedback boards with voting functionality",
-      "Public roadmap and request submission",
-      "Admin dashboard for managing feedback and requests",
-      "Sleek UI built with ShadCN and Tailwind",
-    ],
-    technologies: [
-      "Next.js",
-      "Tailwind CSS",
-      "Supabase",
-      "Clerk Auth",
-      "ShadCN UI",
-      "Zustand",
-    ],
-    link: "https://shipright.vercel.app/",
-    sourceCode: "https://github.com/milankatira/shipright",
-  },
-  {
-    title: "PingPanda",
-    description:
-      "PingPanda is the easiest way to monitor your SaaS. Get instant notifications for sales, new users, or any other event sent directly to your Discord.",
+    title: "Ping Panda",
+    slug: 'pingpanda',
+    description: "Ping Panda is a modern SaaS platform that delivers real‑time event notifications (sales, sign‑ups, errors, etc.) to Discord, featuring a visual dashboard for tracking activity, Stripe-powered PRO plans, and easy setup through an intuitive API.",
     short: "https://cdn.jsdelivr.net/gh/milankatira/project-videos/ping-panda.mp4",
     features: [
-      "Real-time Discord alerts for critical events",
-      "Buy once, use forever",
-      "Track sales, new users, or any other event",
+      'Complete SaaS built in modern Next.js',
+      'Real-time event messages via Discord',
+      'Clean & intuitive event monitoring dashboard',
+      'Secure payments using Stripe',
+      'Authentication using Clerk',
     ],
     technologies: [
-      "Next.js",
-      "Tailwind CSS",
-      "Node.js",
-      "Discord API",
+      'Next.js',
+      'Prisma',
+      'Node.js',
+      'TypeScript',
+      'Stripe API',
+      'Postgresql',
+      'Discord API',
+      'Tailwind CSS'
     ],
     link: "https://pingpanda-ll7i.onrender.com/",
     sourceCode: "https://github.com/milankatira/pingpanda",
   },
   {
-    title: "usePopup",
-    description:
-      "A simple and reusable popup management hook for React that simplifies showing, hiding, and toggling modals or tooltips.",
+    title: "Shipright",
+    slug: 'shipright',
+    description: "Shipright is a comprehensive user feedback and feature voting platform. It empowers product managers to collect, manage, and act on user insights efficiently through a visual dashboard. With features like customizable themes and real-time analytics, Shipright helps businesses prioritize what truly matters to their users.",
+    short: "https://cdn.jsdelivr.net/gh/milankatira/project-videos/shipright.mp4",
+    features: [
+      'Feature voting system with prioritization',
+      'Real-time analytics dashboard',
+      'Customizable themes and branding',
+      'User authentication integration',
+      'Responsive design for all devices',
+    ],
+    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Clerk', 'Prisma', 'MongoDB'],
+    link: "https://shipright.example.com",
+    sourceCode: "https://github.com/yourname/shipright",
+  },
+  {
+    title: "UsePopup",
+    slug: 'usepopup',
+    description: "UsePopup is a lightweight yet powerful SaaS platform for building custom notification popups. With a visual editor and live preview, users can design, target, and deploy popups across multiple websites using a simple embed script—no coding required. Backed by authentication, domain management, and soon, analytics, UsePopup streamlines engagement and conversion via modal messages.",
     short: "https://cdn.jsdelivr.net/gh/milankatira/project-videos/popup.mp4",
     features: [
-      "Minimal and clean popup logic",
-      "Centralized popup state control",
-      "Easy integration into any React project",
-      "Built-in accessibility features",
+      'Manage multiple websites/domains under one dashboard',
+      'Visual popup editor with custom icons, text, styles, and animations',
+      'Advanced targeting: schedules, triggers, domain filtering',
+      'One-click script installation with auto loader',
+      'Live preview during design',
     ],
-    technologies: ["React", "TypeScript", "Vite", "Tailwind CSS"],
+    technologies: [
+      'Next.js',
+      'TypeScript',
+      'Tailwind CSS',
+      'MongoDB',
+      'Clerk (Auth)',
+      'Shadcn UI',
+      'Lucide Icons',
+    ],
     link: "https://use-popup.vercel.app/",
     sourceCode: "https://github.com/milankatira/use-popup",
   },
   {
     title: "FeedSpark",
-    description:
-      "Feed Spark is a Next.js application designed to streamline feedback collection and automation workflows. The system integrates with multiple platforms (Slack, Discord, Email) to gather and process user feedback efficiently.",
-    short:
-      "https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark.mp4",
+    slug: 'feedspark',
+    description: "FeedSpark is a full-featured feedback analytics platform that helps product teams turn user opinions into actionable insights. With customizable feedback forms, sentiment analysis, and detailed dashboards, teams can gather feedback from multiple touchpoints and understand what truly matters to their users.",
+    short: "https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark.mp4",
     features: [
-      "Multi-platform feedback collection",
-      "Automated workflow triggers",
-      "Real-time analytics dashboard",
-      "Customizable feedback templates",
+      'Customizable feedback forms with live preview and theming',
+      'Real-time analytics: sentiment breakdown, rating distribution, NPS',
+      'Multi-channel automation: Slack, Email, Discord',
+      'Insightful charts: customer trends, satisfaction scores, sentiment graphs',
+      'Authentication using NextAuth.js (e.g., GitHub)',
     ],
     technologies: [
-      "Next.js",
-      "Tailwind CSS",
-      "Supabase",
-      "Slack API",
-      "Discord API",
-      "Email Integration",
+      'Next.js 14 (App Router)',
+      'TypeScript',
+      'Tailwind CSS',
+      'Shadcn UI',
+      'Lucide Icons',
+      'Prisma ORM',
+      'Mongodb',
+      'Zod',
+      'React Hook Form',
+      'React Query',
     ],
     link: "https://feed-spark.vercel.app/",
+    sourceCode: "https://github.com/milankatira/feed-spark",
   },
   {
     title: "Uptime",
-    description:
-      "A full-stack application for monitoring website uptime and performance with incident management capabilities, public status pages, and multi-channel notifications.",
+    slug: 'uptime',
+    description: "Uptime is a production-grade monitoring and incident response platform designed to ensure 24/7 uptime and observability for web services. Built with scalability and performance at its core, it offers a powerful dashboard for website and API health, real-time uptime tracking, detailed latency analytics, and rich alerting systems.",
     short: "https://cdn.jsdelivr.net/gh/milankatira/project-videos/uptime.mp4",
     features: [
-      "Website uptime monitoring with heartbeat checks",
-      "Incident creation and management",
-      "Status pages for public sharing",
-      "Multi-channel notifications (Email, Slack, Discord)",
-      "Dashboard with historical data visualization",
+      'Real-time uptime and latency tracking per endpoint',
+      'Redis-powered cache layer for efficient response handling',
+      'BullMQ-based background workers for distributed uptime checks',
+      'Incident management with logs, status, and resolution flow',
+      'Public Status Page generator with live updates',
     ],
     technologies: [
-      "Next.js",
-      "Tailwind CSS",
-      "Clerk Auth",
-      "Express.js",
-      "Prisma",
-      "PostgreSQL",
-      "Docker",
-      "turbo-repo",
-      "redis",
-      "bullmq"
+      'TurboRepo (Monorepo)',
+      'Next.js 15 (App Router)',
+      'TypeScript',
+      'Tailwind CSS',
+      'Shadcn UI',
+      'Prisma ORM',
+      'MongoDB',
+      'Redis',
+      'BullMQ',
+      'Lucide Icons',
+      'NextAuth.js',
+      'Zod',
+      'Chart.js',
+      'Clerk (Auth & Org Management)',
+      'Node js'
     ],
     link: "https://uptime-snowy.vercel.app/",
     sourceCode: "https://github.com/milankatira/uptime",
   }
-
 ];
 
 export default function ProjectCard() {
@@ -130,14 +147,11 @@ export default function ProjectCard() {
               loop
               muted
               playsInline
-              className="rounded-3xl"
+            className="rounded-2xl w-full h-auto max-h-[280px] object-cover"
             ></video>
           </section>
 
           <section className="flex gap-4 pt-3 lg:w-1/2">
-            <div className="hidden md:block">
-              <h2 className="text-3xl lg:text-4xl"></h2>
-            </div>
 
             <div className="space-y-4 lg:space-y-8">
               <div className="space-y-4">
@@ -174,27 +188,34 @@ export default function ProjectCard() {
                 </div>
               </div>
 
-              <div className="flex gap-4 pt-4">
-                <Link href={project.link} target="_blank">
-                  <Button className="w-full lg:w-fit">
-                    <ExternalLink />
-                    Live Demo
-                  </Button>
-                </Link>
-                {
-                  project.sourceCode &&
-                  <Link href={project.sourceCode} target="_blank">
-                    <Button variant="outline" className="w-full lg:w-fit">
-                      <svg viewBox="0 0 438.549 438.549">
-                        <path
-                          fill="currentColor"
-                          d="M409.132 114.573c-19.608-33.596-46.205-60.194-79.798-79.8-33.598-19.607-70.277-29.408-110.063-29.408-39.781 0-76.472 9.804-110.063 29.408-33.596 19.605-60.192 46.204-79.8 79.8C9.803 148.168 0 184.854 0 224.63c0 47.78 13.94 90.745 41.827 128.906 27.884 38.164 63.906 64.572 108.063 79.227 5.14.954 8.945.283 11.419-1.996 2.475-2.282 3.711-5.14 3.711-8.562 0-.571-.049-5.708-.144-15.417a2549.81 2549.81 0 01-.144-25.406l-6.567 1.136c-4.187.767-9.469 1.092-15.846 1-6.374-.089-12.991-.757-19.842-1.999-6.854-1.231-13.229-4.086-19.13-8.559-5.898-4.473-10.085-10.328-12.56-17.556l-2.855-6.57c-1.903-4.374-4.899-9.233-8.992-14.559-4.093-5.331-8.232-8.945-12.419-10.848l-1.999-1.431c-1.332-.951-2.568-2.098-3.711-3.429-1.142-1.331-1.997-2.663-2.568-3.997-.572-1.335-.098-2.43 1.427-3.289 1.525-.859 4.281-1.276 8.28-1.276l5.708.853c3.807.763 8.516 3.042 14.133 6.851 5.614 3.806 10.229 8.754 13.846 14.842 4.38 7.806 9.657 13.754 15.846 17.847 6.184 4.093 12.419 6.136 18.699 6.136 6.28 0 11.704-.476 16.274-1.423 4.565-.952 8.848-2.383 12.847-4.285 1.713-12.758 6.377-22.559 13.988-29.41-10.848-1.14-20.601-2.857-29.264-5.14-8.658-2.286-17.605-5.996-26.835-11.14-9.235-5.137-16.896-11.516-22.985-19.126-6.09-7.614-11.088-17.61-14.987-29.979-3.901-12.374-5.852-26.648-5.852-42.826 0-23.035 7.52-42.637 22.557-58.817-7.044-17.318-6.379-36.732 1.997-58.24 5.52-1.715 13.706-.428 24.554 3.853 10.85 4.283 18.794 7.952 23.84 10.994 5.046 3.041 9.089 5.618 12.135 7.708 17.705-4.947 35.976-7.421 54.818-7.421s37.117 2.474 54.823 7.421l10.849-6.849c7.419-4.57 16.18-8.758 26.262-12.565 10.088-3.805 17.802-4.853 23.134-3.138 8.562 21.509 9.325 40.922 2.279 58.24 15.036 16.18 22.559 35.787 22.559 58.817 0 16.178-1.958 30.497-5.853 42.966-3.9 12.471-8.941 22.457-15.125 29.979-6.191 7.521-13.901 13.85-23.131 18.986-9.232 5.14-18.182 8.85-26.84 11.136-8.662 2.286-18.415 4.004-29.263 5.146 9.894 8.562 14.842 22.077 14.842 40.539v60.237c0 3.422 1.19 6.279 3.572 8.562 2.379 2.279 6.136 2.95 11.276 1.995 44.163-14.653 80.185-41.062 108.068-79.226 27.88-38.161 41.825-81.126 41.825-128.906-.01-39.771-9.818-76.454-29.414-110.049z"
-                        ></path>
-                      </svg>
-                      View Code
+              <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 pt-2">
+                {project.link && (
+                  <Link href={project.link} target="_blank" rel="noopener noreferrer">
+                    <Button className="w-full lg:w-fit">
+                      <ExternalLink className="h-4 w-4 mr-2" />
+                      Live Demo
                     </Button>
                   </Link>
-                }
+                )}
+                {
+                  project.sourceCode && (
+                    <Link href={project.sourceCode} target="_blank" rel="noopener noreferrer">
+                      <Button variant="outline" className="w-full lg:w-fit">
+                        <Github className="h-4 w-4 mr-2" />
+                        View Code
+                      </Button>
+                    </Link>
+                  )}
+
+                <Link
+                  href={`/project-details/${project.slug}`}
+                  passHref
+                >
+                  <Button variant="outline" className="w-full lg:w-fit">
+                    Project Details
+                  </Button>
+                </Link>
+
               </div>
             </div>
           </section>
