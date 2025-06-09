@@ -4,6 +4,8 @@ import { useEffect, useState, useRef, type KeyboardEvent } from "react"
 import { cn } from "@/lib/utils"
 import { ArrowRight, Building, MapPin, Calendar } from 'lucide-react'
 import { motion, AnimatePresence } from "framer-motion"
+import { MagicCard } from "../magicui/magic-card"
+import { parseTextWithBold } from "@/utils/parseTextWithBold"
 
 interface ExperienceEntry {
   id: string
@@ -25,15 +27,16 @@ const workExperience: ExperienceEntry[] = [
     location: "Remote (USA)",
     color: "#06b6d4",
     details: [
-      "Led the end-to-end frontend development of Instaservice.com, a scalable on-demand services platform, using TypeScript, React, React Query, and Tailwind CSS.",
-      "Designed and implemented a robust design system and reusable component library using Storybook, enabling consistent UI/UX and accelerating team-wide development.",
-      "Developed and deployed comprehensive platforms including:",
-      "  - Customer Web App: dynamic service listings, real-time booking and scheduling, quote requests, timezone-aware interfaces, and localized i18n.",
-      "  - Business Owner Dashboard: real-time chat, service request handling, analytics, and availability management.",
-      "Integrated SEO optimization strategies (meta tags, structured data, server hints) and improved Core Web Vitals—driving significant growth in organic reach.",
-      "Implemented state-based dynamic data fetching and intelligent caching using React Query for improved performance and reduced backend strain.",
-      "Built robust UI test automation using Playwright, ensuring stability and consistency across critical workflows.",
-      "Integrated analytics and monitoring tools like PostHog and Sentry to capture user behavior and surface issues early in production. Ensured seamless deployment via CI/CD workflows and contributed to code quality through rigorous code reviews and type-safe architecture.",
+      "**Led frontend development** of Instaservice.com and bo.instaservice.com in collaboration with a junior developer, using **TypeScript, React, React Query, and Tailwind CSS**.",
+      "**Designed and maintained** a scalable design system and reusable component library with **Storybook**, supporting consistent UI/UX across apps.",
+      "Built **advanced booking experiences** including:",
+      "  - **Smart calendar UI**: 7-day dynamic view with slot rendering, blocked dates, and timezone-aware scheduling.",
+      "  - **On-demand service booking**, rescheduling, custom service provider selection, and quote requests for large projects.",
+      "  - **Recurring bookings** with complete payment edge-case handling, including retries, failures, and fallback states.",
+      "Developed **real-time features** such as chat between customers and providers, and **live location tracking** during service sessions.",
+      "Implemented **dynamic location-based pricing** and **refer & earn functionality** to drive user engagement and regional pricing accuracy.",
+      "**Automated CI/CD pipelines** with formatting, linting, and type-check validations using **Prettier, ESLint, and TypeScript** before production builds.",
+      "Integrated **monitoring and analytics tools** including **PostHog and Sentry** to track user behavior and proactively address production issues.",
     ],
   },
   {
@@ -44,12 +47,12 @@ const workExperience: ExperienceEntry[] = [
     location: "Remote (Singapore)",
     color: "#6366F1",
     details: [
-      "Contributed to the frontend of a high-scale AI-powered edtech platform used by 20,000+ active students weekly.",
-      "Built responsive and scalable user interfaces using React and Preact, styled with SCSS, and integrated advanced charting libraries for visualizing learning progress.",
-      "Enhanced user experience through design collaboration, resulting in a 15% reduction in friction and a 10% increase in task completion.",
-      "Implemented analytics tools such as Google Analytics and Google Tag Manager to track key user interactions and improve engagement.",
-      "Mentored three junior developers and deployed frontend features in coordination with backend Node.js services via CI/CD pipelines.",
-      "Participated in hiring by conducting technical interviews for 20+ candidates and onboarding three successful hires.",
+      "Contributed to the frontend of a **high-scale AI-powered edtech platform** used by **20,000+ active students weekly**.",
+      "Built **responsive and scalable user interfaces** using **React and Preact**, styled with **SCSS**, and integrated advanced charting libraries for visualizing learning progress.",
+      "Enhanced user experience through design collaboration, resulting in a **15% reduction in friction** and a **10% increase in task completion**.",
+      "Implemented **analytics tools** such as **Google Analytics and Google Tag Manager** to track key user interactions and improve engagement.",
+      "**Mentored three junior developers** and deployed frontend features in coordination with backend **Node.js services** via **CI/CD pipelines**.",
+      "Participated in hiring by conducting **technical interviews for 20+ candidates** and onboarding **three successful hires**.",
     ],
   },
   {
@@ -60,15 +63,15 @@ const workExperience: ExperienceEntry[] = [
     location: "Ahmedabad, India",
     color: "#2DD4BF",
     details: [
-      "Developed and maintained full-stack applications using ReactJS, NextJS, NodeJS, and MongoDB, applying test-driven development to ensure high code quality and reliability.",
-      "Designed RESTful APIs and created scalable database models, supporting multiple production-level systems across different use cases.",
-      "build frontend and backend development efforts on several large-scale platforms:",
-      "  - Engineered a backend system that handled 8.7 million API requests within 48 hours and supported over 15,000 unique users per day.",
-      "  - Built a comprehensive interview and hiring platform with Google Meet and Zoom integration, online coding and MCQ assessments, and optimized memory usage (1.2 GB RAM handling 300+ sessions).",
-      "  - Delivered reusable UI components and dynamic user flows for a high-volume video content platform using ReactJS and modular design principles.",
-      "Contributed to a global retail technology project by writing utility functions with 100% unit test coverage and implementing complex modal and interface logic.",
-      "Collaborated with blockchain developers to write and deploy smart contracts in Solidity, integrating with Binance Smart Chain (BSC) and Hedera Hashgraph.",
-      "Participated in the backend architecture for a distributed application ecosystem, incorporating tools like Contentful CMS, Customer.io, and JW Player API to enable content management and automation.",
+      "Developed and maintained **full-stack applications** using **ReactJS, NextJS, NodeJS, and MongoDB**, applying **test-driven development** to ensure high code quality and reliability.",
+      "Designed **RESTful APIs** and created **scalable database models**, supporting multiple production-level systems across different use cases.",
+      "Built frontend and backend development efforts on several **large-scale platforms**:",
+      "  - Engineered a backend system that handled **8.7 million API requests within 48 hours** and supported over **15,000 unique users per day**.",
+      "  - Built a comprehensive **interview and hiring platform** with **Google Meet and Zoom integration**, online coding and MCQ assessments, and optimized memory usage (**1.2 GB RAM handling 300+ sessions**).",
+      "  - Delivered **reusable UI components** and dynamic user flows for a high-volume video content platform using **ReactJS** and modular design principles.",
+      "Contributed to a **global retail technology project** by writing utility functions with **100% unit test coverage** and implementing complex modal and interface logic.",
+      "Collaborated with blockchain developers to write and deploy **smart contracts in Solidity**, integrating with **Binance Smart Chain (BSC)** and **Hedera Hashgraph**.",
+      "Participated in the backend architecture for a **distributed application ecosystem**, incorporating tools like **Contentful CMS, Customer.io, and JW Player API** to enable content management and automation.",
     ],
   },
 ];
@@ -197,9 +200,6 @@ export function ExperienceSection() {
       className="min-h-screen lg:h-screen py-12 relative overflow-hidden w-screen bg-white dark:bg-black-100 z-10"
       aria-labelledby="experience-heading"
     >
-
-
-
       <div className="container mx-auto px-4 h-full flex flex-col max-w-7xl">
         <div className="text-center mb-8">
           <h2
@@ -258,7 +258,12 @@ export function ExperienceSection() {
                   )}
                   style={{ color: selectedCompanyId === company.id ? company.color : "" }}
                 />
-                <span className="font-medium tracking-wide text-sm lg:text-base">{company.company}</span>
+                <span className={cn(
+                  "tracking-wide text-sm lg:text-base",
+                  selectedCompanyId === company.id ? "font-semibold" : "font-light"
+                )}>
+                  {company.company}
+                </span>
 
                 {selectedCompanyId === company.id && (
                   <ArrowRight className="h-3 w-3 lg:h-4 lg:w-4 ml-auto hidden lg:block" style={{ color: company.color }} />
@@ -289,20 +294,20 @@ export function ExperienceSection() {
 
                   <h3 className="text-xl font-bold flex flex-col gap-1 tracking-tight">
                     <span className="text-white">{selectedCompany.title}</span>
-                    <span className="text-sm">
+                    <span className="text-sm font-light">
                       <span className="text-gray-400">@</span>
-                      <span style={{ color: selectedCompany.color }}> {selectedCompany.company}</span>
+                      <span style={{ color: selectedCompany.color }} className="font-semibold"> {selectedCompany.company}</span>
                     </span>
                   </h3>
 
                   <div className="flex flex-col gap-2 text-sm text-gray-400 mt-2 font-light">
                     <div className="flex items-center">
                       <Calendar className="h-4 w-4 mr-2" style={{ color: selectedCompany.color }} />
-                      <span>{selectedCompany.duration}</span>
+                      <span className="font-medium">{selectedCompany.duration}</span>
                     </div>
                     <div className="flex items-center">
                       <MapPin className="h-4 w-4 mr-2" style={{ color: selectedCompany.color }} />
-                      <span>{selectedCompany.location}</span>
+                      <span className="font-medium">{selectedCompany.location}</span>
                     </div>
                   </div>
                 </div>
@@ -331,7 +336,9 @@ export function ExperienceSection() {
                           className="h-1.5 w-1.5 rounded-full mt-2 mr-3 flex-shrink-0"
                           style={{ backgroundColor: selectedCompany.color }}
                         />
-                        <p className="text-gray-300 leading-relaxed text-sm">{content}</p>
+                        <p className="text-gray-300 leading-relaxed text-sm">
+                          {parseTextWithBold(content)}
+                        </p>
                       </motion.li>
                     ) : (
                       <motion.li
@@ -350,7 +357,9 @@ export function ExperienceSection() {
                         >
                           <div className="h-1 w-1 rounded-full" style={{ backgroundColor: selectedCompany.color }} />
                         </div>
-                        <p className="text-gray-300 leading-relaxed text-sm">{content}</p>
+                        <p className="text-gray-300 leading-relaxed text-sm">
+                          {parseTextWithBold(content)}
+                        </p>
                       </motion.li>
                     )
                   })}
@@ -388,77 +397,83 @@ export function ExperienceSection() {
                       transition={{ duration: 0.5 }}
                       className="h-full flex items-start"
                     >
-                      <div className="space-y-6 p-8 rounded-2xl border border-gray-800/80 backdrop-blur-sm bg-gray-900/30 w-full shadow-lg">
-                        <div className="space-y-2">
-                          <div className="h-1 w-16 rounded-full mb-4" style={{ backgroundColor: company.color }} />
+                      <MagicCard className="p-8 rounded-2xl border border-gray-800/80 backdrop-blur-sm bg-gray-900/30 w-full shadow-lg">
+                        <div className="space-y-6">
+                          <div className="space-y-2">
+                            <div className="h-1 w-16 rounded-full mb-4" style={{ backgroundColor: company.color }} />
 
-                          <h3 className="text-2xl md:text-3xl font-bold flex flex-wrap items-center gap-2 tracking-tight">
-                            <span className="text-white">{company.title}</span>
-                            <span className="text-gray-400">@</span>
-                            <span style={{ color: company.color }}>{company.company}</span>
-                          </h3>
+                            <h3 className="text-2xl md:text-3xl font-bold flex flex-wrap items-center gap-2 tracking-tight">
+                              <span className="text-white">{company.title}</span>
+                              <span className="text-gray-400 font-light">@</span>
+                              <span style={{ color: company.color }}>{company.company}</span>
+                            </h3>
 
-                          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 text-sm text-gray-400 mt-2 font-light">
-                            <div className="flex items-center">
-                              <Calendar className="h-4 w-4 mr-2" style={{ color: company.color }} />
-                              <span>{company.duration}</span>
-                            </div>
-                            <div className="flex items-center">
-                              <MapPin className="h-4 w-4 mr-2" style={{ color: company.color }} />
-                              <span>{company.location}</span>
+                            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 text-sm text-gray-400 mt-2">
+                              <div className="flex items-center">
+                                <Calendar className="h-4 w-4 mr-2" style={{ color: company.color }} />
+                                <span className="font-semibold">{company.duration}</span>
+                              </div>
+                              <div className="flex items-center">
+                                <MapPin className="h-4 w-4 mr-2" style={{ color: company.color }} />
+                                <span className="font-semibold">{company.location}</span>
+                              </div>
                             </div>
                           </div>
-                        </div>
 
-                        <div
-                          className="h-px w-full"
-                          style={{
-                            background: `linear-gradient(to right, transparent, ${company.color}40, transparent)`,
-                          }}
-                        />
+                          <div
+                            className="h-px w-full"
+                            style={{
+                              background: `linear-gradient(to right, transparent, ${company.color}40, transparent)`,
+                            }}
+                          />
 
-                        <ul className="space-y-4">
-                          {company.details.map((detail, idx) => {
-                            const isNested = detail.startsWith("  - ")
-                            const content = isNested ? detail.substring(4) : detail
+                          <ul className="space-y-4">
+                            {company.details.map((detail, idx) => {
+                              const isNested = detail.startsWith("  - ")
+                              const content = isNested ? detail.substring(4) : detail
 
-                            return isNested ? (
-                              <motion.li
-                                key={idx}
-                                className="ml-8 flex items-start"
-                                initial={{ opacity: 0, x: -10 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.3, delay: 0.1 + idx * 0.05 }}
-                              >
-                                <div
-                                  className="h-1.5 w-1.5 rounded-full mt-2 mr-3 flex-shrink-0"
-                                  style={{ backgroundColor: company.color }}
-                                />
-                                <p className="text-gray-300 leading-relaxed text-sm">{content}</p>
-                              </motion.li>
-                            ) : (
-                              <motion.li
-                                key={idx}
-                                className="flex items-start group"
-                                initial={{ opacity: 0, x: -10 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.3, delay: idx * 0.05 }}
-                              >
-                                <div
-                                  className="mt-1 mr-3 flex-shrink-0 h-5 w-5 rounded-full flex items-center justify-center transition-colors"
-                                  style={{
-                                    backgroundColor: `${company.color}10`,
-                                    border: `1px solid ${company.color}40`,
-                                  }}
+                              return isNested ? (
+                                <motion.li
+                                  key={idx}
+                                  className="ml-8 flex items-start"
+                                  initial={{ opacity: 0, x: -10 }}
+                                  animate={{ opacity: 1, x: 0 }}
+                                  transition={{ duration: 0.3, delay: 0.1 + idx * 0.05 }}
                                 >
-                                  <div className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: company.color }} />
-                                </div>
-                                <p className="text-gray-300 leading-relaxed">{content}</p>
-                              </motion.li>
-                            )
-                          })}
-                        </ul>
-                      </div>
+                                  <div
+                                    className="h-1.5 w-1.5 rounded-full mt-2 mr-3 flex-shrink-0"
+                                    style={{ backgroundColor: company.color }}
+                                  />
+                                  <p className="text-gray-300 leading-relaxed text-sm">
+                                    {parseTextWithBold(content)}
+                                  </p>
+                                </motion.li>
+                              ) : (
+                                <motion.li
+                                  key={idx}
+                                  className="flex items-start group"
+                                  initial={{ opacity: 0, x: -10 }}
+                                  animate={{ opacity: 1, x: 0 }}
+                                  transition={{ duration: 0.3, delay: idx * 0.05 }}
+                                >
+                                  <div
+                                    className="mt-1 mr-3 flex-shrink-0 h-5 w-5 rounded-full flex items-center justify-center transition-colors"
+                                    style={{
+                                      backgroundColor: `${company.color}10`,
+                                      border: `1px solid ${company.color}40`,
+                                    }}
+                                  >
+                                    <div className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: company.color }} />
+                                  </div>
+                                  <p className="text-gray-300 leading-relaxed">
+                                    {parseTextWithBold(content)}
+                                  </p>
+                                </motion.li>
+                              )
+                            })}
+                          </ul>
+                        </div>
+                      </MagicCard>
                     </motion.div>
                   </AnimatePresence>
                 </div>

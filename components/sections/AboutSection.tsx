@@ -69,22 +69,22 @@ export default function AboutSection({ technologies = defaultTechnologies }) {
         variants={containerVariants}
       >
         {/* Left: About Text */}
-        <div className="md:col-span-2 space-y-6">
-          <motion.p className="text-lg leading-8" variants={itemVariants}>
+        <div className="md:col-span-2 space-y-6 text-gray-300">
+          <motion.p className="leading-8" variants={itemVariants}>
             I'm a <span className="text-cyan-400 font-semibold">full-stack engineer</span> with a passion for building performant, scalable, and elegant digital products. With{" "}
             <span className="text-white font-semibold">4+ years of experience</span>, I specialize in creating AI-driven SaaS platforms, responsive user interfaces, and modern backend systems.
           </motion.p>
 
-          <motion.p className="text-lg leading-8" variants={itemVariants}>
+          <motion.p className="leading-8" variants={itemVariants}>
             I work with <span className="text-cyan-400 font-semibold">React, TypeScript, Node.js, and scalable design systems</span> to architect frontends and collaborate closely with backend and product teams. I've contributed to platforms serving{" "}
             <span className="text-white font-semibold">20,000+ active users weekly</span>.
           </motion.p>
 
-          <motion.p className="text-lg leading-8" variants={itemVariants}>
+          <motion.p className="leading-8" variants={itemVariants}>
             Outside of engineering, I mentor junior developers, contribute to open-source, and share my learnings through articles and tech talks.
           </motion.p>
 
-          <motion.p className="text-lg leading-8" variants={itemVariants}>
+          <motion.p className="leading-8" variants={itemVariants}>
             Currently focused on DX with React 18+, internal tooling, and scaling UI systems across teams with clean code and modern frameworks.
           </motion.p>
 
