@@ -133,7 +133,7 @@ const Hero = () => {
 
       {/* Content */}
       <motion.div
-        className="px-4 max-w-5xl w-full mx-auto flex flex-col items-center justify-center py-20 z-50"
+        className="px-4 max-w-5xl w-full mx-auto flex flex-col items-center justify-center py-20 z-50 mt-40 gap-4"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
