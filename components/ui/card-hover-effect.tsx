@@ -1,7 +1,9 @@
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "motion/react";
+import Link from "next/link";
 
 import { useState } from "react";
+import { Button } from "./button";
 
 export const HoverEffect = ({
   items,
@@ -24,7 +26,7 @@ export const HoverEffect = ({
       )}
     >
       {items.map((item, idx) => (
-        <a
+        <Link
           href={item?.link}
           key={item?.link}
           className="relative group  block p-2 h-full w-full"
@@ -48,11 +50,16 @@ export const HoverEffect = ({
               />
             )}
           </AnimatePresence>
-          <Card>
+          <Card className="bg-black-100">
             <CardTitle>{item.title}</CardTitle>
-            <CardDescription>{item.description}</CardDescription>
+            <CardDescription className="line-clamp-2">{item.description}</CardDescription>
+            <Link href={`/${item?.link}`} className="mt-4 inline-block">
+              <Button variant="link" className="text-primary p-0 hover:no-underline">
+                Read more →
+              </Button>
+            </Link>
           </Card>
-        </a>
+        </Link>
       ))}
     </div>
   );

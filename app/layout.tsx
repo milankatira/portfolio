@@ -4,10 +4,11 @@ import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme/theme-provider';
 import { Footer } from '@/components/layout/Footer';
 import { Toaster } from '@/components/ui/toaster';
+import { ProgressBarWrapper } from '@/components/progress-bar-wrapper';
 
 const inter = Inter({ subsets: ['latin'] });
 
-const favicon="https://media.licdn.com/dms/image/v2/D5603AQGVpN1dkV3Ciw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1688996557537?e=1754524800&v=beta&t=VDNh4cvYulZ2hJ9_ouns0ASBTp0t4Zvc5XoH7YigWC8"
+const favicon = "https://media.licdn.com/dms/image/v2/D5603AQGVpN1dkV3Ciw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1688996557537?e=1754524800&v=beta&t=VDNh4cvYulZ2hJ9_ouns0ASBTp0t4Zvc5XoH7YigWC8"
 
 export const metadata: Metadata = {
   title: 'Milan Katira | Full-Stack Developer',
@@ -36,21 +37,24 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-   <body className={`${inter.className} bg-black-100`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <div className="relative min-h-screen flex flex-col">
-            <main className="flex-grow">{children}</main>
-          </div>
-          <Toaster />
-          <div className="bg-black-100 max-w-7xl w-full flex justify-center items-center mx-auto sm:px-10 px-5">
-            <Footer />
-          </div>
-        </ThemeProvider>
+      <body className={`${inter.className} bg-black-100`}>
+        <ProgressBarWrapper/>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <div className="relative min-h-screen flex flex-col">
+              <main className="flex-grow">{children}</main>
+            </div>
+            <Toaster />
+            <div className="bg-black-100 max-w-7xl w-full flex justify-center items-center mx-auto sm:px-10 px-5">
+              <Footer />
+            </div>
+          </ThemeProvider>
+
+
       </body>
     </html>
   );
