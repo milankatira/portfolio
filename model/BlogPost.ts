@@ -4,6 +4,7 @@ const { Schema } = mongoose;
 
 const BlogPostSchema = new Schema({
   title: { type: String, required: true },
+  excerpt: { type: String, required: true },
   content: { type: String, required: true },
   thumbnail: { type: String, required: true },
   tags: [{ type: String }],
