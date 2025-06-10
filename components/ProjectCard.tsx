@@ -179,7 +179,8 @@ export default function ProjectCard() {
                   {project.technologies.map((tech) => (
                     <Badge
                       key={tech}
-                      className={`hover:opacity-90 transition-opacity px-4 py-2 text-xs`}
+                      // className={`hover:opacity-90 transition-opacity px-4 py-2 text-xs`}
+                      className="bg-black-100 hover:bg-black-300 text-white border border-black-300 py-1.5 px-4 text-sm rounded-full transition-colors duration-200"
                     >
                       {tech}
                     </Badge>
