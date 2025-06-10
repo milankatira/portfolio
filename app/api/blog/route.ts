@@ -7,7 +7,7 @@ export async function GET() {
     await connectDB();
     const posts = await BlogPost.find(
       {},
-      { title: 1, thumbnail: 1, _id: 1, content: 1 }
+      { title: 1, thumbnail: 1, _id: 1, content: 1, excerpt: 1 }
     );
     return NextResponse.json(posts);
   } catch (error) {
