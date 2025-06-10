@@ -26,8 +26,6 @@ export function BlogSection({ blogdata }: BlogSectionProps) {
     );
   }
 
-  console.log(blogdata,"blogdata")
-  // map your posts into the shape HoverEffect expects
   const items = blogdata.map((post) => ({
     title: post.title,
     description: post.excerpt ?? post.readTime ?? '',

@@ -45,7 +45,7 @@ const BlogDetailsDark = async ({ params }: { params: { slug: string } }) => {
     const blog: BlogPost = response.data;
 
     return (
-        <main className='bg-black-100'>
+        <main className='bg-black-100 z-50'>
             <section className="relative py-20 bg-black-100 text-white overflow-hidden ">
                 <div className="w-full mx-auto px-4 relative z-10">
                     <div className="max-w-[1200px] mx-auto text-center">
