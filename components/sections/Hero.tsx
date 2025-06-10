@@ -133,7 +133,7 @@ const Hero = () => {
 
       {/* Content */}
       <motion.div
-        className="px-4 max-w-5xl w-full mx-auto flex flex-col items-center justify-center py-20 z-50 mt-40 gap-4"
+        className="px-4 max-w-5xl w-full mx-auto flex flex-col items-center justify-center py-20 z-50 h-screen gap-4"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -223,19 +223,19 @@ const Hero = () => {
             asChild
             size="lg"
             className={cn(
-              "relative group bg-gradient-to-br from-black to-gray-900 border border-gray-800",
-              "hover:shadow-md hover:border-gray-700 hover:from-black hover:to-gray-800",
+              "relative group ",
+              "hover:shadow-md",
               "transition-all duration-300 ease-out"
             )}
           >
 
-            <a href="#about" className="flex items-center gap-2 text-white">
+            <a href="#about" className="flex items-center gap-2 text-black">
               <span>Show my work</span>
               <span className="inline-block transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 duration-200">
                 <FaLocationArrow className="h-4 w-4" />
               </span>
 
-              <span className="absolute -inset-0.5 -z-10 rounded-lg bg-gradient-to-b from-blue-600/20 to-purple-600/20 opacity-0 blur-xl transition-opacity group-hover:opacity-100" />
+              <span className="absolute -inset-0.5 -z-10 rounded-lg bg-gradient-to-b from-gray-600 to-purple-600/20 opacity-0 blur-xl transition-opacity group-hover:opacity-100" />
             </a>
           </Button>
         </motion.div>
