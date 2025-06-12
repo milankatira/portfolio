@@ -19,13 +19,13 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="w-full pt-20 pb-10 bg-white dark:bg-black-100" id="contact">
+    <footer className="w-full pt-20 pb-10 bg-white dark:bg-black-100 relative" id="contact">
       {/* Background grid */}
       <div className="w-full absolute left-0 bottom-0 min-h-96">
         <img
           src="/footer-grid.svg"
           alt="grid"
-          className="w-full h-full opacity-50"
+          className="w-full h-full opacity-60"
         />
       </div>
 
