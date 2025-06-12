@@ -53,7 +53,7 @@ export const HoverEffect = ({
           <Card className="bg-black-100">
             <CardTitle>{item.title}</CardTitle>
             <CardDescription className="line-clamp-2">{item.description}</CardDescription>
-            <Link href={`/${item?.link}`} className="mt-4 inline-block">
+            <Link href={item?.link} className="mt-4 inline-block">
               <Button variant="link" className="text-primary p-0 hover:no-underline">
                 Read more →
               </Button>
