@@ -44,8 +44,8 @@ const Projects = [
       'Responsive design for all devices',
     ],
     technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Clerk', 'Prisma', 'MongoDB'],
-    link: "https://shipright.example.com",
-    sourceCode: "https://github.com/yourname/shipright",
+    link: "https://shipright.vercel.app/",
+    sourceCode: "https://github.com/milankatira/shipright",
   },
   {
     title: "UsePopup",
