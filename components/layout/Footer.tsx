@@ -74,7 +74,7 @@ export const Footer = () => {
   </motion.a>
 
   <motion.a
-    href="https://linkedin.com/in/milankatira"
+    href="https://linkedin.com/in/milan-katira"
     target="_blank"
     rel="noopener noreferrer"
     className="group p-2 bg-gray-900/50 hover:bg-blue-600 rounded-full transition-colors duration-300"

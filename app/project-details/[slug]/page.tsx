@@ -77,8 +77,8 @@ const projects = [
             'https://cdn.jsdelivr.net/gh/milankatira/project-videos/shipright/shipright-6.png',
         ],
         videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-        demoUrl: 'https://shipright.example.com',
-        repoUrl: 'https://github.com/yourname/shipright',
+        demoUrl: 'https://shipright.vercel.app/',
+        repoUrl: 'https://github.com/milankatira/shipright',
     },
     {
         slug: 'usepopup',
