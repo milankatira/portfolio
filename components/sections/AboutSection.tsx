@@ -12,6 +12,7 @@ const defaultTechnologies = [
   "Node.js",
   "Python",
   "PostgreSQL",
+  "MongoDB",
   "AWS",
   "Docker",
   "GraphQL",
