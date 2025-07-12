@@ -23,6 +23,8 @@ export const Projects = [
     ],
     link: "https://pingpanda-ll7i.onrender.com/",
     sourceCode: "https://github.com/milankatira/pingpanda",
+    featured: true,
+    accentColor: "#06b6d4",
   },
   {
     title: "Shipright",
@@ -39,6 +41,8 @@ export const Projects = [
     technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Clerk', 'Prisma', 'MongoDB'],
     link: "https://shipright.vercel.app/",
     sourceCode: "https://github.com/milankatira/shipright",
+    featured: false,
+    accentColor: "#6366F1",
   },
   {
     title: "UsePopup",
@@ -63,6 +67,8 @@ export const Projects = [
     ],
     link: "https://use-popup.vercel.app/",
     sourceCode: "https://github.com/milankatira/use-popup",
+    featured: false,
+    accentColor: "#2DD4BF",
   },
   {
     title: "FeedSpark",
@@ -90,6 +96,8 @@ export const Projects = [
     ],
     link: "https://feed-spark.vercel.app/",
     sourceCode: "https://github.com/milankatira/feed-spark",
+    featured: false,
+    accentColor: "#FACC15",
   },
   {
     title: "Uptime",
@@ -122,5 +130,7 @@ export const Projects = [
     ],
     link: "https://uptime-snowy.vercel.app/",
     sourceCode: "https://github.com/milankatira/uptime",
+    featured: false,
+    accentColor: "#EF4444",
   }
 ];

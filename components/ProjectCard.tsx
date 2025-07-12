@@ -1,73 +1,97 @@
 import { Projects } from "@/data/projects";
 import Link from "next/link";
-
 import { ExternalLink, Github } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
 export default function ProjectCard() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="space-y-24">
       {Projects.map((project, index) => (
-        <div
+        <article
           key={index}
-          className="bg-gray-900/30 border border-gray-800/80 rounded-2xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out"
+          className="flex flex-col lg:flex-row items-start justify-center gap-12"
         >
-          <video
-            src={project.short}
-            autoPlay={true}
-            loop
-            muted
-            playsInline
-            className="w-full h-48 object-cover"
-          ></video>
+          {/* Media Section */}
+          <div className="w-full lg:w-1/2 order-1 lg:order-none">
+            <video
+              src={project.short}
+              autoPlay
+              loop
+              muted
+              playsInline
+              title={project.title}
+              className="rounded-xl w-full max-h-[300px] object-cover shadow-lg"
+            />
+          </div>
 
-          <div className="p-6 space-y-4">
-            <h3 className="text-2xl font-bold text-white">{project.title}</h3>
-            <p className="text-gray-400 text-sm leading-relaxed h-24 overflow-hidden">
-              {project.description}
-            </p>
+          {/* Content Section */}
+          <div className="flex flex-col gap-6 w-full lg:w-1/2">
+            <header className="space-y-3">
+              <h3 className="text-3xl lg:text-4xl font-bold leading-tight">
+                {project.title}
+              </h3>
+              <p className="text-muted-foreground text-base">
+                {project.description}
+              </p>
+            </header>
 
-            <div className="flex flex-wrap gap-2">
-              {project.technologies.slice(0, 4).map((tech) => (
-                <Badge
-                  key={tech}
-                  className="bg-gray-800 text-cyan-400 border-none text-xs"
-                >
-                  {tech}
-                </Badge>
-              ))}
-            </div>
+            {project.features.length > 0 && (
+              <ul className="space-y-2 pl-4 list-disc text-sm text-muted-foreground">
+                {project.features.map((feature, idx) => (
+                  <li key={idx}>{feature}</li>
+                ))}
+              </ul>
+            )}
 
-            <div className="flex justify-between items-center pt-4">
-              <div className="flex gap-2">
-                {project.link && (
-                  <Link href={project.link} target="_blank" rel="noopener noreferrer">
-                    <Button size="sm" variant="outline" className="text-white">
-                      <ExternalLink className="h-4 w-4 mr-2" />
-                      Demo
-                    </Button>
-                  </Link>
-                )}
-                {project.sourceCode && (
-                  <Link href={project.sourceCode} target="_blank" rel="noopener noreferrer">
-                    <Button size="sm" variant="outline" className="text-white">
-                      <Github className="h-4 w-4 mr-2" />
-                      Code
-                    </Button>
-                  </Link>
-                )}
+            {project.technologies.length > 0 && (
+              <div className="flex flex-wrap gap-2 pt-2">
+                {project.technologies.map((tech) => (
+                  <Badge
+                    key={tech}
+                    className="
+          inline-flex items-center font-semibold focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 bg-black-100 hover:bg-black-300 text-white border border-black-300 py-1.5 px-4 text-sm rounded-full transition-colors duration-200"
+                  >
+                    {tech}
+                  </Badge>
+                ))}
               </div>
+            )}
+
+            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 pt-2">
+              {project.link && (
+                <Link
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button className="w-full sm:w-fit">
+                    <ExternalLink className="h-4 w-4 mr-2" />
+                    Live Demo
+                  </Button>
+                </Link>
+              )}
+              {project.sourceCode && (
+                <Link
+                  href={project.sourceCode}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button variant="outline" className="w-full sm:w-fit">
+                    <Github className="h-4 w-4 mr-2" />
+                    View Code
+                  </Button>
+                </Link>
+              )}
               <Link href={`/project-details/${project.slug}`} passHref>
-                <Button size="sm" className="bg-cyan-500 text-black hover:bg-cyan-400">
-                  Details
+                <Button variant="outline" className="w-full sm:w-fit">
+                  Project Details
                 </Button>
               </Link>
             </div>
           </div>
-        </div>
+        </article>
       ))}
     </div>
   );
 }
-
