@@ -146,14 +146,14 @@ const Hero = () => {
         </motion.h1>
 
         <motion.p
-          className="mt-4 text-center md:tracking-wider mb-8 text-sm md:text-base lg:text-lg text-gray-400"
+          className="mt-4 text-center md:tracking-wider mb-8 text-base md:text-lg lg:text-xl text-gray-400"
           variants={itemVariants}
         >
           I'm Milan Katira — a full-stack engineer with a frontend soul and backend brawn. From React components to APIs, I build performant, scalable, and delightful digital experiences.
         </motion.p>
 
         <motion.p
-          className="mb-6 text-center text-sm md:text-base text-amber-400"
+          className="mb-6 text-center text-base md:text-lg text-amber-400"
           variants={itemVariants}
         >
           Powered by clean code, TypeScript expertise, and modern frameworks.

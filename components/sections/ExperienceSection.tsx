@@ -336,7 +336,7 @@ export function ExperienceSection() {
                           className="h-1.5 w-1.5 rounded-full mt-2 mr-3 flex-shrink-0"
                           style={{ backgroundColor: selectedCompany.color }}
                         />
-                        <p className="text-gray-300 leading-relaxed text-sm">
+                        <p className="text-gray-300 leading-relaxed text-base">
                           {parseTextWithBold(content)}
                         </p>
                       </motion.li>
@@ -357,7 +357,7 @@ export function ExperienceSection() {
                         >
                           <div className="h-1 w-1 rounded-full" style={{ backgroundColor: selectedCompany.color }} />
                         </div>
-                        <p className="text-gray-300 leading-relaxed text-sm">
+                        <p className="text-gray-300 leading-relaxed text-base">
                           {parseTextWithBold(content)}
                         </p>
                       </motion.li>
@@ -444,7 +444,7 @@ export function ExperienceSection() {
                                     className="h-1.5 w-1.5 rounded-full mt-2 mr-3 flex-shrink-0"
                                     style={{ backgroundColor: company.color }}
                                   />
-                                  <p className="text-gray-300 leading-relaxed text-sm">
+                                  <p className="text-gray-300 leading-relaxed text-base">
                                     {parseTextWithBold(content)}
                                   </p>
                                 </motion.li>
@@ -465,7 +465,7 @@ export function ExperienceSection() {
                                   >
                                     <div className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: company.color }} />
                                   </div>
-                                  <p className="text-gray-300 leading-relaxed">
+                                  <p className="text-gray-300 leading-relaxed text-base">
                                     {parseTextWithBold(content)}
                                   </p>
                                 </motion.li>
