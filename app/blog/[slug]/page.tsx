@@ -1,6 +1,7 @@
 import React from 'react';
 import Markdown from '@/components/Markdown';
 import { revertSlug, toSlug } from '@/utils/slug';
+import BackButton from '@/components/sections/blog/BackButton';
 
 interface BlogPost {
     _id: string;
@@ -54,6 +55,7 @@ const BlogDetailsDark = async ({ params }: { params: { slug: string } }) => {
             <section className="relative py-20 bg-black-100 text-white overflow-hidden ">
                 <div className="w-full mx-auto px-4 relative z-10">
                     <div className="max-w-[1200px] mx-auto text-center">
+                        <BackButton />
                         {blog.date && (
                             <p className="text-sm text-gray-400 mb-2">{blog.date}</p>
                         )}
