@@ -14,7 +14,7 @@ interface TechStackProps {
 // Front-End Tech
 const frontEndTech = [
   { name: "HTML", slug: "html5" },
-  { name: "CSS", slug: "css3" },
+  { name: "CSS", slug: "css" },
   { name: "JavaScript", slug: "javascript" },
   { name: "TypeScript", slug: "typescript" },
   { name: "React", slug: "react" },
