@@ -1,7 +1,6 @@
 import React from 'react';
 import Markdown from '@/components/Markdown';
 import { revertSlug, toSlug } from '@/utils/slug';
-import axios from 'axios';
 
 interface BlogPost {
     _id: string;
@@ -13,11 +12,18 @@ interface BlogPost {
     slug?: string;
 }
 
+async function getBlogPost(slug: string): Promise<BlogPost> {
+    const res = await fetch(`https://milankatira.vercel.app/api/blog/${revertSlug(slug)}`, { next: { revalidate: 3600 } });
+    if (!res.ok) {
+        throw new Error('Failed to fetch blog post');
+    }
+    return res.json();
+}
+
 export async function generateMetadata({ params }: { params: { slug: string } }) {
     const { slug } = await params;
+    const blog: BlogPost = await getBlogPost(slug);
 
-    const response = await axios.get(`https://milankatira.vercel.app/api/blog/${revertSlug(slug)}`);
-    const blog: BlogPost = response.data;
     return {
         title: `${blog.title} | Milan Katira`,
         description: blog.description || blog.title,
@@ -41,8 +47,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
 const BlogDetailsDark = async ({ params }: { params: { slug: string } }) => {
     const { slug } = await params;
-    const response = await axios.get(`https://milankatira.vercel.app/api/blog/${revertSlug(slug)}`);
-    const blog: BlogPost = response.data;
+    const blog: BlogPost = await getBlogPost(slug);
 
     return (
         <main className='bg-black-100 z-50'>
@@ -66,4 +71,12 @@ const BlogDetailsDark = async ({ params }: { params: { slug: string } }) => {
 };
 
 export default BlogDetailsDark;
-export const revalidate = 60;
+export const revalidate = false;
+
+export async function generateStaticParams() {
+    const res = await fetch("https://milankatira.vercel.app/api/blog");
+    const blogs: BlogPost[] = await res.json();
+    return blogs.map((blog) => ({
+        slug: blog.slug || toSlug(blog.title),
+    }));
+}
