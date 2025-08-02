@@ -48,6 +48,25 @@ export default function RootLayout({
             gtag('config', 'G-L77M2ZG6HP');
           `}
         </Script>
+        <Script id="schema-markup" type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Milan Katira",
+              "url": "https://milankatira.vercel.app/",
+              "jobTitle": "Full-Stack Developer",
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Milan Katira"
+              },
+              "sameAs": [
+                "https://www.linkedin.com/in/milan-katira/",
+                "https://github.com/milankatira"
+              ]
+            }
+          `}
+        </Script>
         <ProgressBarWrapper/>
           <ThemeProvider
             attribute="class"

@@ -34,7 +34,6 @@ const workExperience: ExperienceEntry[] = [
       "  - **On-demand service booking**, rescheduling, custom service provider selection, and quote requests for large projects.",
       "  - **Recurring bookings** with complete payment edge-case handling, including retries, failures, and fallback states.",
       "Developed **real-time features** such as chat between customers and providers, and **live location tracking** during service sessions.",
-      "Implemented **dynamic location-based pricing** and **refer & earn functionality** to drive user engagement and regional pricing accuracy.",
       "**Automated CI/CD pipelines** with formatting, linting, and type-check validations using **Prettier, ESLint, and TypeScript** before production builds.",
       "Integrated **monitoring and analytics tools** including **PostHog and Sentry** to track user behavior and proactively address production issues.",
     ],
