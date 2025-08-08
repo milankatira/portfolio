@@ -21,7 +21,7 @@ export const Projects = [
       'Discord API',
       'Tailwind CSS'
     ],
-    link: "https://pingpanda-ll7i.onrender.com/",
+    link: "https://pingpanda-fj5a.onrender.com/",
     sourceCode: "https://github.com/milankatira/pingpanda",
     featured: true,
     accentColor: "#06b6d4",
