@@ -9,7 +9,7 @@ interface BlogPost {
 }
 
 async function getBlogPosts(): Promise<BlogPost[]> {
-  const res = await fetch("https://milankatira.vercel.app/api/blog", { next: { revalidate: 3600 } });
+  const res = await fetch("https://www.milankatira.com/api/blog", { next: { revalidate: 3600 } });
   if (!res.ok) {
     throw new Error('Failed to fetch blog posts');
   }
