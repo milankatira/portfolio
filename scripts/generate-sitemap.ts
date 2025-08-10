@@ -1,20 +1,20 @@
-import * as fs from 'fs';
-import * as path from 'path';
-import { Projects } from '../data/projects';
-import { toSlug } from '../utils/slug';
+import * as fs from "fs";
+import * as path from "path";
+import { Projects } from "../data/projects";
+import { toSlug } from "../utils/slug";
 
 // Define interfaces
 interface SitemapUrlItem {
   url: string;
   lastModified?: Date | string;
   changeFrequency?:
-    | 'always'
-    | 'hourly'
-    | 'daily'
-    | 'weekly'
-    | 'monthly'
-    | 'yearly'
-    | 'never';
+    | "always"
+    | "hourly"
+    | "daily"
+    | "weekly"
+    | "monthly"
+    | "yearly"
+    | "never";
   priority?: number;
 }
 
@@ -34,21 +34,21 @@ declare const __filename: string;
 declare const __dirname: string;
 
 const BASE_URL: string =
-  process.env.NEXT_PUBLIC_BASE_URL || 'https://milankatira.vercel.app';
+  process.env.NEXT_PUBLIC_BASE_URL || "https://www.milankatira.com";
 
 const SITEMAP_MAX_URLS = 10000; // Max URLs per sitemap file
 
-const PROJECT_ROOT = path.resolve(__dirname, '..');
-const PUBLIC_DIR = path.join(PROJECT_ROOT, 'public');
+const PROJECT_ROOT = path.resolve(__dirname, "..");
+const PUBLIC_DIR = path.join(PROJECT_ROOT, "public");
 
 // Helper function to manually build the URL XML string
 function buildUrlXml(item: SitemapUrlItem, baseUrl: string): string {
-  let xml = '<url>';
+  let xml = "<url>";
   xml += `<loc>${baseUrl}${item.url}</loc>`;
 
   if (item.lastModified) {
     const lastmodIso =
-      typeof item.lastModified === 'string'
+      typeof item.lastModified === "string"
         ? new Date(item.lastModified).toISOString()
         : item.lastModified.toISOString();
     xml += `<lastmod>${lastmodIso}</lastmod>`;
@@ -60,17 +60,17 @@ function buildUrlXml(item: SitemapUrlItem, baseUrl: string): string {
   if (item.priority !== undefined) {
     xml += `<priority>${item.priority.toFixed(1)}</priority>`;
   }
-  xml += '</url>';
+  xml += "</url>";
   return xml;
 }
 
 function buildSitemapIndexEntryXml(item: SitemapIndexEntry): string {
-  let xml = '<sitemap>';
+  let xml = "<sitemap>";
   xml += `<loc>${item.url}</loc>`;
   if (item.lastModified) {
     xml += `<lastmod>${item.lastModified.toISOString()}</lastmod>`;
   }
-  xml += '</sitemap>';
+  xml += "</sitemap>";
   return xml;
 }
 
@@ -79,18 +79,18 @@ async function generateSitemaps(): Promise<void> {
 
   // Add static pages
   const staticPages: string[] = [
-    '', // Homepage
-    '/blog',
-    '/about-us',
-    '/contact-us',
-    '/testimonials',
+    "", // Homepage
+    "/blog",
+    "/about-us",
+    "/contact-us",
+    "/testimonials",
   ];
 
   staticPages.forEach((route) => {
     allUrls.push({
       url: route,
       lastModified: new Date(),
-      changeFrequency: 'weekly',
+      changeFrequency: "weekly",
       priority: PRIORITIES.HIGH_PRIORITY,
     });
   });
@@ -103,12 +103,12 @@ async function generateSitemaps(): Promise<void> {
       allUrls.push({
         url: `/blog/${blog.slug || toSlug(blog.title)}`, // Assuming slug exists or generate from title
         lastModified: new Date(), // You might want to use blog.updatedAt or blog.createdAt if available
-        changeFrequency: 'weekly',
+        changeFrequency: "weekly",
         priority: PRIORITIES.MEDIUM_PRIORITY,
       });
     });
   } catch (error) {
-    console.error('Error fetching blog posts for sitemap:', error);
+    console.error("Error fetching blog posts for sitemap:", error);
   }
 
   // Add project details
@@ -116,7 +116,7 @@ async function generateSitemaps(): Promise<void> {
     allUrls.push({
       url: `/project-details/${project.slug}`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: "monthly",
       priority: PRIORITIES.MEDIUM_PRIORITY,
     });
   });
@@ -149,16 +149,16 @@ async function generateSitemaps(): Promise<void> {
       xmlString += buildUrlXml(item, BASE_URL);
     });
 
-    xmlString += '</urlset>';
+    xmlString += "</urlset>";
 
-    fs.writeFileSync(sitemapFilePath, xmlString, 'utf8');
+    fs.writeFileSync(sitemapFilePath, xmlString, "utf8");
     console.log(`Generated ${sitemapFileName} with ${chunk.length} URLs.`);
 
     let indexLastModified: Date | undefined = new Date();
     if (chunk.length > 0 && chunk[chunk.length - 1].lastModified) {
       const lastItemModified = chunk[chunk.length - 1].lastModified;
       indexLastModified =
-        typeof lastItemModified === 'string'
+        typeof lastItemModified === "string"
           ? new Date(lastItemModified)
           : lastItemModified;
     } else {
@@ -168,8 +168,8 @@ async function generateSitemaps(): Promise<void> {
     sitemapUrls.push({ url: sitemapFileUrl, lastModified: indexLastModified });
   }
 
-  console.log('Generating sitemap index file...');
-  const sitemapIndexFileName = 'sitemap.xml';
+  console.log("Generating sitemap index file...");
+  const sitemapIndexFileName = "sitemap.xml";
   const sitemapIndexFilePath = path.join(PUBLIC_DIR, sitemapIndexFileName);
 
   let indexXmlString = '<?xml version="1.0" encoding="UTF-8"?>\n';
@@ -180,13 +180,13 @@ async function generateSitemaps(): Promise<void> {
     indexXmlString += buildSitemapIndexEntryXml(item);
   });
 
-  indexXmlString += '</sitemapindex>';
+  indexXmlString += "</sitemapindex>";
 
-  fs.writeFileSync(sitemapIndexFilePath, indexXmlString, 'utf8');
+  fs.writeFileSync(sitemapIndexFilePath, indexXmlString, "utf8");
   console.log(`Generated ${sitemapIndexFileName}.`);
 }
 
 generateSitemaps().catch((err) => {
-  console.error('Error generating sitemaps:', err);
+  console.error("Error generating sitemaps:", err);
   process.exit(1);
 });

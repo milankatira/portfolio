@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: 'Milan Katira | Full-Stack Developer',
     description: 'Professional portfolio of Milan Katira, a full-stack developer with 4+ years of experience building web applications.',
     siteName: 'Milan Katira',
-    url: 'https://milankatira.vercel.app',
+    url: 'https://www.milankatira.com',
     type: 'website',
   },
   twitter: {
@@ -38,7 +38,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/milan_katira.jpeg" type="image/jpeg" />
-        <link rel="canonical" href="https://milankatira.vercel.app" />
+        <link rel="canonical" href="https://www.milankatira.com" />
       </head>
       <body className={`${inter.className} bg-black-100`}>
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-L77M2ZG6HP" strategy="afterInteractive" />
