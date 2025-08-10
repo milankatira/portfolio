@@ -9,7 +9,6 @@ import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'] });
 
-const favicon = "https://media.licdn.com/dms/image/v2/D5603AQGVpN1dkV3Ciw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1688996557537?e=1754524800&v=beta&t=VDNh4cvYulZ2hJ9_ouns0ASBTp0t4Zvc5XoH7YigWC8"
 
 export const metadata: Metadata = {
   title: 'Milan Katira | Full-Stack Developer',
@@ -20,15 +19,6 @@ export const metadata: Metadata = {
     description: 'Professional portfolio of Milan Katira, a full-stack developer with 4+ years of experience building web applications.',
     siteName: 'Milan Katira',
   },
-  icons: {
-    icon: favicon,
-    shortcut: favicon,
-    apple: favicon,
-    other: {
-      rel: 'mask-icon',
-      url: favicon,
-    },
-  },
 };
 
 export default function RootLayout({
@@ -38,6 +28,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/milan_katira.jpeg" type="image/jpeg" />
+      </head>
       <body className={`${inter.className} bg-black-100`}>
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-L77M2ZG6HP" strategy="afterInteractive" />
         <Script id="google-analytics">
@@ -82,8 +75,6 @@ export default function RootLayout({
               <Footer />
             </div>
           </ThemeProvider>
-
-
       </body>
     </html>
   );
