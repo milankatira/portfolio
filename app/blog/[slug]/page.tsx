@@ -2,6 +2,18 @@ import React from 'react';
 import Markdown from '@/components/Markdown';
 import { revertSlug, toSlug } from '@/utils/slug';
 import BackButton from '@/components/sections/blog/BackButton';
+import Script from 'next/script';
+
+interface BlogPost {
+    _id: string;
+    title: string;
+    thumbnail: string;
+    content: string;
+    description?: string;
+    date?: string;
+    slug?: string;
+}
+
 
 interface BlogPost {
     _id: string;
@@ -14,7 +26,7 @@ interface BlogPost {
 }
 
 async function getBlogPost(slug: string): Promise<BlogPost> {
-    const res = await fetch(`https://milankatira.vercel.app/api/blog/${revertSlug(slug)}`, { next: { revalidate: 3600 } });
+    const res = await fetch(`https://www.milankatira.com/api/blog/${revertSlug(slug)}`, { next: { revalidate: 3600 } });
     if (!res.ok) {
         throw new Error('Failed to fetch blog post');
     }
@@ -50,8 +62,32 @@ const BlogDetailsDark = async ({ params }: { params: { slug: string } }) => {
     const { slug } = await params;
     const blog: BlogPost = await getBlogPost(slug);
 
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: blog.title,
+        image: blog.thumbnail,
+        author: {
+            '@type': 'Person',
+            name: 'Milan Katira',
+        },
+        publisher: {
+            '@type': 'Organization',
+            name: 'Milan Katira',
+            logo: {
+                '@type': 'ImageObject',
+                url: 'https://www.milankatira.com/milan_katira.jpeg',
+            },
+        },
+        datePublished: blog.date,
+        description: blog.description || blog.title,
+    };
+
     return (
         <main className='bg-black-100 z-50'>
+            <Script id="json-ld" type="application/ld+json">
+                {JSON.stringify(jsonLd)}
+            </Script>
             <section className="relative py-20 bg-black-100 text-white overflow-hidden ">
                 <div className="w-full mx-auto px-4 relative z-10">
                     <div className="max-w-[1200px] mx-auto text-center">
@@ -76,7 +112,7 @@ export default BlogDetailsDark;
 export const revalidate = false;
 
 export async function generateStaticParams() {
-    const res = await fetch("https://milankatira.vercel.app/api/blog");
+    const res = await fetch("https://www.milankatira.com/api/blog");
     const blogs: BlogPost[] = await res.json();
     return blogs.map((blog) => ({
         slug: blog.slug || toSlug(blog.title),

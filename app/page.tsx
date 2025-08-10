@@ -17,7 +17,7 @@ export default async function Home() {
   }
   async function getBlogPosts(): Promise<BlogPost[]> {
     try {
-      const response = await axios.get("https://milankatira.vercel.app/api/blog");
+      const response = await axios.get("https://www.milankatira.com/api/blog");
       return response.data;
     } catch (error) {
       console.error("Error fetching blog posts:", error);

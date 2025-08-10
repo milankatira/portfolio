@@ -18,6 +18,14 @@ export const metadata: Metadata = {
     title: 'Milan Katira | Full-Stack Developer',
     description: 'Professional portfolio of Milan Katira, a full-stack developer with 4+ years of experience building web applications.',
     siteName: 'Milan Katira',
+    url: 'https://milankatira.vercel.app',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Milan Katira | Full-Stack Developer',
+    description: 'Professional portfolio of Milan Katira, a full-stack developer with 4+ years of experience building web applications.',
+    creator: '@milankatira26',
   },
 };
 
@@ -30,6 +38,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/milan_katira.jpeg" type="image/jpeg" />
+        <link rel="canonical" href="https://milankatira.vercel.app" />
       </head>
       <body className={`${inter.className} bg-black-100`}>
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-L77M2ZG6HP" strategy="afterInteractive" />
@@ -47,7 +56,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               "name": "Milan Katira",
-              "url": "https://milankatira.vercel.app/",
+              "url": "https://www.milankatira.com/",
               "jobTitle": "Full-Stack Developer",
               "worksFor": {
                 "@type": "Organization",
@@ -60,21 +69,21 @@ export default function RootLayout({
             }
           `}
         </Script>
-        <ProgressBarWrapper/>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <div className="relative min-h-screen flex flex-col">
-              <main className="flex-grow">{children}</main>
-            </div>
-            <Toaster />
-            <div className="bg-black-100 max-w-7xl w-full flex justify-center items-center mx-auto sm:px-10 px-5">
-              <Footer />
-            </div>
-          </ThemeProvider>
+        <ProgressBarWrapper />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="relative min-h-screen flex flex-col">
+            <main className="flex-grow">{children}</main>
+          </div>
+          <Toaster />
+          <div className="bg-black-100 max-w-7xl w-full flex justify-center items-center mx-auto sm:px-10 px-5">
+            <Footer />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
