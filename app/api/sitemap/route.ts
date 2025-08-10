@@ -16,7 +16,7 @@ interface BlogPost {
 
 export async function GET(req: NextRequest) {
   const smStream = new SitemapStream({
-    hostname: "https://milankatira.vercel.app",
+    hostname: "https://www.milankatira.com",
   });
   const pipeline = smStream.pipe(createGzip());
 

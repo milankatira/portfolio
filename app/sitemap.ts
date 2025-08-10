@@ -32,7 +32,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     {
-      url: "https://milankatira.vercel.app",
+      url: "https://www.milankatira.com",
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 1,
