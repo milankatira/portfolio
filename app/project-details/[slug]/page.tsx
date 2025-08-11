@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { ExternalLink, Github } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import type { Metadata } from 'next';
 
 interface ProjectDetailsPageProps {
     params: {
@@ -216,7 +217,7 @@ const projects = [
             'Team roles, invites, and member access controls',
             'TurboRepo monorepo with multiple packages and apps',
             'Interactive dashboards with analytics on uptime, latency, NPS'
-          ],
+        ],
         images: [
             'https://cdn.jsdelivr.net/gh/milankatira/project-videos/uptime/uptime-1.png',
             'https://cdn.jsdelivr.net/gh/milankatira/project-videos/uptime/uptime-2.png',
@@ -232,9 +233,38 @@ const projects = [
         demoUrl: 'https://uptime-snowy.vercel.app/',
         repoUrl: 'https://github.com/milankatira/uptime'
     }
-
-
 ];
+
+export const revalidate = 86400;
+
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+    const { slug } = await params;
+    const project = projects.find((p) => p.slug === slug);
+    if (!project) return { title: 'Project Not Found | Milan Katira' };
+
+    const canonicalPath = `/project-details/${project.slug}`;
+
+    return {
+        title: `${project.title} | Projects | Milan Katira`,
+        description: project.fullDescription,
+        alternates: { canonical: canonicalPath },
+        openGraph: {
+            title: project.title,
+            description: project.fullDescription,
+            images: project.images?.slice(0, 1) || [project.image].filter(Boolean) as string[],
+            url: canonicalPath,
+            type: 'article',
+            siteName: 'Milan Katira',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: project.title,
+            description: project.fullDescription,
+            images: project.images?.slice(0, 1) || [project.image].filter(Boolean) as string[],
+            creator: '@milankatira26',
+        },
+    };
+}
 
 export default async function ProjectDetailsPage({ params }: ProjectDetailsPageProps) {
     const { slug } = await params;

@@ -4,6 +4,8 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizeCss: true,
   },
+  compress: true,
+  poweredByHeader: false,
   images: {
     dangerouslyAllowSVG: true,
     remotePatterns: [
@@ -18,14 +20,6 @@ const nextConfig: NextConfig = {
   },
   typescript: {
     ignoreBuildErrors: true,
-  },
-  async rewrites() {
-    return [
-      {
-        source: "/sitemap.xml",
-        destination: "/api/sitemap",
-      },
-    ];
   },
 };
 

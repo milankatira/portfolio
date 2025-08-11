@@ -14,17 +14,6 @@ interface BlogPost {
     slug?: string;
 }
 
-
-interface BlogPost {
-    _id: string;
-    title: string;
-    thumbnail: string;
-    content: string;
-    description?: string;
-    date?: string;
-    slug?: string;
-}
-
 async function getBlogPost(slug: string): Promise<BlogPost> {
     const res = await fetch(`https://www.milankatira.com/api/blog/${revertSlug(slug)}`, { next: { revalidate: 3600 } });
     if (!res.ok) {
@@ -37,14 +26,17 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     const { slug } = await params;
     const blog: BlogPost = await getBlogPost(slug);
 
+    const canonicalPath = `/blog/${blog.slug || toSlug(blog.title)}`;
+
     return {
         title: `${blog.title} | Milan Katira`,
         description: blog.description || blog.title,
+        alternates: { canonical: canonicalPath },
         openGraph: {
             title: blog.title,
             description: blog.description || blog.title,
             images: [blog.thumbnail],
-            url: `/blog/${blog.slug || toSlug(blog.title)}/`,
+            url: canonicalPath,
             type: 'article',
             siteName: 'Milan Katira',
         },
@@ -55,8 +47,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
             images: [blog.thumbnail],
             creator: '@milankatira26',
         },
-    };
+    } as const;
 }
+
+export const revalidate = 3600;
 
 const BlogDetailsDark = async ({ params }: { params: { slug: string } }) => {
     const { slug } = await params;
@@ -109,7 +103,6 @@ const BlogDetailsDark = async ({ params }: { params: { slug: string } }) => {
 };
 
 export default BlogDetailsDark;
-export const revalidate = false;
 
 export async function generateStaticParams() {
     const res = await fetch("https://www.milankatira.com/api/blog");
