@@ -1,6 +1,5 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import type { Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme/theme-provider';
 import { Footer } from '@/components/layout/Footer';
@@ -8,37 +7,16 @@ import { Toaster } from '@/components/ui/toaster';
 import { ProgressBarWrapper } from '@/components/progress-bar-wrapper';
 import Script from 'next/script';
 
-const inter = Inter({ subsets: ['latin'], display: 'swap' });
+const inter = Inter({ subsets: ['latin'] });
+
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.milankatira.com'),
   title: 'Milan Katira | Full-Stack Developer',
-  description:
-    'Professional portfolio of Milan Katira, a full-stack developer with 4+ years of experience building web applications.',
-  keywords: [
-    'Milan Katira',
-    'Full-Stack Developer',
-    'Web Developer',
-    'Portfolio',
-    'React',
-    'Next.js',
-    'Tailwind CSS',
-    'TypeScript',
-    'JavaScript',
-    'HTML',
-    'CSS',
-  ],
-  robots: {
-    index: true,
-    follow: true,
-  },
-  alternates: {
-    canonical: '/',
-  },
+  description: 'Professional portfolio of Milan Katira, a full-stack developer with 4+ years of experience building web applications.',
+  keywords: ['Milan Katira', 'Full-Stack Developer', 'Web Developer', 'Portfolio', 'React', 'Next.js', 'Tailwind CSS', 'TypeScript', 'JavaScript', 'HTML', 'CSS'],
   openGraph: {
     title: 'Milan Katira | Full-Stack Developer',
-    description:
-      'Professional portfolio of Milan Katira, a full-stack developer with 4+ years of experience building web applications.',
+    description: 'Professional portfolio of Milan Katira, a full-stack developer with 4+ years of experience building web applications.',
     siteName: 'Milan Katira',
     url: 'https://www.milankatira.com',
     type: 'website',
@@ -46,19 +24,9 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Milan Katira | Full-Stack Developer',
-    description:
-      'Professional portfolio of Milan Katira, a full-stack developer with 4+ years of experience building web applications.',
+    description: 'Professional portfolio of Milan Katira, a full-stack developer with 4+ years of experience building web applications.',
     creator: '@milankatira26',
   },
-  icons: {
-    icon: '/milan_katira.jpeg',
-  },
-};
-
-export const viewport: Viewport = {
-  width: 'device-width',
-  initialScale: 1,
-  viewportFit: 'cover',
 };
 
 export default function RootLayout({
@@ -70,6 +38,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/milan_katira.jpeg" type="image/jpeg" />
+        <link rel="canonical" href="https://www.milankatira.com" />
       </head>
       <body className={`${inter.className} bg-black-100`}>
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-L77M2ZG6HP" strategy="afterInteractive" />

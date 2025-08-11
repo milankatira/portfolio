@@ -1,15 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
 import { toSlug } from '@/utils/slug';
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Blog | Milan Katira',
-  description: 'Articles and insights by Milan Katira on web development, TypeScript, and building scalable apps.',
-  alternates: { canonical: '/blog' },
-};
-
-export const revalidate = 3600;
 
 interface BlogPost {
   _id: string;
@@ -18,7 +9,7 @@ interface BlogPost {
 }
 
 async function getBlogPosts(): Promise<BlogPost[]> {
-  const res = await fetch('https://www.milankatira.com/api/blog', { next: { revalidate: 3600 } });
+  const res = await fetch("https://www.milankatira.com/api/blog", { next: { revalidate: 3600 } });
   if (!res.ok) {
     throw new Error('Failed to fetch blog posts');
   }
