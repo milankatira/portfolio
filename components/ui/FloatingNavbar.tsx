@@ -72,7 +72,7 @@ export const FloatingNav = ({
           border: "1px solid rgba(255, 255, 255, 0.125)",
         }}
       >
-        <a className="font-bold hidden text-sm sm:flex items-center justify-center text-white space-x-2 mr-10" href="/"><Image src={"https://media.licdn.com/dms/image/v2/D5603AQGVpN1dkV3Ciw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1688996557537?e=1754524800&v=beta&t=VDNh4cvYulZ2hJ9_ouns0ASBTp0t4Zvc5XoH7YigWC8"} style={{ color: 'transparent' }} alt="profile"  width={24} height={24} className="rounded-full"/>
+        <a className="font-bold hidden text-sm sm:flex items-center justify-center text-white space-x-2 mr-10" href="/"><Image src={"/milan_katira.jpeg"} style={{ color: 'transparent' }} alt="profile"  width={24} height={24} className="rounded-full"/>
           <span className="font-inter font-bold">Milan katira</span>
         </a>
         {navItems.map((navItem: any, idx: number) => (
