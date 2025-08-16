@@ -77,7 +77,7 @@ const projects = [
             'https://cdn.jsdelivr.net/gh/milankatira/project-videos/shipright/shipright-6.png',
         ],
         videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-        demoUrl: 'https://shipright.vercel.app/',
+        demoUrl: 'https://shipright.milankatira.com/',
         repoUrl: 'https://github.com/milankatira/shipright',
     },
     {
@@ -169,7 +169,7 @@ const projects = [
             'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-8.png',
         ],
         videoUrl: '',
-        demoUrl: 'https://feed-spark.vercel.app/',
+        demoUrl: 'https://feed-spark.milankatira.com/',
         repoUrl: 'https://github.com/milankatira/feed-spark'
     },
     {
@@ -216,7 +216,7 @@ const projects = [
             'Team roles, invites, and member access controls',
             'TurboRepo monorepo with multiple packages and apps',
             'Interactive dashboards with analytics on uptime, latency, NPS'
-          ],
+        ],
         images: [
             'https://cdn.jsdelivr.net/gh/milankatira/project-videos/uptime/uptime-1.png',
             'https://cdn.jsdelivr.net/gh/milankatira/project-videos/uptime/uptime-2.png',
@@ -229,7 +229,7 @@ const projects = [
             'https://cdn.jsdelivr.net/gh/milankatira/project-videos/uptime/uptime-9.png',
         ],
         videoUrl: '', // Optional: embed YouTube video demo if available
-        demoUrl: 'https://uptime-snowy.vercel.app/',
+        demoUrl: 'https://uptime.milankatira.com/',
         repoUrl: 'https://github.com/milankatira/uptime'
     }
 
