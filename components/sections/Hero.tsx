@@ -206,8 +206,8 @@ const Hero = () => {
           </motion.a>
 
           <motion.a
-            href="/Resume_Milan_Katira.pdf"
-            download="Resume_Milan_Katira.pdf"
+            href="/Milan_Katira_Senior_FullStack_Developer_4YOE.pdf"
+            download="Milan_Katira_Senior_FullStack_Developer_4YOE.pdf"
             className="group p-2 bg-gray-900/50 hover:bg-green-700 rounded-full transition-colors duration-300"
             variants={socialItemVariants}
             aria-label="Download Resume"
