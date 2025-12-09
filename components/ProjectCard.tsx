@@ -2,7 +2,7 @@ import { Projects } from "@/data/projects";
 import Link from "next/link";
 import { ExternalLink, Github } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/animate-ui/components/buttons/button';
 
 export default function ProjectCard() {
   return (
