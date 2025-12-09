@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/animate-ui/components/buttons/button';
 import { ExternalLink, Github } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
