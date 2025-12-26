@@ -206,7 +206,7 @@ const Hero = () => {
           </motion.a>
 
           <motion.a
-            href="portfolio/public/Milan_katira_resume.pdf"
+            href="/Milan_katira_resume.pdf"
             download="Milan_katira_resume.pdf"
             className="group p-2 bg-gray-900/50 hover:bg-green-700 rounded-full transition-colors duration-300"
             variants={socialItemVariants}
