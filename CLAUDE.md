@@ -129,10 +129,15 @@ Edit `/data/index.ts` — exported as `testimonials`, `navItems`, `companies`
 ## Environment Variables
 
 Required in `.env.local`:
-- `NEXT_PUBLIC_MONGO_URL` — MongoDB connection string
+- `NEXT_PUBLIC_MONGO_URL` — MongoDB connection string (e.g., `mongodb://localhost:27017/portfolio`)
 
 Optional:
+- `NEXT_PUBLIC_API_URL` — API base URL for client-side requests (defaults to empty for relative URLs)
+  - Development: empty or `http://localhost:3000`
+  - Production: `https://www.milankatia.com`
 - `NEXT_PUBLIC_*` — Exposed to browser (use sparingly for client config only)
+
+See `.env.local.example` for template.
 
 ## Build & Deployment
 
@@ -141,9 +146,32 @@ Optional:
 - **TypeScript errors ignored** on build (see `next.config.ts`) — run `yarn lint` separately
 - ESLint config ignores files during build but reports via CLI
 
+## Performance & Reliability Features
+
+### Incremental Static Regeneration (ISR)
+- Blog data is cached for 1 hour (3600s) using Next.js ISR
+- Reduces database queries and improves build speed
+- Cache automatically updates after 1 hour
+
+### Error Handling
+- `ErrorBoundary` component wraps major sections to catch runtime errors
+- Graceful fallback UI on component failures
+- Error details visible in development mode
+
+### Lazy Loading
+- Heavy animation components (Hero, Testimonials) lazy-loaded with skeleton placeholders
+- Improves initial page load (FCP) by deferring non-critical bundles
+- Uses Next.js `dynamic()` with SSR enabled
+
+### Data Fetching
+- Blog API uses native `fetch` with Next.js caching
+- Removed axios dependency (-15KB bundle)
+- Proper error handling with fallback UI
+
 ## Notes
 
 - Image optimization from CDN: `cdn.simpleicons.org`, `images.unsplash.com`, `avatars.githubusercontent.com`
 - Sitemap is dynamically generated via `/api/sitemap` and rewritten to `/sitemap.xml`
 - Newsletter/contact forms use Nodemailer (configured via env vars, credentials not in repo)
-- No pre-rendering or static generation; all pages are dynamic with ISR support possible
+- All pages are dynamic with ISR caching enabled for blog data
+- Skeleton components available in `/components/Skeleton.tsx` for loading states

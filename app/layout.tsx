@@ -7,7 +7,11 @@ import { Toaster } from '@/components/ui/toaster';
 import { ProgressBarWrapper } from '@/components/progress-bar-wrapper';
 import Script from 'next/script';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap', // Swap system font while loading custom font
+  variable: '--font-inter', // CSS variable for font
+});
 
 
 export const metadata: Metadata = {

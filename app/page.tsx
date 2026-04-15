@@ -1,26 +1,41 @@
+import dynamic from 'next/dynamic';
 import { ExperienceSection } from '@/components/sections/ExperienceSection';
 import { TechStackSection } from '@/components/sections/TechStackSection';
 import { FloatingNav } from '@/components/ui/FloatingNavbar';
 import { navItems } from '@/constant';
-import Hero from '@/components/sections/Hero';
 import ProjectSection from '@/components/sections/ProjectSection';
 import Testimonials from '@/components/Testimonials';
 import { BlogSection } from '@/components/sections/BlogSection';
-import axios from 'axios';
 import AboutSection from '@/components/sections/AboutSection';
+import { BlogPost } from '@/types/blog';
+
+// Lazy load heavy animation components
+const Hero = dynamic(() => import('@/components/sections/Hero'), {
+  loading: () => <div className="h-screen bg-black-100" />,
+  ssr: true,
+});
+
+const LazyTestimonials = dynamic(() => import('@/components/Testimonials'), {
+  loading: () => <div className="h-96 bg-black-100" />,
+  ssr: true,
+});
+
+// Revalidate blog data every 1 hour (3600 seconds)
+export const revalidate = 3600;
 
 export default async function Home() {
-  interface BlogPost {
-    _id: string;
-    title: string;
-    thumbnail: string;
-  }
   async function getBlogPosts(): Promise<BlogPost[]> {
     try {
-      const response = await axios.get("https://www.milankatira.com/api/blog");
-      return response.data;
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'https://www.milankatira.com'}/api/blog`, {
+        cache: 'default',
+        next: { revalidate: 3600 },
+      });
+      if (!response.ok) {
+        throw new Error(`Failed to fetch blog posts: ${response.status}`);
+      }
+      return await response.json();
     } catch (error) {
-      console.error("Error fetching blog posts:", error);
+      console.error('Error fetching blog posts:', error);
       return [];
     }
   }
@@ -37,7 +52,7 @@ export default async function Home() {
           <ProjectSection />
           <BlogSection blogdata={blogdata} />
         </div>
-        <Testimonials />
+        <LazyTestimonials />
       </main>
     </div>
   );
