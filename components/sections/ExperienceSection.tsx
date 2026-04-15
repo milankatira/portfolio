@@ -20,10 +20,25 @@ interface ExperienceEntry {
 
 const workExperience: ExperienceEntry[] = [
   {
+    id: "gohighlevel",
+    company: "GoHighLevel",
+    title: "SDE-II",
+    duration: "Sep 2025 – Present",
+    location: "Remote",
+    color: "#f59e0b",
+    details: [
+      "Manage core **media service infrastructure** and partnered cross-functionally to deliver a scalable media model, robust REST APIs, and seamless editor integrations.",
+      "Resolved critical **Node.js heap exhaustion** and OOM failures through memory profiling and by refactoring payload handling into **non-blocking stream-based flows**.",
+      "Engineered a **multipart upload API** for files up to **500 MB** with constant memory usage, replacing inefficient buffer-heavy processing.",
+      "Improved system throughput with **Redis-backed caching**, intelligent request batching, and **distributed rate limiting**.",
+      "Architected a resilient **Canva integration** to ingest large design assets into internal media systems reliably at scale.",
+    ],
+  },
+  {
     id: "instaservice",
     company: "Instaservice",
     title: "Senior Software Engineer",
-    duration: "Aug 2023 – Present",
+    duration: "Jul 2023 – Sep 2025",
     location: "Remote (USA)",
     color: "#06b6d4",
     details: [
