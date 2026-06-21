@@ -29,7 +29,7 @@ export function TechStackSection() {
 
 
   return (
-    <section id='tech-stack' className="container bg-white dark:bg-black-100">
+    <section id='tech-stack' className="container py-20 md:py-28 bg-black-100">
       <div className="text-center">
         <h2
           id="tech-stack-heading"

@@ -87,7 +87,7 @@ const Hero = () => {
   return (
     <div
       ref={containerRef}
-      className="relative w-full overflow-hidden min-h-[80vh] flex items-center justify-center bg-white dark:bg-black-100"
+      className="relative w-full overflow-hidden min-h-[80vh] flex items-center justify-center bg-black-100"
     >
       {/**
        *  UI: Spotlights
@@ -100,9 +100,9 @@ const Hero = () => {
         />
         <Spotlight
           className="h-[80vh] w-[50vw] top-10 left-full"
-          fill="purple"
+          fill="#22d3ee"
         />
-        <Spotlight className="left-80 top-28 h-[80vh] w-[50vw]" fill="blue" />
+        <Spotlight className="left-80 top-28 h-[80vh] w-[50vw]" fill="#2dd4bf" />
       </div>
 
       {/* Background effects */}
@@ -115,13 +115,13 @@ const Hero = () => {
           }}
         />
         <div
-          className="absolute top-1/4 right-1/4 pointer-events-none h-56 w-56 rounded-full bg-blue-500/20 blur-[120px] -z-10"
+          className="absolute top-1/4 right-1/4 pointer-events-none h-56 w-56 rounded-full bg-cyan-500/20 blur-[120px] -z-10"
           style={{
             transform: "translate(calc(var(--x, 0px) / -30), calc(var(--y, 0px) / -30))"
           }}
         />
         <div
-          className="absolute bottom-1/4 left-1/3 pointer-events-none h-60 w-60 rounded-full bg-purple-500/20 blur-[130px] -z-10"
+          className="absolute bottom-1/4 left-1/3 pointer-events-none h-60 w-60 rounded-full bg-teal-500/20 blur-[130px] -z-10"
           style={{
             transform: "translate(calc(var(--x, 0px) / 40), calc(var(--y, 0px) / 40))"
           }}
@@ -139,10 +139,10 @@ const Hero = () => {
         animate="visible"
       >
         <motion.h1
-          className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-center leading-tight tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400"
+          className="text-4xl md:text-5xl lg:text-6xl font-bold text-center leading-tight tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400"
           variants={itemVariants}
         >
-          I build products that scale. I write clean code. <div className="text-cyan-500">I create digital experiences.</div>
+          I build products that scale. I write clean code. <div className="text-brand">I create digital experiences.</div>
         </motion.h1>
 
         <motion.p
@@ -153,7 +153,7 @@ const Hero = () => {
         </motion.p>
 
         <motion.p
-          className="mb-6 text-center text-base md:text-lg text-amber-400"
+          className="mb-6 text-center text-sm md:text-base text-gray-500"
           variants={itemVariants}
         >
           Powered by clean code, TypeScript expertise, and modern frameworks.
@@ -235,7 +235,7 @@ const Hero = () => {
                 <FaLocationArrow className="h-4 w-4" />
               </span>
 
-              <span className="absolute -inset-0.5 -z-10 rounded-lg bg-gradient-to-b from-gray-600 to-purple-600/20 opacity-0 blur-xl transition-opacity group-hover:opacity-100" />
+              <span className="absolute -inset-0.5 -z-10 rounded-lg bg-gradient-to-b from-cyan-500 to-cyan-400/10 opacity-0 blur-xl transition-opacity group-hover:opacity-100" />
             </a>
           </Button>
         </motion.div>

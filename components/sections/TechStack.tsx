@@ -62,13 +62,13 @@ const devToolsIcons = devTools.map((tech) => ({
 
 const StackList: React.FC<TechStackProps> = ({ items }) => (
   <>
-    <Marquee className="py-6 bg-white dark:bg-black-100" pauseOnHover={false}>
+    <Marquee className="py-6 bg-black-100" pauseOnHover={false}>
       <div className="flex gap-8">
         {items.map((tech, i) => (
           <div key={i} className="relative group text-center">
             <div
-              className="w-20 border h-20 bg-gradient-to-b rounded-2xl p-6 transition-all duration-300
-                        hover:scale-110 hover:shadow-[0_0_30px_rgba(139,92,246,0.3)]
+              className="w-20 h-20 border border-hairline bg-gradient-to-b from-surface to-surface-2 rounded-2xl p-6 transition-all duration-300
+                        hover:scale-110 hover:border-brand/40 hover:shadow-[0_0_30px_rgba(34,211,238,0.25)]
                         flex items-center justify-center"
             >
               <img
@@ -78,7 +78,7 @@ const StackList: React.FC<TechStackProps> = ({ items }) => (
                 loading="lazy"
               />
             </div>
-            <span className="text-sm whitespace-nowrap">{tech.name}</span>
+            <span className="mt-2 block text-sm whitespace-nowrap text-gray-400">{tech.name}</span>
           </div>
         ))}
       </div>

@@ -33,7 +33,7 @@ export function BlogSection({ blogdata }: BlogSectionProps) {
   }));
 
   return (
-    <section id="blog" className="py-20 w-full relative">
+    <section id="blog" className="py-20 md:py-28 w-full relative">
       <div className="container mx-auto px-4">
         {/* Header */}
         <motion.div
@@ -41,10 +41,10 @@ export function BlogSection({ blogdata }: BlogSectionProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white tracking-tight">
-            Technical <span className="text-cyan-500">Knowledge</span> Hub
+            Technical <span className="text-brand">Knowledge</span> Hub
           </h2>
           <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto font-light leading-relaxed">
             Insights, tutorials, and experiences from my journey in software development.

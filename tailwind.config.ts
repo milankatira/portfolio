@@ -41,6 +41,15 @@ const config = {
   				'100': '#E4ECFF'
   			},
   			purple: '#CBACF9',
+  			brand: {
+  				DEFAULT: '#22d3ee',
+  				deep: '#06b6d4'
+  			},
+  			surface: {
+  				DEFAULT: '#0f172a',
+  				'2': '#1e293b'
+  			},
+  			hairline: 'rgba(148, 163, 184, 0.14)',
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',

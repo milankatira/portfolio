@@ -19,7 +19,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="w-full pt-20 pb-10 bg-white dark:bg-black-100 relative" id="contact">
+    <footer className="w-full pt-20 pb-10 bg-black-100 relative" id="contact">
       {/* Background grid */}
       <div className="w-full absolute left-0 bottom-0 min-h-96">
         <img
@@ -31,7 +31,7 @@ export const Footer = () => {
 
       <div className="flex flex-col items-center">
         <h1 className="heading w-full lg:max-w-[45vw]">
-          Ready to <span className="text-cyan-500">build</span> something extraordinary together?
+          Ready to <span className="text-brand">build</span> something extraordinary together?
         </h1>
         <p className="text-white-200 md:mt-10 my-5 text-center">
         Let's connect to discuss how I can help bring your technical vision to life.
@@ -51,7 +51,7 @@ export const Footer = () => {
               <span className="inline-block transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 duration-200">
                 <FaLocationArrow className="h-4 w-4" />
               </span>
-              <span className="absolute -inset-0.5 -z-10 rounded-lg bg-gradient-to-b from-gray-600 to-purple-600/20 opacity-0 blur-xl transition-opacity group-hover:opacity-100" />
+              <span className="absolute -inset-0.5 -z-10 rounded-lg bg-gradient-to-b from-cyan-500 to-cyan-400/10 opacity-0 blur-xl transition-opacity group-hover:opacity-100" />
             </a>
           </Button>
         </motion.div>

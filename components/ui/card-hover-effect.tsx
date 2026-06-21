@@ -3,7 +3,6 @@ import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 
 import { useState } from "react";
-import { Button } from "./button";
 
 export const HoverEffect = ({
   items,
@@ -53,11 +52,9 @@ export const HoverEffect = ({
           <Card className="bg-black-100">
             <CardTitle>{item.title}</CardTitle>
             <CardDescription className="line-clamp-2">{item.description}</CardDescription>
-            <Link href={item?.link} className="mt-4 inline-block">
-              <Button variant="link" className="text-primary p-0 hover:no-underline">
-                Read more →
-              </Button>
-            </Link>
+            <span className="mt-4 inline-block text-primary group-hover:underline">
+              Read more →
+            </span>
           </Card>
         </Link>
       ))}
