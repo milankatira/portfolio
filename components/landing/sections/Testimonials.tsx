@@ -1,0 +1,62 @@
+import { Marquee } from '@/components/magicui/marquee';
+import { testimonials } from '@/data';
+import { SectionHeading } from '@/components/landing/primitives/SectionHeading';
+
+type Testimonial = (typeof testimonials)[number];
+
+function QuoteCard({ t }: { t: Testimonial }) {
+  const initials = t.name
+    .split(' ')
+    .map((w) => w[0])
+    .slice(0, 2)
+    .join('');
+  return (
+    <figure className="card-lit mx-3 flex w-[340px] shrink-0 flex-col justify-between gap-6 rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 backdrop-blur-sm transition-colors duration-300 hover:border-white/15 sm:w-[400px]">
+      <blockquote className="text-[15px] leading-relaxed text-white/70">
+        &ldquo;{t.quote}&rdquo;
+      </blockquote>
+      <figcaption className="flex items-center gap-3">
+        <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] font-mono text-xs text-white/70">
+          {initials}
+        </span>
+        <span className="flex flex-col">
+          <span className="text-sm font-medium text-white">{t.name}</span>
+          <span className="text-xs text-white/40">{t.title}</span>
+        </span>
+      </figcaption>
+    </figure>
+  );
+}
+
+export function Testimonials() {
+  const mid = Math.ceil(testimonials.length / 2);
+  const rowA = testimonials.slice(0, mid);
+  const rowB = testimonials.slice(mid);
+
+  return (
+    <section id="testimonials" className="relative overflow-hidden py-24 md:py-32">
+      <div className="mx-auto mb-14 max-w-6xl px-6">
+        <SectionHeading
+          eyebrow="Words"
+          title="Trusted by the people I've worked with"
+          align="center"
+        />
+      </div>
+
+      <div className="relative flex flex-col gap-5">
+        <Marquee pauseOnHover className="[--duration:44s]">
+          {rowA.map((t) => (
+            <QuoteCard key={t.name} t={t} />
+          ))}
+        </Marquee>
+        <Marquee pauseOnHover reverse className="[--duration:50s]">
+          {rowB.map((t) => (
+            <QuoteCard key={t.name} t={t} />
+          ))}
+        </Marquee>
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black-100 to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black-100 to-transparent" />
+      </div>
+    </section>
+  );
+}

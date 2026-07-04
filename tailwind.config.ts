@@ -25,7 +25,17 @@ const config = {
   		}
   	},
   	extend: {
+  		fontFamily: {
+  			display: ['var(--font-display)', 'var(--font-inter)', 'sans-serif'],
+  			serif: ['var(--font-serif)', 'Georgia', 'serif'],
+  			mono: ['var(--font-mono)', 'ui-monospace', 'monospace']
+  		},
   		colors: {
+  			iris: {
+  				'400': '#8B7CFF',
+  				'500': '#6D5EF6',
+  				'600': '#5B4BE0'
+  			},
   			black: {
   				'100': '#000319',
   				'200': 'rgba(17, 25, 40, 0.75)',
@@ -87,9 +97,19 @@ const config = {
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
-  			sm: 'calc(var(--radius) - 4px)'
+  			sm: 'calc(var(--radius) - 4px)',
+  			'4xl': '2rem',
+  			'6xl': '3rem'
   		},
   		keyframes: {
+  			'gradient-x': {
+  				'0%, 100%': {
+  					backgroundPosition: '0% 50%'
+  				},
+  				'50%': {
+  					backgroundPosition: '100% 50%'
+  				}
+  			},
   			'accordion-down': {
   				from: {
   					height: '0'
@@ -180,6 +200,7 @@ const config = {
   			}
   		},
   		animation: {
+  			'gradient-x': 'gradient-x 8s ease infinite',
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
   			spotlight: 'spotlight 2s ease .75s 1 forwards',

@@ -1,0 +1,16 @@
+{
+  "status": "captured",
+  "namespace": "leadgen",
+  "repoName": "portfolio",
+  "branch": "main",
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"stored\": 0,\n  \"updated\": 0,\n  \"skipped\": 5,\n  \"candidates\": [\n    {\n      \"content\": \"User preference: always provide visible controls for critical actions - `safe-area-awareness` - Keep primary touch targets away from notch, Dynamic Island, gesture bar and screen edges - `no-precision-req.\",\n      \"type\": \"preference\",\n      \"confidence\": 0.91,\n      \"subject\": \"always-provide-visible-controls\",\n      \"skipped_reason\": \"duplicate_hash\"\n    },\n    {\n      \"content\": \"User preference: never disable zoom) - `mobile-first` - Design mobile-first, then scale up to tablet and desktop - `breakpoint-consistency` - Use systematic breakpoints (e.\",\n      \"type\": \"preference\",\n      \"confidence\": 0.91,\n      \"subject\": \"never-disable-zoom-mobile-first\",\n      \"skipped_reason\": \"duplicate_hash\"\n    },\n    {\n      \"content\": \"Use same style across all pages - `no-emoji-icons` - Use SVG icons (Heroicons, Lucide), not emojis - `color-palette-from-product` - Choose palette from product/industry (search `--domain color`) - `effects-match-.\",\n      \"type\": \"decision\",\n      \"confidence\": 0.92,\n      \"skipped_reason\": \"duplicate_hash\"\n    },\n    {\n      \"content\": \"Use blur to indicate background dismissal (modals, sheets), not as decoration (Apple HIG) - `primary-action` - Each screen should have only one primary CTA; secondary actions visually.\",\n      \"type\": \"decision\",\n      \"confidence\": 0.92,\n      \"skipped_reason\": \"duplicate_hash\"\n    },\n    {\n      \"content\": \"Use 4pt/8dp incremental spacing system (Material Design) - `touch-density` - Keep component spacing comfortable for touch: not cramped, not causing mis-taps - `container-width` - Consistent max-width on desktop (max-w-6xl / 7xl) - `z-index-managem.\",\n      \"type\": \"decision\",\n      \"confidence\": 0.92,\n      \"skipped_reason\": \"duplicate_hash\"\n    }\n  ],\n  \"memories\": [],\n  \"skipped_reasons\": [\n    \"duplicate_hash\",\n    \"duplicate_hash\",\n    \"duplicate_hash\",\n    \"duplicate_hash\",\n    \"duplicate_hash\"\n  ]\n}"
+      }
+    ]
+  },
+  "error": null,
+  "updatedAt": "2026-07-04T11:55:13.421Z"
+}

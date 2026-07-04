@@ -2,7 +2,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme/theme-provider';
-import { Footer } from '@/components/layout/Footer';
+import { ConditionalFooter } from '@/components/layout/ConditionalFooter';
 import { Toaster } from '@/components/ui/toaster';
 import { ProgressBarWrapper } from '@/components/progress-bar-wrapper';
 import Script from 'next/script';
@@ -84,9 +84,7 @@ export default function RootLayout({
             <main className="flex-grow">{children}</main>
           </div>
           <Toaster />
-          <div className="bg-black-100 max-w-7xl w-full flex justify-center items-center mx-auto sm:px-10 px-5">
-            <Footer />
-          </div>
+          <ConditionalFooter />
         </ThemeProvider>
       </body>
     </html>
