@@ -47,6 +47,7 @@ export function LandingNav() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 flex justify-center px-4 pt-4">
       <nav
+        aria-label="Primary"
         className={cn(
           'flex w-full max-w-5xl items-center justify-between rounded-full px-4 py-2.5 transition-all duration-500 sm:px-5',
           scrolled

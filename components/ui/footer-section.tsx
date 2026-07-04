@@ -31,7 +31,7 @@ const footerLinks: FooterSection[] = [
     label: 'Resources',
     links: [
       { title: 'Blog', href: '/blog' },
-      { title: 'Résumé', href: '/milan_katira.pdf', external: true },
+      { title: 'Resume', href: '/Milan_katira_resume.pdf', external: true },
       { title: 'Contact', href: '#contact' },
       { title: 'Home', href: '/' },
     ],
@@ -41,7 +41,7 @@ const footerLinks: FooterSection[] = [
     links: [
       { title: 'GitHub', href: 'https://github.com/milankatira', icon: GithubIcon, external: true },
       { title: 'LinkedIn', href: 'https://www.linkedin.com/in/milan-katira/', icon: LinkedinIcon, external: true },
-      { title: 'Twitter', href: 'https://twitter.com/milankatira26', icon: TwitterIcon, external: true },
+      { title: 'Twitter/X', href: 'https://twitter.com/milankatira26', icon: TwitterIcon, external: true },
       { title: 'Email', href: 'mailto:milankatira26@gmail.com', icon: MailIcon },
     ],
   },

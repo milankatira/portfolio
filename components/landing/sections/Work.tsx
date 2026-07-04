@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { useReducedMotion } from 'framer-motion';
 import { ArrowUpRight, Github, Play } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Projects } from '@/data/projects';
@@ -9,45 +10,45 @@ import { SectionHeading } from '@/components/landing/primitives/SectionHeading';
 
 type Project = (typeof Projects)[number];
 
+// Solid dark poster so the frame isn't blank before the clip loads (preload="none").
+const VIDEO_POSTER =
+  "data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='16'%20height='10'%3E%3Crect%20width='16'%20height='10'%20fill='%2307070d'/%3E%3C/svg%3E";
+
 /** Lazy, hover-to-play preview. Plays on pointer hover, or on scroll-into-view
  *  for touch devices. `preload="none"` keeps 5 CDN videos off the critical path. */
-function ProjectMedia({ src, accent }: { src: string; accent: string }) {
+function ProjectMedia({ src, accent, label }: { src: string; accent: string; label: string }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
+  const reduce = useReducedMotion();
   const [playing, setPlaying] = useState(false);
 
-  const play = () => {
-    const v = videoRef.current;
-    if (!v) return;
-    v.play()
-      .then(() => setPlaying(true))
-      .catch(() => {});
-  };
-  const stop = () => {
-    const v = videoRef.current;
-    if (!v) return;
-    v.pause();
-    setPlaying(false);
-  };
-
+  // Autoplay only while in the viewport; pause when it scrolls away. Never
+  // autoplays for users who prefer reduced motion (poster stays).
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const isTouch = window.matchMedia('(hover: none)').matches;
-    if (!isTouch || !wrapRef.current) return;
+    const v = videoRef.current;
+    const wrap = wrapRef.current;
+    if (!v || !wrap || reduce) return;
 
     const io = new IntersectionObserver(
-      ([entry]) => (entry.isIntersecting ? play() : stop()),
-      { threshold: 0.6 },
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          v.play()
+            .then(() => setPlaying(true))
+            .catch(() => {});
+        } else {
+          v.pause();
+          setPlaying(false);
+        }
+      },
+      { threshold: 0.5 },
     );
-    io.observe(wrapRef.current);
+    io.observe(wrap);
     return () => io.disconnect();
-  }, []);
+  }, [reduce]);
 
   return (
     <div
       ref={wrapRef}
-      onPointerEnter={play}
-      onPointerLeave={stop}
       className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-white/[0.08] bg-[#07070d]"
     >
       {/* subtle accent wash behind the frame */}
@@ -59,10 +60,13 @@ function ProjectMedia({ src, accent }: { src: string; accent: string }) {
       <video
         ref={videoRef}
         src={src}
+        poster={VIDEO_POSTER}
         muted
         loop
         playsInline
         preload="none"
+        aria-label={`${label} demo preview`}
+        title={`${label} demo preview`}
         className="relative h-full w-full object-cover"
       />
       {/* Preview affordance — fades out once the clip starts */}
@@ -85,17 +89,17 @@ function TechPills({ items, max = 6 }: { items: string[]; max?: number }) {
   const shown = items.slice(0, max);
   const extra = items.length - shown.length;
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap gap-2.5">
       {shown.map((t) => (
         <span
           key={t}
-          className="rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-1 font-mono text-[11px] text-white/55"
+          className="rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-1 font-mono text-[11px] leading-none text-white/55"
         >
           {t}
         </span>
       ))}
       {extra > 0 && (
-        <span className="rounded-full px-2.5 py-1 font-mono text-[11px] text-white/35">
+        <span className="rounded-full border border-white/[0.06] bg-white/[0.02] px-2.5 py-1 font-mono text-[11px] leading-none text-white/40">
           +{extra}
         </span>
       )}
@@ -110,7 +114,8 @@ function ProjectLinks({ project }: { project: Project }) {
         href={project.link}
         target="_blank"
         rel="noopener noreferrer"
-        className="group/link inline-flex items-center gap-1.5 text-sm font-medium text-white/85 transition-colors hover:text-white"
+        aria-label={`Visit the ${project.title} live site (opens in a new tab)`}
+        className="group/link inline-flex items-center gap-1.5 rounded-sm text-sm font-medium text-white/85 outline-none transition-colors hover:text-white focus-visible:ring-1 focus-visible:ring-white/40"
       >
         Live site
         <ArrowUpRight className="h-4 w-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
@@ -119,7 +124,8 @@ function ProjectLinks({ project }: { project: Project }) {
         href={project.sourceCode}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-1.5 text-sm text-white/45 transition-colors hover:text-white/80"
+        aria-label={`View the ${project.title} source code on GitHub (opens in a new tab)`}
+        className="inline-flex items-center gap-1.5 rounded-sm text-sm text-white/45 outline-none transition-colors hover:text-white/80 focus-visible:ring-1 focus-visible:ring-white/40"
       >
         <Github className="h-4 w-4" />
         Code
@@ -165,7 +171,7 @@ export function Work() {
       {/* Featured */}
       <Reveal className="mt-14">
         <article className="card-lit group grid grid-cols-1 gap-8 rounded-2xl border border-white/[0.08] bg-white/[0.015] p-4 transition-colors duration-500 hover:border-white/15 md:grid-cols-2 md:p-6 lg:gap-12">
-          <ProjectMedia src={featured.short} accent={featured.accentColor} />
+          <ProjectMedia src={featured.short} accent={featured.accentColor} label={featured.title} />
           <div className="flex flex-col justify-center gap-5 md:py-4 md:pr-4">
             <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-white/35">
               Featured
@@ -185,7 +191,7 @@ export function Work() {
         {rest.map((project, i) => (
           <Reveal key={project.slug} delay={i * 0.06}>
             <article className="card-lit group flex h-full flex-col gap-5 rounded-2xl border border-white/[0.08] bg-white/[0.015] p-4 transition-[transform,border-color] duration-500 ease-out hover:-translate-y-1 hover:border-white/15 md:p-5">
-              <ProjectMedia src={project.short} accent={project.accentColor} />
+              <ProjectMedia src={project.short} accent={project.accentColor} label={project.title} />
               <div className="flex flex-1 flex-col gap-4 px-1">
                 <ProjectTitle project={project} size="md" />
                 <p className="line-clamp-3 text-sm leading-relaxed text-white/55">

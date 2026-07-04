@@ -11,7 +11,7 @@ export const landingNav: LandingNavLink[] = [
   { label: 'Work', href: '#work' },
   { label: 'About', href: '#about' },
   { label: 'Experience', href: '#experience' },
-  { label: 'Words', href: '#testimonials' },
+  { label: 'Writing', href: '#blog' },
 ];
 
 export const profile = {
@@ -20,7 +20,7 @@ export const profile = {
   location: 'Remote · India',
   email: 'milankatira26@gmail.com',
   availability: 'Available for select work',
-  resume: '/milan_katira.pdf',
+  resume: '/Milan_katira_resume.pdf',
   socials: {
     github: 'https://github.com/milankatira',
     linkedin: 'https://www.linkedin.com/in/milan-katira/',
@@ -28,17 +28,25 @@ export const profile = {
   },
 } as const;
 
+// Headline metrics — edit these freely.
+export const YEARS = 5;
+export const PRODUCTS = 5;
+export const API_REQUESTS_48H = 1.2; // rendered as "1.2M+"
+export const WEEKLY_USERS = 20; // rendered as "20k+"
+
 export interface Stat {
   value: number;
   suffix: string;
+  /** Decimal places for the animated value (default 0). */
+  decimals?: number;
   label: string;
 }
 
 export const stats: Stat[] = [
-  { value: 5, suffix: '+', label: 'Years shipping production software' },
-  { value: 5, suffix: '', label: 'SaaS products designed & built' },
-  { value: 8.7, suffix: 'M', label: 'API requests handled in 48h' },
-  { value: 20, suffix: 'k+', label: 'Weekly active users served' },
+  { value: YEARS, suffix: '+', label: 'Years shipping production software' },
+  { value: PRODUCTS, suffix: '', label: 'SaaS products designed & built' },
+  { value: API_REQUESTS_48H, suffix: 'M+', decimals: 1, label: 'API requests handled in 48h' },
+  { value: WEEKLY_USERS, suffix: 'k+', label: 'Weekly active users served' },
 ];
 
 // Short capability lines for the About section (editorial, not a skills wall).

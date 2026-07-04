@@ -23,7 +23,7 @@ export function About() {
           </Reveal>
           <Reveal delay={0.1}>
             <p className="max-w-lg text-[15px] leading-relaxed text-white/60">
-              Over 5+ years I&rsquo;ve shipped production systems across media infrastructure,
+              For 5+ years, I&rsquo;ve shipped production systems across media infrastructure,
               real-time platforms, and design systems — most recently owning core media
               services at GoHighLevel. I move comfortably from database and Node.js internals
               to the last pixel of an interface.
@@ -48,7 +48,7 @@ export function About() {
             {stats.map((s) => (
               <div key={s.label} className="bg-black-100 p-6 md:p-8">
                 <div className="font-display text-4xl font-semibold tracking-tight text-white md:text-5xl">
-                  <StatCounter value={s.value} suffix={s.suffix} />
+                  <StatCounter value={s.value} suffix={s.suffix} decimals={s.decimals} />
                 </div>
                 <p className="mt-2 text-[13px] leading-snug text-white/50">{s.label}</p>
               </div>

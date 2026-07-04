@@ -1,4 +1,5 @@
-import { Marquee } from '@/components/magicui/marquee';
+import type { CSSProperties } from 'react';
+import { cn } from '@/lib/utils';
 import { testimonials } from '@/data';
 import { SectionHeading } from '@/components/landing/primitives/SectionHeading';
 
@@ -11,7 +12,7 @@ function QuoteCard({ t }: { t: Testimonial }) {
     .slice(0, 2)
     .join('');
   return (
-    <figure className="card-lit mx-3 flex w-[340px] shrink-0 flex-col justify-between gap-6 rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 backdrop-blur-sm transition-colors duration-300 hover:border-white/15 sm:w-[400px]">
+    <figure className="card-lit flex h-full w-[340px] shrink-0 flex-col justify-between gap-6 rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 backdrop-blur-sm transition-colors duration-300 hover:border-white/15 sm:w-[400px]">
       <blockquote className="text-[15px] leading-relaxed text-white/70">
         &ldquo;{t.quote}&rdquo;
       </blockquote>
@@ -28,6 +29,45 @@ function QuoteCard({ t }: { t: Testimonial }) {
   );
 }
 
+/**
+ * A single marquee row. Renders exactly one accessible copy of each quote; the
+ * second copy exists only to make the loop seamless and is hidden from
+ * assistive tech. The animation is paused globally under prefers-reduced-motion.
+ */
+function MarqueeRow({
+  items,
+  reverse = false,
+  duration,
+}: {
+  items: Testimonial[];
+  reverse?: boolean;
+  duration: string;
+}) {
+  return (
+    <div
+      className="group flex overflow-hidden [--gap:1.25rem] [gap:var(--gap)]"
+      style={{ '--duration': duration } as CSSProperties}
+    >
+      {[false, true].map((clone) => (
+        <ul
+          key={clone ? 'clone' : 'real'}
+          aria-hidden={clone || undefined}
+          className={cn(
+            'flex shrink-0 items-stretch [gap:var(--gap)] animate-marquee group-hover:[animation-play-state:paused]',
+            reverse && '[animation-direction:reverse]',
+          )}
+        >
+          {items.map((t) => (
+            <li key={t.name}>
+              <QuoteCard t={t} />
+            </li>
+          ))}
+        </ul>
+      ))}
+    </div>
+  );
+}
+
 export function Testimonials() {
   const mid = Math.ceil(testimonials.length / 2);
   const rowA = testimonials.slice(0, mid);
@@ -36,24 +76,12 @@ export function Testimonials() {
   return (
     <section id="testimonials" className="relative overflow-hidden py-24 md:py-32">
       <div className="mx-auto mb-14 max-w-6xl px-6">
-        <SectionHeading
-          eyebrow="Words"
-          title="Trusted by the people I've worked with"
-          align="center"
-        />
+        <SectionHeading eyebrow="Testimonials" title="Trusted by the people I've worked with" align="center" />
       </div>
 
       <div className="relative flex flex-col gap-5">
-        <Marquee pauseOnHover className="[--duration:44s]">
-          {rowA.map((t) => (
-            <QuoteCard key={t.name} t={t} />
-          ))}
-        </Marquee>
-        <Marquee pauseOnHover reverse className="[--duration:50s]">
-          {rowB.map((t) => (
-            <QuoteCard key={t.name} t={t} />
-          ))}
-        </Marquee>
+        <MarqueeRow items={rowA} duration="44s" />
+        <MarqueeRow items={rowB} duration="50s" reverse />
         <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black-100 to-transparent" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black-100 to-transparent" />
       </div>
