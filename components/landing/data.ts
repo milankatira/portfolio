@@ -31,8 +31,8 @@ export const profile = {
 // Headline metrics — edit these freely.
 export const YEARS = 5;
 export const PRODUCTS = 5;
-export const API_REQUESTS_48H = 1.2; // rendered as "1.2M+"
-export const WEEKLY_USERS = 20; // rendered as "20k+"
+export const API_REQUESTS_48H = 8.7; // rendered as "8.7M" — real ICS figure (8.7M requests / 48h)
+export const WEEKLY_USERS = 20; // rendered as "20k+" — real Cerebry figure (20,000+ weekly students)
 
 export interface Stat {
   value: number;
@@ -45,7 +45,7 @@ export interface Stat {
 export const stats: Stat[] = [
   { value: YEARS, suffix: '+', label: 'Years shipping production software' },
   { value: PRODUCTS, suffix: '', label: 'SaaS products designed & built' },
-  { value: API_REQUESTS_48H, suffix: 'M+', decimals: 1, label: 'API requests handled in 48h' },
+  { value: API_REQUESTS_48H, suffix: 'M', decimals: 1, label: 'API requests handled in 48h' },
   { value: WEEKLY_USERS, suffix: 'k+', label: 'Weekly active users served' },
 ];
 
@@ -55,6 +55,54 @@ export const capabilities: string[] = [
   'Scalable Node.js & media infrastructure',
   'Design systems & component libraries',
   'Real-time features & data pipelines',
+];
+
+export interface Testimonial {
+  name: string;
+  title: string;
+  quote: string;
+  linkedin: string;
+}
+
+// One entry per person (no duplication). The marquee generates its loop clones
+// in the component and marks them aria-hidden.
+// TODO: replace the LinkedIn people-search URLs with exact profile URLs.
+export const testimonials: Testimonial[] = [
+  {
+    name: 'Shraddha Choudhary',
+    title: 'Senior Software Developer at York IE',
+    linkedin: 'https://www.linkedin.com/search/results/people/?keywords=Shraddha%20Choudhary%20York%20IE',
+    quote:
+      'I highly recommend Milan for any full-stack development project. His technical expertise, attention to detail, and problem-solving skills are second to none.',
+  },
+  {
+    name: 'Bhavik Lotia',
+    title: 'Senior Software Engineer at ShineInfosoft',
+    linkedin: 'https://www.linkedin.com/search/results/people/?keywords=Bhavik%20Lotia%20ShineInfosoft',
+    quote:
+      'Working with Milan was a pleasure. He has a deep understanding of both front-end and back-end development and delivered a high-quality product within a tight deadline.',
+  },
+  {
+    name: 'Rohit Raj',
+    title: 'Software Engineer at Cerebry',
+    linkedin: 'https://www.linkedin.com/search/results/people/?keywords=Rohit%20Raj%20Cerebry',
+    quote:
+      'Milan is an exceptional full-stack developer. He seamlessly integrates different technologies and platforms to create robust, scalable solutions that meet business needs.',
+  },
+  {
+    name: 'Ashish Gupta',
+    title: 'QA Analyst at InstaService',
+    linkedin: 'https://www.linkedin.com/search/results/people/?keywords=Ashish%20Gupta%20InstaService',
+    quote:
+      "Milan's ability to architect complex systems while keeping code clean and maintainable is impressive. He delivered our enterprise solution ahead of schedule with zero critical bugs.",
+  },
+  {
+    name: 'Mukesh Singh',
+    title: 'Senior QA at Cerebry',
+    linkedin: 'https://www.linkedin.com/search/results/people/?keywords=Mukesh%20Singh%20Cerebry',
+    quote:
+      'As an independent contractor, Milan designed a highly scalable architecture that now handles 5x our original traffic with minimal resource usage. His end-to-end ownership makes him invaluable.',
+  },
 ];
 
 export interface ExperienceEntry {

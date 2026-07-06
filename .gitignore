@@ -39,3 +39,6 @@ next-env.d.ts
 
 # AW agent workspace
 .aw
+
+
+.claude

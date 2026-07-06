@@ -1,11 +1,11 @@
 import type { CSSProperties } from 'react';
 import { cn } from '@/lib/utils';
-import { testimonials } from '@/data';
+import { testimonials } from '@/components/landing/data';
 import { SectionHeading } from '@/components/landing/primitives/SectionHeading';
 
 type Testimonial = (typeof testimonials)[number];
 
-function QuoteCard({ t }: { t: Testimonial }) {
+function QuoteCard({ t, hidden = false }: { t: Testimonial; hidden?: boolean }) {
   const initials = t.name
     .split(' ')
     .map((w) => w[0])
@@ -21,7 +21,16 @@ function QuoteCard({ t }: { t: Testimonial }) {
           {initials}
         </span>
         <span className="flex flex-col">
-          <span className="text-sm font-medium text-white">{t.name}</span>
+          <a
+            href={t.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            tabIndex={hidden ? -1 : undefined}
+            aria-label={`${t.name} on LinkedIn — ${t.title}`}
+            className="w-fit rounded-sm text-sm font-medium text-white underline-offset-2 outline-none transition-colors hover:text-white/80 hover:underline focus-visible:ring-1 focus-visible:ring-white/40"
+          >
+            {t.name}
+          </a>
           <span className="text-xs text-white/40">{t.title}</span>
         </span>
       </figcaption>
@@ -31,8 +40,9 @@ function QuoteCard({ t }: { t: Testimonial }) {
 
 /**
  * A single marquee row. Renders exactly one accessible copy of each quote; the
- * second copy exists only to make the loop seamless and is hidden from
- * assistive tech. The animation is paused globally under prefers-reduced-motion.
+ * second copy exists only to make the loop seamless — it is hidden from
+ * assistive tech and its links are removed from the tab order. The animation is
+ * paused globally under prefers-reduced-motion.
  */
 function MarqueeRow({
   items,
@@ -59,7 +69,7 @@ function MarqueeRow({
         >
           {items.map((t) => (
             <li key={t.name}>
-              <QuoteCard t={t} />
+              <QuoteCard t={t} hidden={clone} />
             </li>
           ))}
         </ul>
