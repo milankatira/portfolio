@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { landingNav, profile } from '@/components/landing/data';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
@@ -59,8 +60,15 @@ export function LandingNav() {
           href="#top"
           className="group flex items-center gap-2.5 rounded-full pl-1 pr-3 font-display text-sm font-semibold tracking-tight text-white"
         >
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-[13px] font-bold text-black-100">
-            MK
+          <span className="relative flex h-8 w-8 shrink-0 overflow-hidden rounded-full border border-white/15">
+            <Image
+              src={profile.photo}
+              alt={profile.name}
+              width={64}
+              height={64}
+              priority
+              className="h-full w-full object-cover"
+            />
           </span>
           <span className="hidden sm:inline">{profile.name}</span>
         </a>
