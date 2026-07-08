@@ -21,6 +21,7 @@ export const profile = {
   email: 'milankatira26@gmail.com',
   availability: 'Available for select work',
   resume: '/Milan_katira_resume.pdf',
+  photo: '/milan_katira.jpeg',
   socials: {
     github: 'https://github.com/milankatira',
     linkedin: 'https://www.linkedin.com/in/milan-katira/',
