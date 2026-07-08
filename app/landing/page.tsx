@@ -37,9 +37,9 @@ export default async function LandingPage() {
       <LandingNav />
       <main>
         <Hero />
+        <About />
         <LogoMarquee />
         <Work />
-        <About />
         <Experience />
         <Testimonials />
         <Blog posts={posts} />
