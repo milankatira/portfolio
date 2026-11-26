@@ -3,25 +3,36 @@ import connectDB from "@/utils/db";
 import BlogPost from "@/model/BlogPost";
 
 interface Params {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
+}
+
+function escapeRegExp(value: string) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
 export async function GET(request: Request, { params }: Params) {
   try {
-    await connectDB();
-    const query = { title: new RegExp(params.id, "i") };
-    const post = await BlogPost.find(query);
+    const { id } = await params;
+    const title = decodeURIComponent(id ?? "").trim();
+    if (!title) {
+      return NextResponse.json({ message: "Blog post not found" }, { status: 404 });
+    }
 
-    if (!post || post.length === 0) {
+    await connectDB();
+    const post = await BlogPost.findOne({
+      title: new RegExp(`^${escapeRegExp(title)}$`, "i"),
+    });
+
+    if (!post) {
       return NextResponse.json(
         { message: "Blog post not found" },
         { status: 404 }
       );
     }
 
-    return NextResponse.json(post[0]);
+    return NextResponse.json(post);
   } catch (error) {
     return NextResponse.json(
       { message: error instanceof Error ? error.message : "An unknown error occurred" },

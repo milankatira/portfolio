@@ -3,6 +3,9 @@ import Markdown from '@/components/Markdown';
 import { revertSlug, toSlug } from '@/utils/slug';
 import BackButton from '@/components/sections/blog/BackButton';
 import Script from 'next/script';
+import { notFound } from 'next/navigation';
+import connectDB from '@/utils/db';
+import BlogPostModel from '@/model/BlogPost';
 
 interface BlogPost {
     _id: string;
@@ -23,14 +26,24 @@ interface BlogPost {
     description?: string;
     date?: string;
     slug?: string;
+}
+
+async function getAllPosts(): Promise<BlogPost[]> {
+    await connectDB();
+    const posts = await BlogPostModel.find({}).sort({ createdAt: -1 }).lean();
+    return JSON.parse(JSON.stringify(posts));
 }
 
 async function getBlogPost(slug: string): Promise<BlogPost> {
-    const res = await fetch(`https://www.milankatira.com/api/blog/${revertSlug(slug)}`, { next: { revalidate: 3600 } });
-    if (!res.ok) {
-        throw new Error('Failed to fetch blog post');
+    const wanted = decodeURIComponent(slug).toLowerCase();
+    const posts = await getAllPosts();
+    const post =
+        posts.find((p) => (p.slug || toSlug(p.title)) === wanted) ||
+        posts.find((p) => p.title.toLowerCase() === revertSlug(wanted).toLowerCase());
+    if (!post) {
+        notFound();
     }
-    return res.json();
+    return post;
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
@@ -109,11 +122,10 @@ const BlogDetailsDark = async ({ params }: { params: { slug: string } }) => {
 };
 
 export default BlogDetailsDark;
-export const revalidate = false;
+export const revalidate = 3600;
 
 export async function generateStaticParams() {
-    const res = await fetch("https://www.milankatira.com/api/blog");
-    const blogs: BlogPost[] = await res.json();
+    const blogs = await getAllPosts();
     return blogs.map((blog) => ({
         slug: blog.slug || toSlug(blog.title),
     }));
