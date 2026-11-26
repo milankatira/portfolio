@@ -16,7 +16,7 @@ export async function GET() {
       isPublic: 1,
       createdAt: 1,
       updatedAt: 1,
-    });
+    }).sort({ createdAt: -1 });
     return NextResponse.json(posts);
   } catch (error) {
     console.error("Blog API error:", error);
