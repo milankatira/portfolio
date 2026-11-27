@@ -16,14 +16,14 @@ interface BlogPost {
 
 export async function GET(req: NextRequest) {
   const smStream = new SitemapStream({
-    hostname: "https://www.milankatira.com",
+    hostname: "https://milankatira.com",
   });
   const pipeline = smStream.pipe(createGzip());
 
   smStream.write({ url: "/", changefreq: "yearly", priority: 1 });
   smStream.write({ url: "/blog", changefreq: "weekly", priority: 0.5 });
 
-  const res = await fetch("https://www.milankatira.com/api/blog");
+  const res = await fetch("https://milankatira.com/api/blog");
   const blogs: BlogPost[] = await res.json();
 
   for (const blog of blogs) {

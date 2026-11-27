@@ -34,7 +34,7 @@ declare const __filename: string;
 declare const __dirname: string;
 
 const BASE_URL: string =
-  process.env.NEXT_PUBLIC_BASE_URL || "https://www.milankatira.com";
+  process.env.NEXT_PUBLIC_BASE_URL || "https://milankatira.com";
 
 const SITEMAP_MAX_URLS = 10000; // Max URLs per sitemap file
 

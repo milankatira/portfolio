@@ -3,7 +3,7 @@ import connectDB from '@/utils/db';
 import BlogPostModel from '@/model/BlogPost';
 import { revertSlug, toSlug } from '@/utils/slug';
 
-export const SITE_URL = 'https://www.milankatira.com';
+export { SITE_URL } from '@/lib/site';
 
 export interface Post {
   _id: string;

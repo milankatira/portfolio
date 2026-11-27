@@ -7,6 +7,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { ProgressBarWrapper } from '@/components/progress-bar-wrapper';
 import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/next';
+import { OG_IMAGE, SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from '@/lib/site';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -16,23 +17,35 @@ const inter = Inter({
 
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.milankatira.com'),
+  metadataBase: new URL(SITE_URL),
   alternates: { canonical: '/' },
-  title: 'Milan Katira | Full-Stack Developer',
-  description: 'Professional portfolio of Milan Katira, a full-stack developer with 4+ years of experience building web applications.',
-  keywords: ['Milan Katira', 'Full-Stack Developer', 'Web Developer', 'Portfolio', 'React', 'Next.js', 'Tailwind CSS', 'TypeScript', 'JavaScript', 'HTML', 'CSS'],
+  title: { default: SITE_TITLE, template: `%s | ${SITE_NAME}` },
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  keywords: ['Milan Katira', 'Full-stack Engineer', 'Full-Stack Developer', 'React', 'Next.js', 'Node.js', 'TypeScript', 'MongoDB', 'SaaS', 'Portfolio'],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1, 'max-video-preview': -1 },
+  },
+  icons: { icon: '/milan_katira.jpeg', apple: '/milan_katira.jpeg' },
   openGraph: {
-    title: 'Milan Katira | Full-Stack Developer',
-    description: 'Professional portfolio of Milan Katira, a full-stack developer with 4+ years of experience building web applications.',
-    siteName: 'Milan Katira',
-    url: 'https://www.milankatira.com',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    siteName: SITE_NAME,
+    url: SITE_URL,
     type: 'website',
+    locale: 'en_US',
+    images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: SITE_TITLE }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Milan Katira | Full-Stack Developer',
-    description: 'Professional portfolio of Milan Katira, a full-stack developer with 4+ years of experience building web applications.',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     creator: '@milankatira26',
+    images: [OG_IMAGE],
   },
 };
 
@@ -43,9 +56,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="icon" href="/milan_katira.jpeg" type="image/jpeg" />
-      </head>
       <body className={`${inter.className} bg-black-100`}>
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-L77M2ZG6HP" strategy="afterInteractive" />
         <Script id="google-analytics">
@@ -54,25 +64,6 @@ export default function RootLayout({
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-L77M2ZG6HP');
-          `}
-        </Script>
-        <Script id="schema-markup" type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "Person",
-              "name": "Milan Katira",
-              "url": "https://www.milankatira.com/",
-              "jobTitle": "Full-Stack Developer",
-              "worksFor": {
-                "@type": "Organization",
-                "name": "Milan Katira"
-              },
-              "sameAs": [
-                "https://www.linkedin.com/in/milan-katira/",
-                "https://github.com/milankatira"
-              ]
-            }
           `}
         </Script>
         <ProgressBarWrapper />

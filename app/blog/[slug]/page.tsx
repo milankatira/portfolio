@@ -36,14 +36,14 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPostBySlug(slug);
-  if (!post) return { title: 'Post not found | Milan Katira' };
+  if (!post) return { title: 'Post not found' };
 
   const description = postDescription(post);
   const url = `${SITE_URL}/blog/${postSlug(post)}`;
   const images = post.thumbnail ? [{ url: post.thumbnail, width: 1200, height: 630, alt: post.title }] : [];
 
   return {
-    title: `${post.title} | Milan Katira`,
+    title: post.title,
     description,
     keywords: post.tags,
     authors: [{ name: profile.name, url: SITE_URL }],

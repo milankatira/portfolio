@@ -3,11 +3,13 @@ import { Button } from '@/components/animate-ui/components/buttons/button';
 import { ExternalLink, Github } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+import { SITE_URL } from '@/lib/site';
 
 interface ProjectDetailsPageProps {
-    params: {
+    params: Promise<{
         slug: string;
-    };
+    }>;
 }
 
 const projects = [
@@ -236,14 +238,66 @@ const projects = [
 
 ];
 
+export function generateStaticParams() {
+    return projects.map((p) => ({ slug: p.slug }));
+}
+
+export async function generateMetadata({ params }: ProjectDetailsPageProps): Promise<Metadata> {
+    const { slug } = await params;
+    const project = projects.find((p) => p.slug === slug);
+    if (!project) return { title: 'Project not found' };
+    const url = `${SITE_URL}/project-details/${project.slug}`;
+    const description = project.fullDescription.length > 160 ? `${project.fullDescription.slice(0, 157).trimEnd()}…` : project.fullDescription;
+    return {
+        title: (() => {
+            const full = `${project.title}: ${project.goal.replace(/\.$/, '')}`;
+            return full.length <= 60 ? full : `${full.slice(0, 60).replace(/\s+\S*$/, '')}…`;
+        })(),
+        description,
+        keywords: project.technologies,
+        alternates: { canonical: url },
+        openGraph: {
+            type: 'website',
+            url,
+            title: `${project.title} | Milan Katira`,
+            description,
+            images: [{ url: project.image, alt: project.title }],
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: `${project.title} | Milan Katira`,
+            description,
+            images: [project.image],
+            creator: '@milankatira26',
+        },
+    };
+}
+
 export default async function ProjectDetailsPage({ params }: ProjectDetailsPageProps) {
     const { slug } = await params;
     const project = projects.find((p) => p.slug === slug);
 
     if (!project) return notFound();
 
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        name: project.title,
+        description: project.fullDescription,
+        applicationCategory: 'WebApplication',
+        operatingSystem: 'Web',
+        image: project.images?.length ? project.images : [project.image],
+        url: `${SITE_URL}/project-details/${project.slug}`,
+        ...(project.repoUrl ? { sameAs: project.repoUrl } : {}),
+        author: { '@type': 'Person', name: 'Milan Katira', url: SITE_URL },
+    };
+
     return (
         <div className="container mx-auto px-4 py-12 text-white z-50 relative">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
+            />
             <div className="max-w-5xl mx-auto">
                 <Link
                     href="/"

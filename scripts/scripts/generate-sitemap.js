@@ -99,7 +99,7 @@ const PRIORITIES = {
   HIGH_PRIORITY: 1.0,
 };
 const BASE_URL =
-  process.env.NEXT_PUBLIC_BASE_URL || "https://www.milankatira.com";
+  process.env.NEXT_PUBLIC_BASE_URL || "https://milankatira.com";
 const SITEMAP_MAX_URLS = 10000; // Max URLs per sitemap file
 const PROJECT_ROOT = path.resolve(__dirname, "..");
 const PUBLIC_DIR = path.join(PROJECT_ROOT, "public");

@@ -11,11 +11,24 @@ const description =
   'Articles by Milan Katira on full-stack engineering, Node.js, React, Next.js, databases and building developer tools.';
 
 export const metadata: Metadata = {
-  title: 'Blog | Milan Katira',
+  title: 'Blog',
   description,
   alternates: { canonical: `${SITE_URL}/blog` },
-  openGraph: { title: 'Blog | Milan Katira', description, url: `${SITE_URL}/blog`, siteName: 'Milan Katira', type: 'website' },
-  twitter: { card: 'summary_large_image', title: 'Blog | Milan Katira', description, creator: '@milankatira26' },
+  openGraph: {
+    title: 'Blog | Milan Katira',
+    description,
+    url: `${SITE_URL}/blog`,
+    siteName: 'Milan Katira',
+    type: 'website',
+    images: [{ url: `${SITE_URL}/og?title=Notes%20from%20the%20build&subtitle=${encodeURIComponent(description)}`, width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Blog | Milan Katira',
+    description,
+    creator: '@milankatira26',
+    images: [`${SITE_URL}/og?title=Notes%20from%20the%20build&subtitle=${encodeURIComponent(description)}`],
+  },
 };
 
 export default async function BlogListPage() {
