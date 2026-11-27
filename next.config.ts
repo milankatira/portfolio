@@ -28,6 +28,9 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [{ source: "/landing", destination: "/", permanent: true }];
+  },
   typescript: {
     ignoreBuildErrors: true,
   },
