@@ -6,6 +6,7 @@ import { ConditionalFooter } from '@/components/layout/ConditionalFooter';
 import { Toaster } from '@/components/ui/toaster';
 import { ProgressBarWrapper } from '@/components/progress-bar-wrapper';
 import Script from 'next/script';
+import { Analytics } from '@vercel/analytics/next';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -87,6 +88,7 @@ export default function RootLayout({
           <Toaster />
           <ConditionalFooter />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
