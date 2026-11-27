@@ -143,3 +143,34 @@ main section[id] {
     opacity: 0;
   }
 }
+
+/* ---------- Blog article ---------- */
+.article-body > :first-child {
+  margin-top: 0;
+}
+.article-body :not(pre) > code {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 0.375rem;
+  padding: 0.12em 0.4em;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.86em;
+  color: rgba(255, 255, 255, 0.9);
+  overflow-wrap: anywhere;
+}
+.article-body pre code,
+.article-body pre code.hljs {
+  display: block;
+  background: transparent;
+  padding: 0;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  color: #c9d1d9;
+}
+html:has(.article-body) {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html:has(.article-body) {
+    scroll-behavior: auto;
+  }
+}

@@ -15,6 +15,8 @@ const inter = Inter({
 
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.milankatira.com'),
+  alternates: { canonical: '/' },
   title: 'Milan Katira | Full-Stack Developer',
   description: 'Professional portfolio of Milan Katira, a full-stack developer with 4+ years of experience building web applications.',
   keywords: ['Milan Katira', 'Full-Stack Developer', 'Web Developer', 'Portfolio', 'React', 'Next.js', 'Tailwind CSS', 'TypeScript', 'JavaScript', 'HTML', 'CSS'],
@@ -42,7 +44,6 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/milan_katira.jpeg" type="image/jpeg" />
-        <link rel="canonical" href="https://www.milankatira.com" />
       </head>
       <body className={`${inter.className} bg-black-100`}>
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-L77M2ZG6HP" strategy="afterInteractive" />
