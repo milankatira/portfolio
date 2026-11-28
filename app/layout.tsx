@@ -6,6 +6,7 @@ import { ConditionalFooter } from '@/components/layout/ConditionalFooter';
 import { Toaster } from '@/components/ui/toaster';
 import { ProgressBarWrapper } from '@/components/progress-bar-wrapper';
 import Script from 'next/script';
+import { SmoothScroll } from '@/components/SmoothScroll';
 import { Analytics } from '@vercel/analytics/next';
 import { OG_IMAGE, SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from '@/lib/site';
 
@@ -55,7 +56,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <body className={`${inter.className} bg-black-100`}>
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-L77M2ZG6HP" strategy="afterInteractive" />
         <Script id="google-analytics">
@@ -67,6 +68,7 @@ export default function RootLayout({
           `}
         </Script>
         <ProgressBarWrapper />
+        <SmoothScroll />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

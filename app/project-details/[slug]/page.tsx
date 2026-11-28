@@ -1,422 +1,245 @@
 import { notFound } from 'next/navigation';
-import { Button } from '@/components/animate-ui/components/buttons/button';
-import { ExternalLink, Github } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import type { ReactNode } from 'react';
+import { ArrowLeft, ArrowRight, ArrowUpRight, Github } from 'lucide-react';
+import { Projects, getProject } from '@/data/projects';
 import { SITE_URL } from '@/lib/site';
+import { landingFontVars } from '@/components/landing/fonts';
+import { LandingNav } from '@/components/landing/sections/LandingNav';
+import { Footer } from '@/components/ui/footer-section';
+import { Reveal } from '@/components/landing/primitives/Reveal';
+import { CtaButton } from '@/components/landing/primitives/CtaButton';
+import { GlowBackground } from '@/components/landing/primitives/GlowBackground';
 
 interface ProjectDetailsPageProps {
-    params: Promise<{
-        slug: string;
-    }>;
+  params: Promise<{ slug: string }>;
 }
 
-const projects = [
-    {
-        slug: 'pingpanda',
-        title: 'Ping Panda',
-        category: 'Web Application',
-        status: 'Completed',
-        goal: 'Provide real‑time SaaS insights via Discord alerts for custom and critical events',
-        image: 'https://cdn.jsdelivr.net/gh/milankatira/project-videos/ping-panda/ping-panda-1.png',
-        fullDescription: 'Ping Panda is a modern SaaS platform that delivers real‑time event notifications (sales, sign‑ups, errors, etc.) to Discord, featuring a visual dashboard for tracking activity, Stripe-powered PRO plans, and easy setup through an intuitive API.',
-        technologies: [
-            'Next.js',
-            'Prisma (database ORM)',
-            'Node.js',
-            'TypeScript',
-            'Stripe API',
-            'Postgresql',
-            'Discord API',
-            'Tailwind CSS'
-        ],
-        features: [
-            'Complete SaaS built in modern Next.js',
-            'Beautiful landing page included',
-            'Custom artworks made by a professional illustrator',
-            'Real-time event messages via Discord',
-            'Clean & intuitive event monitoring dashboard',
-            'Secure payments using Stripe',
-            'Customers can purchase your PRO plan',
-            'Clean, modern UI on top of shadcn-ui',
-            'Authentication using Clerk',
-            '100% written in TypeScript'
-        ],
-        images: [
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/ping-panda/ping-panda-1.png',
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/ping-panda/ping-panda-2.png',
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/ping-panda/ping-panda-3.png',
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/ping-panda/ping-panda-4.png',
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/ping-panda/ping-panda-5.png'
-        ],
-        videoUrl: 'https://www.youtube.com/watch?v=pingpanda-demo',
-        repoUrl: 'https://github.com/milankatira/pingpanda'
-    },
-    {
-        slug: 'shipright',
-        title: 'Shipright',
-        category: 'Web Application',
-        status: 'Completed',
-        goal: 'Build a user feedback tool for product teams to prioritize roadmap items.',
-        image: 'https://cdn.jsdelivr.net/gh/milankatira/project-videos/shipright/shipright-1.png',
-        fullDescription:
-            'Shipright is a comprehensive user feedback and feature voting platform. It empowers product managers to collect, manage, and act on user insights efficiently through a visual dashboard. With features like customizable themes and real-time analytics, Shipright helps businesses prioritize what truly matters to their users.',
-        technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Clerk', 'Prisma', 'MongoDB'],
-        features: [
-            'Feature voting system with prioritization',
-            'Real-time analytics dashboard',
-            'Customizable themes and branding',
-            'User authentication integration',
-            'Responsive design for all devices',
-        ],
-        images: [
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/shipright/shipright-1.png',
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/shipright/shipright-2.png',
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/shipright/shipright-3.png',
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/shipright/shipright-4.png',
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/shipright/shipright-5.png',
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/shipright/shipright-6.png',
-        ],
-        videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-        demoUrl: 'https://shipright.milankatira.com/',
-        repoUrl: 'https://github.com/milankatira/shipright',
-    },
-    {
-        slug: 'usepopup',
-        title: 'UsePopup',
-        category: 'SaaS Web Application',
-        status: 'Completed',
-        goal: 'Enable users to create, customize, and deploy notification popups across multiple domains without writing code',
-        image: 'https://cdn.jsdelivr.net/gh/milankatira/project-videos/use-popup/use-popup-1.png',
-        fullDescription: `
-      UsePopup is a lightweight yet powerful SaaS platform for building custom notification popups. With a visual editor and live preview, users can design, target, and deploy popups across multiple websites using a simple embed script—no coding required. Backed by authentication, domain management, and soon, analytics, UsePopup streamlines engagement and conversion via modal messages.
-        `.trim(),
-        technologies: [
-            'Next.js',
-            'TypeScript',
-            'Tailwind CSS',
-            'MongoDB',
-            'Clerk (Auth)',
-            'Shadcn UI',
-            'Lucide Icons',
-        ],
-        features: [
-            'Manage multiple websites/domains under one dashboard',
-            'Unique embed script per website for easy integration',
-            'Visual popup editor with custom icons, text, styles, and animations',
-            'Advanced targeting: schedules, triggers, domain filtering',
-            'One-click script installation with auto loader',
-            'Live preview during design',
-            'User authentication and dark mode support',
-            'Responsive design across devices',
-            'Popup edit, delete, and management from the dashboard',
-            '📊 Analytics coming soon: view impressions, clicks, and CTR',
-        ],
-        images: [
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/use-popup/use-popup-1.png',
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/use-popup/use-popup-2.png',
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/use-popup/use-popup-3.png',
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/use-popup/use-popup-4.png',
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/use-popup/use-popup-5.png',
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/use-popup/use-popup-6.png',
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/use-popup/use-popup-7.png',
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/use-popup/use-popup-8.png',
-        ],
-        videoUrl: '',
-        repoUrl: 'https://github.com/milankatira/use-popup'
-    },
-    {
-        slug: 'feedspark',
-        title: 'FeedSpark',
-        category: 'SaaS Web Application',
-        status: 'Completed',
-        goal: 'Empower product teams to gather, analyze, and act on customer feedback to improve engagement and retention.',
-        image: 'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-main.png',
-        fullDescription: `
-      FeedSpark is a full-featured feedback analytics platform that helps product teams turn user opinions into actionable insights. With customizable feedback forms, sentiment analysis, and detailed dashboards, teams can gather feedback from multiple touchpoints and understand what truly matters to their users. The platform includes automation via Slack/Email/Discord integrations and allows teams to close the loop with real-time updates and feedback workflows. Built with a full modern stack and clean UI, FeedSpark simplifies feedback collection, analytics, and response automation.
-        `.trim(),
-        technologies: [
-            'Next.js 14 (App Router)',
-            'TypeScript',
-            'Tailwind CSS',
-            'Shadcn UI',
-            'Lucide Icons',
-            'Prisma ORM',
-            'Mongodb',
-            'Zod',
-            'React Hook Form',
-            'React Query',
-        ],
-        features: [
-            'Customizable feedback forms with live preview and theming',
-            'Real-time analytics: sentiment breakdown, rating distribution, NPS',
-            'Feedback dashboard with filters and download options',
-            'Multi-channel automation: Slack, Email, Discord',
-            'Integrations module to manage and test connections',
-            'Insightful charts: customer trends, satisfaction scores, sentiment graphs',
-            'Campaign-level feedback flows with submission counts',
-            'Authentication using NextAuth.js (e.g., GitHub)',
-            'Responsive dark-mode UI using Shadcn UI & Tailwind',
-            'Feedback-based conditional automations (e.g., if rating ≤ 2, alert team)'
-        ],
-        images: [
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-1.png',
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-2.png',
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-3.png',
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-4.png',
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-5.png',
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-6.png',
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-7.png',
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/feed-spark/feed-spark-8.png',
-        ],
-        videoUrl: '',
-        demoUrl: 'https://feed-spark.milankatira.com/',
-        repoUrl: 'https://github.com/milankatira/feed-spark'
-    },
-    {
-        slug: 'uptime',
-        title: 'Uptime',
-        category: 'Monitoring Dashboard',
-        status: 'Completed',
-        goal: 'Provide real-time monitoring, alerting, and incident management for websites and APIs with rich visual dashboards.',
-        image: 'https://cdn.jsdelivr.net/gh/milankatira/project-videos/uptime/uptime-main.png',
-        fullDescription: `
-        Uptime is a production-grade monitoring and incident response platform designed to ensure 24/7 uptime and observability for web services. Built with scalability and performance at its core, it offers a powerful dashboard for website and API health, real-time uptime tracking, detailed latency analytics, and rich alerting systems.
-
-        It leverages **Redis** for caching and **BullMQ** workers to run background uptime checks efficiently and asynchronously. Built with **Clerk** for secure user authentication and organization-level access management, Uptime enables multi-team collaboration with role-based controls.
-
-        This project combines UI excellence with backend robustness—ideal for dev teams and ops engineers managing mission-critical deployments.
-          `.trim(),
-        technologies: [
-            'TurboRepo (Monorepo)',
-            'Next.js 15 (App Router)',
-            'TypeScript',
-            'Tailwind CSS',
-            'Shadcn UI',
-            'Prisma ORM',
-            'MongoDB',
-            'Redis',
-            'BullMQ',
-            'Lucide Icons',
-            'NextAuth.js',
-            'Zod',
-            'Chart.js',
-            'Clerk (Auth & Org Management)',
-            'Turbo repo',
-            'Node js'
-        ],
-        features: [
-            'Real-time uptime and latency tracking per endpoint',
-            'Redis-powered cache layer for efficient response handling',
-            'BullMQ-based background workers for distributed uptime checks',
-            'Incident management with logs, status, and resolution flow',
-            'Custom heartbeat monitoring for server or cron activity',
-            'Slack, Discord, and Email notifications (custom templates)',
-            'Public Status Page generator with live updates',
-            'User authentication and organization management via Clerk',
-            'Team roles, invites, and member access controls',
-            'TurboRepo monorepo with multiple packages and apps',
-            'Interactive dashboards with analytics on uptime, latency, NPS'
-        ],
-        images: [
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/uptime/uptime-1.png',
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/uptime/uptime-2.png',
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/uptime/uptime-3.png',
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/uptime/uptime-4.png',
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/uptime/uptime-5.png',
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/uptime/uptime-6.png',
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/uptime/uptime-7.png',
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/uptime/uptime-8.png',
-            'https://cdn.jsdelivr.net/gh/milankatira/project-videos/uptime/uptime-9.png',
-        ],
-        videoUrl: '', // Optional: embed YouTube video demo if available
-        demoUrl: 'https://uptime.milankatira.com/',
-        repoUrl: 'https://github.com/milankatira/uptime'
-    }
-
-
-];
-
 export function generateStaticParams() {
-    return projects.map((p) => ({ slug: p.slug }));
+  return Projects.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: ProjectDetailsPageProps): Promise<Metadata> {
-    const { slug } = await params;
-    const project = projects.find((p) => p.slug === slug);
-    if (!project) return { title: 'Project not found' };
-    const url = `${SITE_URL}/project-details/${project.slug}`;
-    const description = project.fullDescription.length > 160 ? `${project.fullDescription.slice(0, 157).trimEnd()}…` : project.fullDescription;
-    return {
-        title: (() => {
-            const full = `${project.title}: ${project.goal.replace(/\.$/, '')}`;
-            return full.length <= 60 ? full : `${full.slice(0, 60).replace(/\s+\S*$/, '')}…`;
-        })(),
-        description,
-        keywords: project.technologies,
-        alternates: { canonical: url },
-        openGraph: {
-            type: 'website',
-            url,
-            title: `${project.title} | Milan Katira`,
-            description,
-            images: [{ url: project.image, alt: project.title }],
-        },
-        twitter: {
-            card: 'summary_large_image',
-            title: `${project.title} | Milan Katira`,
-            description,
-            images: [project.image],
-            creator: '@milankatira26',
-        },
-    };
+  const { slug } = await params;
+  const project = getProject(slug);
+  if (!project) return { title: 'Project not found' };
+  const url = `${SITE_URL}/project-details/${project.slug}`;
+  const description =
+    project.description.length > 160 ? `${project.description.slice(0, 157).trimEnd()}…` : project.description;
+  const full = `${project.title}: ${project.goal.replace(/\.$/, '')}`;
+  const title = full.length <= 60 ? full : `${full.slice(0, 60).replace(/\s+\S*$/, '')}…`;
+  return {
+    title,
+    description,
+    keywords: project.technologies,
+    alternates: { canonical: url },
+    openGraph: {
+      type: 'website',
+      url,
+      title: `${project.title} | Milan Katira`,
+      description,
+      images: [{ url: project.cover, alt: project.title }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${project.title} | Milan Katira`,
+      description,
+      images: [project.cover],
+      creator: '@milankatira26',
+    },
+  };
+}
+
+function SectionLabel({ children }: { children: ReactNode }) {
+  return (
+    <h2 className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.18em] text-white/45">
+      <span className="h-px w-6 bg-white/25" aria-hidden />
+      {children}
+    </h2>
+  );
 }
 
 export default async function ProjectDetailsPage({ params }: ProjectDetailsPageProps) {
-    const { slug } = await params;
-    const project = projects.find((p) => p.slug === slug);
+  const { slug } = await params;
+  const project = getProject(slug);
+  if (!project) return notFound();
 
-    if (!project) return notFound();
+  const index = Projects.indexOf(project);
+  const prev = Projects[(index - 1 + Projects.length) % Projects.length];
+  const next = Projects[(index + 1) % Projects.length];
+  const allFeatures = [...project.features, ...project.moreFeatures];
+  const screenshots = project.images.filter((src) => src !== project.cover);
 
-    const jsonLd = {
-        '@context': 'https://schema.org',
-        '@type': 'SoftwareApplication',
-        name: project.title,
-        description: project.fullDescription,
-        applicationCategory: 'WebApplication',
-        operatingSystem: 'Web',
-        image: project.images?.length ? project.images : [project.image],
-        url: `${SITE_URL}/project-details/${project.slug}`,
-        ...(project.repoUrl ? { sameAs: project.repoUrl } : {}),
-        author: { '@type': 'Person', name: 'Milan Katira', url: SITE_URL },
-    };
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: project.title,
+    description: project.description,
+    applicationCategory: 'WebApplication',
+    operatingSystem: 'Web',
+    image: project.images,
+    url: `${SITE_URL}/project-details/${project.slug}`,
+    sameAs: project.sourceCode,
+    author: { '@type': 'Person', name: 'Milan Katira', url: SITE_URL },
+  };
 
-    return (
-        <div className="container mx-auto px-4 py-12 text-white z-50 relative">
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
-            />
-            <div className="max-w-5xl mx-auto">
-                <Link
-                    href="/"
-                >
-                    <div
-                        className="text-primary  mb-6 inline-block cursor-pointer"
-                    >
-                        &larr; Back to Projects
-                    </div>
-                </Link>
+  return (
+    <div className={`${landingFontVars} min-h-dvh bg-black-100 font-sans text-white antialiased`}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
+      />
+      <LandingNav />
 
-                <h1 className="text-4xl md:text-5xl font-bold mb-4">{project.title}</h1>
+      <main>
+        {/* Hero */}
+        <section id="top" className="relative overflow-hidden px-6 pb-16 pt-32 md:pb-20 md:pt-40">
+          <GlowBackground glow="top" />
+          <div className="relative z-10 mx-auto max-w-5xl">
+            <Reveal>
+              <Link
+                href="/#work"
+                className="group inline-flex items-center gap-1.5 rounded-sm text-sm text-white/55 outline-none transition-colors hover:text-white focus-visible:ring-1 focus-visible:ring-white/40"
+              >
+                <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
+                All projects
+              </Link>
+            </Reveal>
 
-                <span className="inline-block mb-6 px-3 py-1 text-sm rounded-full bg-primary/10 text-primary">
-                    {project.category}
-                </span>
+            <Reveal delay={0.05}>
+              <p className="mt-10 inline-flex items-center gap-2.5 font-mono text-xs uppercase tracking-[0.18em] text-white/45">
+                <span className="h-2 w-2 rounded-full" style={{ backgroundColor: project.accentColor }} aria-hidden />
+                {project.category} · {project.status}
+              </p>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <h1 className="mt-5 font-display text-[clamp(2.5rem,7vw,4.75rem)] font-semibold leading-[1] tracking-[-0.03em]">
+                {project.title}
+              </h1>
+            </Reveal>
+            <Reveal delay={0.15}>
+              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/60">{project.goal}</p>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                <CtaButton href={project.link} variant="primary" external>
+                  Visit live site
+                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </CtaButton>
+                <CtaButton href={project.sourceCode} variant="ghost" external>
+                  <Github className="h-4 w-4" />
+                  Source code
+                </CtaButton>
+              </div>
+            </Reveal>
+          </div>
+        </section>
 
-                {project.image && (
-                    <div className="relative w-full h-80 md:h-[28rem] rounded-xl overflow-hidden mb-10 shadow-lg">
-                        <Image src={project.image} alt={project.title} fill className="object-cover" />
-                    </div>
-                )}
-
-                {/* Overview Section */}
-                <section className="mb-12">
-                    <h2 className="text-2xl font-semibold mb-4">Project Overview</h2>
-                    <div className="prose dark:prose-invert max-w-none">
-                        <p>{project.fullDescription}</p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 text-sm text-muted-foreground">
-                        <div>
-                            <strong>Status:</strong> {project.status}
-                        </div>
-                        <div>
-                            <strong>Goal:</strong> {project.goal}
-                        </div>
-                    </div>
-                </section>
-
-                {/* Technologies */}
-                <section className="mb-12">
-                    <h2 className="text-2xl font-semibold mb-4">Technologies Used</h2>
-                    <div className="flex flex-wrap gap-2">
-                        {project.technologies.map((tech, i) => (
-                            <span
-                                key={i}
-                                className="bg-secondary text-secondary-foreground text-sm px-3 py-1 rounded-full"
-                            >
-                                {tech}
-                            </span>
-                        ))}
-                    </div>
-                </section>
-
-                {/* Features */}
-                <section className="mb-12">
-                    <h2 className="text-2xl font-semibold mb-4">Key Features</h2>
-                    <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
-                        {project.features.map((feature, i) => (
-                            <li key={i}>{feature}</li>
-                        ))}
-                    </ul>
-                </section>
-
-                {/* Screenshots */}
-                <section className="mb-12">
-                    <h2 className="text-2xl font-semibold mb-4">Screenshots</h2>
-                    <div className='flex gap-4 flex-col'>
-                        {project.images.map((src, i) => (
-                            <div key={i} className="relative w-full h-full rounded-lg overflow-hidden shadow">
-                                <Image
-                                    src={src}
-                                    alt={`${project.title} Screenshot ${i + 1}`}
-                                    width={1000}
-                                    height={1000}
-                                    className="object-cover h-full w-full"
-                                />
-                            </div>
-                        ))}
-                    </div>
-                </section>
-
-                {/* Video */}
-                {/* {project.videoUrl && (
-                    <section className="mb-12">
-                        <h2 className="text-2xl font-semibold mb-4">Video Demo</h2>
-                        <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg">
-                            <iframe
-                                src={project.videoUrl.replace('watch?v=', 'embed/')}
-                                title={`${project.title} Demo`}
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
-                                className="absolute top-0 left-0 w-full h-full"
-                            ></iframe>
-                        </div>
-                    </section>
-                )} */}
-
-                {/* Action Buttons */}
-                <div className="flex flex-wrap gap-4 mt-10">
-                    {project.demoUrl && (
-                        <Button asChild size="lg">
-                            <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-                                <ExternalLink className="h-5 w-5 mr-2" />
-                                Live Demo
-                            </Link>
-                        </Button>
-                    )}
-                    {project.repoUrl && (
-                        <Button asChild variant="outline" size="lg">
-                            <Link href={project.repoUrl} target="_blank" rel="noopener noreferrer">
-                                <Github className="h-5 w-5 mr-2" />
-                                View Code
-                            </Link>
-                        </Button>
-                    )}
-                </div>
+        {/* Cover */}
+        <section className="mx-auto max-w-6xl px-6">
+          <Reveal>
+            <div className="card-lit relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#07070d]">
+              <Image
+                src={project.cover}
+                alt={`${project.title} dashboard`}
+                width={1600}
+                height={1000}
+                priority
+                sizes="(min-width: 1152px) 1104px, 100vw"
+                className="h-auto w-full"
+              />
             </div>
-        </div>
-    );
+          </Reveal>
+        </section>
+
+        {/* Overview + stack */}
+        <section className="mx-auto grid max-w-5xl grid-cols-1 gap-14 px-6 py-24 md:grid-cols-[1.6fr_1fr] md:py-28">
+          <div className="flex flex-col gap-6">
+            <SectionLabel>Overview</SectionLabel>
+            {project.overview.split('\n\n').map((para) => (
+              <p key={para.slice(0, 32)} className="text-[17px] leading-relaxed text-white/70">
+                {para}
+              </p>
+            ))}
+          </div>
+          <aside className="flex flex-col gap-5">
+            <SectionLabel>Stack</SectionLabel>
+            <div className="flex flex-wrap gap-2.5">
+              {project.technologies.map((t) => (
+                <span
+                  key={t}
+                  className="rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 font-mono text-xs leading-none text-white/65"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+          </aside>
+        </section>
+
+        {/* Features */}
+        <section className="mx-auto max-w-5xl px-6 pb-24 md:pb-28">
+          <SectionLabel>Key features</SectionLabel>
+          <ul className="mt-8 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.08] sm:grid-cols-2">
+            {allFeatures.map((f, i) => (
+              <li key={f} className="flex items-start gap-4 bg-black-100 p-5 md:p-6">
+                <span className="font-mono text-xs text-white/30">{String(i + 1).padStart(2, '0')}</span>
+                <span className="text-[15px] leading-relaxed text-white/70">{f}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {/* Screenshots */}
+        {screenshots.length > 0 && (
+          <section className="mx-auto max-w-6xl px-6 pb-24 md:pb-28">
+            <div className="mx-auto max-w-5xl">
+              <SectionLabel>Screenshots</SectionLabel>
+            </div>
+            <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
+              {screenshots.map((src, i) => (
+                <Reveal key={src} delay={(i % 2) * 0.06}>
+                  <div className="overflow-hidden rounded-xl border border-white/[0.08] bg-[#07070d]">
+                    <Image
+                      src={src}
+                      alt={`${project.title} screenshot ${i + 1}`}
+                      width={1200}
+                      height={750}
+                      sizes="(min-width: 768px) 540px, 100vw"
+                      className="h-auto w-full"
+                    />
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Prev / next */}
+        <nav aria-label="More projects" className="mx-auto grid max-w-5xl grid-cols-2 gap-4 px-6 pb-24 md:pb-32">
+          {[
+            { p: prev, label: 'Previous', Icon: ArrowLeft, align: 'items-start text-left' },
+            { p: next, label: 'Next', Icon: ArrowRight, align: 'items-end text-right' },
+          ].map(({ p, label, Icon, align }) => (
+            <Link
+              key={label}
+              href={`/project-details/${p.slug}`}
+              className={`card-lit group flex flex-col gap-2 rounded-2xl border border-white/[0.08] bg-white/[0.015] p-5 transition-colors hover:border-white/15 md:p-6 ${align}`}
+            >
+              <span className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-white/40">
+                {label === 'Previous' && <Icon className="h-3.5 w-3.5" />}
+                {label} project
+                {label === 'Next' && <Icon className="h-3.5 w-3.5" />}
+              </span>
+              <span className="font-display text-lg font-semibold tracking-tight text-white md:text-xl">{p.title}</span>
+            </Link>
+          ))}
+        </nav>
+      </main>
+
+      <Footer />
+    </div>
+  );
 }

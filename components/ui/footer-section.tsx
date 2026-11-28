@@ -21,19 +21,18 @@ const footerLinks: FooterSection[] = [
   {
     label: 'Explore',
     links: [
-      { title: 'Work', href: '#work' },
-      { title: 'About', href: '#about' },
-      { title: 'Experience', href: '#experience' },
-      { title: 'Testimonials', href: '#testimonials' },
+      { title: 'About', href: '/#about' },
+      { title: 'Work', href: '/#work' },
+      { title: 'Experience', href: '/#experience' },
+      { title: 'Testimonials', href: '/#testimonials' },
     ],
   },
   {
     label: 'Resources',
     links: [
-      { title: 'Blog', href: '/blog' },
+      { title: 'Writing', href: '/blog' },
       { title: 'Resume', href: '/Milan_katira_resume.pdf', external: true },
-      { title: 'Contact', href: '#contact' },
-      { title: 'Home', href: '/' },
+      { title: 'Contact', href: '/#contact' },
     ],
   },
   {
@@ -54,7 +53,7 @@ export function Footer() {
 
       <div className="grid w-full gap-10 xl:grid-cols-3 xl:gap-8">
         <AnimatedContainer className="space-y-4">
-          <a href="#top" className="flex items-center gap-2.5 font-display text-sm font-semibold tracking-tight text-white">
+          <a href="/#top" className="flex items-center gap-2.5 font-display text-sm font-semibold tracking-tight text-white">
             <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-[13px] font-bold text-black-100">
               MK
             </span>

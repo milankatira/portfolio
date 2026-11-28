@@ -68,7 +68,7 @@
 
 @layer base {
   * {
-    @apply border-border !scroll-smooth;
+    @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
@@ -110,9 +110,16 @@ code {
 
 /* --- Landing polish --- */
 
-/* Offset in-page anchor jumps so headings clear the fixed nav */
-main section[id] {
-  scroll-margin-top: 6rem;
+/* Smooth in-page anchor jumps (Lenis takes over when JS runs; this is the
+   native fallback). Sections carry their own top padding, which already clears
+   the fixed nav, so no extra scroll margin is needed. */
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 /* Premium text selection */

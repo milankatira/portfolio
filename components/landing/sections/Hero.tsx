@@ -6,7 +6,7 @@ import { Pill } from '@/components/landing/primitives/Pill';
 import { GradientText } from '@/components/landing/primitives/GradientText';
 import { CtaButton } from '@/components/landing/primitives/CtaButton';
 import { GlowBackground } from '@/components/landing/primitives/GlowBackground';
-import { profile } from '@/components/landing/data';
+import { YEARS, profile } from '@/components/landing/data';
 
 export function Hero() {
   return (
@@ -39,9 +39,9 @@ export function Hero() {
 
         <Reveal delay={0.36}>
           <p className="mt-7 max-w-xl text-pretty text-base leading-relaxed text-white/60 sm:text-lg">
-            5+ years turning ambiguous ideas into resilient web apps and media
+            {YEARS}+ years turning ambiguous ideas into resilient web apps and media
             infrastructure — currently&nbsp;
-            <span className="text-white/85">SDE-II at GoHighLevel</span>.
+            <span className="text-white/85">{profile.currentRole}</span>.
           </p>
         </Reveal>
 
@@ -56,18 +56,12 @@ export function Hero() {
             </CtaButton>
           </div>
         </Reveal>
-
-        <Reveal delay={0.58}>
-          <p className="mt-12 font-mono text-[11px] uppercase tracking-[0.16em] text-white/35">
-            {profile.location} &nbsp;/&nbsp; open to collaborations
-          </p>
-        </Reveal>
       </div>
 
       {/* Quiet scroll cue */}
       <a
-        href="#work"
-        aria-label="Scroll to work"
+        href="#about"
+        aria-label="Scroll to about"
         className="group absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-white/30 transition-colors hover:text-white/60"
       >
         <span className="font-mono text-[10px] uppercase tracking-[0.2em]">Scroll</span>

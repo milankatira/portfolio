@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Calendar, MapPin } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { experience } from '@/components/landing/data';
+import { YEARS, experience } from '@/components/landing/data';
 import { parseTextWithBold } from '@/utils/parseTextWithBold';
 import { SectionHeading } from '@/components/landing/primitives/SectionHeading';
 
@@ -17,7 +17,7 @@ export function Experience() {
       <SectionHeading
         eyebrow="Experience"
         title="Where I've built"
-        description="Five years across media infrastructure, edtech at scale, and product engineering."
+        description={`${YEARS}+ years across media infrastructure, service marketplaces, AI edtech at scale and full-stack product work.`}
       />
 
       <div className="mt-14 grid grid-cols-1 gap-4 lg:grid-cols-[300px_1fr] lg:gap-10">

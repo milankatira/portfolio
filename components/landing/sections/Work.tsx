@@ -1,14 +1,14 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import { useReducedMotion } from 'framer-motion';
-import { ArrowUpRight, Github, Play } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Github, Play } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { Projects } from '@/data/projects';
+import { Projects, type Project } from '@/data/projects';
 import { Reveal } from '@/components/landing/primitives/Reveal';
 import { SectionHeading } from '@/components/landing/primitives/SectionHeading';
 
-type Project = (typeof Projects)[number];
 
 // Solid dark poster so the frame isn't blank before the clip loads (preload="none").
 const VIDEO_POSTER =
@@ -107,9 +107,19 @@ function TechPills({ items, max = 6 }: { items: string[]; max?: number }) {
   );
 }
 
+const detailsHref = (p: Project) => `/project-details/${p.slug}`;
+
 function ProjectLinks({ project }: { project: Project }) {
   return (
-    <div className="flex items-center gap-5 pt-1">
+    <div className="relative z-10 flex flex-wrap items-center gap-x-5 gap-y-2 pt-1">
+      <Link
+        href={detailsHref(project)}
+        aria-label={`Read the ${project.title} case study`}
+        className="group/link inline-flex items-center gap-1.5 rounded-full bg-white px-4 py-1.5 text-sm font-semibold text-black-100 outline-none transition-colors hover:bg-white/90 focus-visible:ring-2 focus-visible:ring-white/40"
+      >
+        View details
+        <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-0.5" />
+      </Link>
       <a
         href={project.link}
         target="_blank"
@@ -147,7 +157,12 @@ function ProjectTitle({ project, size }: { project: Project; size: 'lg' | 'md' }
         style={{ backgroundColor: project.accentColor }}
         aria-hidden
       />
-      {project.title}
+      <Link
+        href={detailsHref(project)}
+        className="rounded-sm outline-none after:absolute after:inset-0 after:rounded-2xl after:content-[''] focus-visible:ring-1 focus-visible:ring-white/40"
+      >
+        {project.title}
+      </Link>
     </h3>
   );
 }
@@ -165,21 +180,29 @@ export function Work() {
             Products I&rsquo;ve designed <span className="font-serif italic text-white/70">&amp;</span> shipped
           </>
         }
-        description="A selection of full-stack SaaS products — from real-time infrastructure to polished product surfaces."
+        description="Full-stack SaaS products I designed, built and deployed end to end. Open any project for the full case study and screenshots."
       />
 
       {/* Featured */}
       <Reveal className="mt-14">
-        <article className="card-lit group grid grid-cols-1 gap-8 rounded-2xl border border-white/[0.08] bg-white/[0.015] p-4 transition-colors duration-500 hover:border-white/15 md:grid-cols-2 md:p-6 lg:gap-12">
+        <article className="card-lit group relative grid grid-cols-1 gap-8 rounded-2xl border border-white/[0.08] bg-white/[0.015] p-4 transition-colors duration-500 hover:border-white/15 md:grid-cols-2 md:p-6 lg:gap-12">
           <ProjectMedia src={featured.short} accent={featured.accentColor} label={featured.title} />
           <div className="flex flex-col justify-center gap-5 md:py-4 md:pr-4">
             <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-white/35">
-              Featured
+              Featured · {featured.category}
             </span>
             <ProjectTitle project={featured} size="lg" />
             <p className="max-w-md text-[15px] leading-relaxed text-white/60">
               {featured.description}
             </p>
+            <ul className="space-y-2">
+              {featured.features.slice(0, 3).map((f) => (
+                <li key={f} className="flex items-start gap-2.5 text-sm text-white/55">
+                  <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-white/40" aria-hidden />
+                  {f}
+                </li>
+              ))}
+            </ul>
             <TechPills items={featured.technologies} max={7} />
             <ProjectLinks project={featured} />
           </div>
@@ -190,10 +213,15 @@ export function Work() {
       <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
         {rest.map((project, i) => (
           <Reveal key={project.slug} delay={i * 0.06}>
-            <article className="card-lit group flex h-full flex-col gap-5 rounded-2xl border border-white/[0.08] bg-white/[0.015] p-4 transition-[transform,border-color] duration-500 ease-out hover:-translate-y-1 hover:border-white/15 md:p-5">
+            <article className="card-lit group relative flex h-full flex-col gap-5 rounded-2xl border border-white/[0.08] bg-white/[0.015] p-4 transition-[transform,border-color] duration-500 ease-out hover:-translate-y-1 hover:border-white/15 md:p-5">
               <ProjectMedia src={project.short} accent={project.accentColor} label={project.title} />
               <div className="flex flex-1 flex-col gap-4 px-1">
-                <ProjectTitle project={project} size="md" />
+                <div className="flex flex-col gap-2">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/35">
+                    {project.category}
+                  </span>
+                  <ProjectTitle project={project} size="md" />
+                </div>
                 <p className="line-clamp-3 text-sm leading-relaxed text-white/55">
                   {project.description}
                 </p>

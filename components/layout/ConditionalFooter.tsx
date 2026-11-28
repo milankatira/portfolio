@@ -10,8 +10,8 @@ import { Footer } from '@/components/layout/Footer';
 export function ConditionalFooter() {
   const pathname = usePathname();
 
-  // The home page and /blog render their own footer.
-  if (pathname === '/' || pathname?.startsWith('/blog')) {
+  // The home page, /blog and project pages render their own footer.
+  if (pathname === '/' || pathname?.startsWith('/blog') || pathname?.startsWith('/project-details')) {
     return null;
   }
 

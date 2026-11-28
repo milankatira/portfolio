@@ -1,7 +1,9 @@
 import Image from 'next/image';
+import { Download } from 'lucide-react';
+import { CtaButton } from '@/components/landing/primitives/CtaButton';
 import { Reveal } from '@/components/landing/primitives/Reveal';
 import { StatCounter } from '@/components/landing/primitives/StatCounter';
-import { stats, capabilities, profile } from '@/components/landing/data';
+import { YEARS, stats, capabilities, profile } from '@/components/landing/data';
 
 export function About() {
   return (
@@ -24,10 +26,16 @@ export function About() {
           </Reveal>
           <Reveal delay={0.1}>
             <p className="max-w-lg text-[15px] leading-relaxed text-white/60">
-              Most of my work lives where the pressure is real: query plans and Node.js
-              internals, systems that stream and sync in real time, and the design systems
-              that keep it all coherent. Five-plus years in, I still care about the last
-              pixel as much as the first schema.
+              Most of my work lives where the pressure is real: Node.js memory and
+              streaming, APIs under heavy traffic, real-time booking and chat, and the
+              design systems that keep it all coherent. {YEARS}+ years in, I still care
+              about the last pixel as much as the first schema.
+            </p>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <p className="max-w-lg text-[15px] leading-relaxed text-white/60">
+              Along the way I&rsquo;ve mentored junior developers, interviewed 20+
+              engineering candidates, and written about what I learn on the blog.
             </p>
           </Reveal>
 
@@ -40,6 +48,15 @@ export function About() {
                 </li>
               ))}
             </ul>
+          </Reveal>
+
+          <Reveal delay={0.2}>
+            <div className="mt-2">
+              <CtaButton href={profile.resume} variant="ghost" external>
+                <Download className="h-4 w-4" />
+                Download Resume
+              </CtaButton>
+            </div>
           </Reveal>
         </div>
 
@@ -65,14 +82,13 @@ export function About() {
                 aria-hidden
                 className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black-100/60 to-transparent"
               />
-              {/* Availability chip */}
+              {/* Location chip */}
               <span className="absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-black-100/60 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.14em] text-white/70 backdrop-blur-md">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 motion-safe:animate-pulse" aria-hidden />
-                {profile.availability}
+                {profile.location}
               </span>
             </div>
             <figcaption className="mt-4 text-right font-mono text-[11px] uppercase tracking-[0.18em] text-white/40">
-              {profile.name}&nbsp;/&nbsp;SDE-II, GoHighLevel
+              {profile.name}&nbsp;/&nbsp;{profile.role}
             </figcaption>
           </figure>
         </Reveal>

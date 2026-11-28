@@ -1,22 +1,25 @@
-// Landing-specific content. Reuses existing sources where possible
-// (Projects, testimonials, companies) and copies the experience data so the
-// existing home page / ExperienceSection stays untouched.
+// Single source of truth for home-page content (profile, stats, experience,
+// testimonials). Projects live in data/projects.ts.
+import { Projects } from '@/data/projects';
 
 export interface LandingNavLink {
   label: string;
   href: string;
 }
 
+// Same order as the sections on the page. Hrefs are root-relative so the nav
+// also works from /project-details/* pages.
 export const landingNav: LandingNavLink[] = [
-  { label: 'Work', href: '#work' },
-  { label: 'About', href: '#about' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Writing', href: '#blog' },
+  { label: 'About', href: '/#about' },
+  { label: 'Work', href: '/#work' },
+  { label: 'Experience', href: '/#experience' },
+  { label: 'Writing', href: '/#blog' },
 ];
 
 export const profile = {
   name: 'Milan Katira',
   role: 'Full-stack engineer',
+  currentRole: 'SDE-II at GoHighLevel',
   location: 'Remote · India',
   email: 'milankatira26@gmail.com',
   availability: 'Available for select work',
@@ -29,11 +32,11 @@ export const profile = {
   },
 } as const;
 
-// Headline metrics — edit these freely.
-export const YEARS = 5;
-export const PRODUCTS = 5;
-export const API_REQUESTS_48H = 8.7; // rendered as "8.7M" — real ICS figure (8.7M requests / 48h)
-export const WEEKLY_USERS = 20; // rendered as "20k+" — real Cerebry figure (20,000+ weekly students)
+// Professional experience started Oct 2021 (ICS).
+const CAREER_START = new Date('2021-10-01');
+export const YEARS = Math.floor(
+  (Date.now() - CAREER_START.getTime()) / (365.25 * 24 * 60 * 60 * 1000),
+);
 
 export interface Stat {
   value: number;
@@ -43,11 +46,12 @@ export interface Stat {
   label: string;
 }
 
+// Every figure here comes from the experience entries below or data/projects.ts.
 export const stats: Stat[] = [
   { value: YEARS, suffix: '+', label: 'Years shipping production software' },
-  { value: PRODUCTS, suffix: '', label: 'SaaS products designed & built' },
-  { value: API_REQUESTS_48H, suffix: 'M', decimals: 1, label: 'API requests handled in 48h' },
-  { value: WEEKLY_USERS, suffix: 'k+', label: 'Weekly active users served' },
+  { value: 8.7, suffix: 'M', decimals: 1, label: 'API requests served in 48 hours' },
+  { value: 20, suffix: 'k+', label: 'Students using my UI every week' },
+  { value: Projects.length, suffix: '', label: 'SaaS products designed & shipped' },
 ];
 
 // Short capability lines for the About section (editorial, not a skills wall).
@@ -55,7 +59,7 @@ export const capabilities: string[] = [
   'Product engineering, end to end',
   'Scalable Node.js & media infrastructure',
   'Design systems & component libraries',
-  'Real-time features & data pipelines',
+  'Real-time features & integrations',
 ];
 
 export interface Testimonial {
@@ -116,7 +120,7 @@ export interface ExperienceEntry {
   details: string[];
 }
 
-// Copied from components/sections/ExperienceSection.tsx to keep `/` zero-risk.
+// Nested bullets start with "  - ".
 export const experience: ExperienceEntry[] = [
   {
     id: 'gohighlevel',
@@ -126,11 +130,11 @@ export const experience: ExperienceEntry[] = [
     location: 'Remote',
     color: '#f59e0b',
     details: [
-      'Manage core **media service infrastructure** and partnered cross-functionally to deliver a scalable media model, robust REST APIs, and seamless editor integrations.',
-      'Resolved critical **Node.js heap exhaustion** and OOM failures through memory profiling and by refactoring payload handling into **non-blocking stream-based flows**.',
-      'Engineered a **multipart upload API** for files up to **500 MB** with constant memory usage, replacing inefficient buffer-heavy processing.',
-      'Improved system throughput with **Redis-backed caching**, intelligent request batching, and **distributed rate limiting**.',
-      'Architected a resilient **Canva integration** to ingest large design assets into internal media systems reliably at scale.',
+      'Own core **media service infrastructure**, partnering cross-functionally to deliver a scalable media model, robust REST APIs and seamless editor integrations.',
+      'Resolved critical **Node.js heap exhaustion** and OOM failures through memory profiling and by moving payload handling to **non-blocking, stream-based flows**.',
+      'Engineered a **multipart upload API** for files up to **500 MB** at constant memory, replacing buffer-heavy processing.',
+      'Raised throughput with **Redis-backed caching**, request batching and **distributed rate limiting**.',
+      'Architected a resilient **Canva integration** that ingests large design assets into internal media systems at scale.',
     ],
   },
   {
@@ -141,11 +145,15 @@ export const experience: ExperienceEntry[] = [
     location: 'Remote (USA)',
     color: '#06b6d4',
     details: [
-      '**Led frontend development** of Instaservice.com and bo.instaservice.com, using **TypeScript, React, React Query, and Tailwind CSS**.',
-      '**Designed and maintained** a scalable design system and reusable component library with **Storybook**, supporting consistent UI/UX across apps.',
-      'Built **advanced booking experiences**: smart timezone-aware calendar UI, on-demand booking, rescheduling, and **recurring bookings** with full payment edge-case handling.',
-      'Developed **real-time features** such as customer–provider chat and **live location tracking** during service sessions.',
-      'Integrated **monitoring and analytics** including **PostHog and Sentry** to track behavior and proactively address production issues.',
+      '**Led frontend development** of Instaservice.com and bo.instaservice.com with **TypeScript, React, React Query and Tailwind CSS**.',
+      '**Designed and maintained** a design system and reusable component library in **Storybook** for consistent UI across apps.',
+      'Built **advanced booking experiences**:',
+      '  - **Smart calendar UI**: 7-day dynamic view with slot rendering, blocked dates and timezone-aware scheduling.',
+      '  - **On-demand booking**, rescheduling, provider selection and quote requests for large projects.',
+      '  - **Recurring bookings** with full payment edge-case handling: retries, failures and fallback states.',
+      'Developed **real-time features**: customer–provider chat and **live location tracking** during service sessions.',
+      '**Automated CI/CD** with formatting, linting and type-check gates (**Prettier, ESLint, TypeScript**) before production builds.',
+      'Integrated **PostHog and Sentry** to track user behavior and catch production issues early.',
     ],
   },
   {
@@ -156,11 +164,12 @@ export const experience: ExperienceEntry[] = [
     location: 'Remote (Singapore)',
     color: '#6366F1',
     details: [
-      'Contributed to the frontend of a **high-scale AI-powered edtech platform** used by **20,000+ active students weekly**.',
-      'Built **responsive, scalable interfaces** with **React and Preact**, styled in **SCSS**, integrating charting for learning-progress visualization.',
-      'Improved UX through design collaboration — a **15% reduction in friction** and a **10% increase in task completion**.',
-      '**Mentored three junior developers** and deployed features in coordination with backend **Node.js services** via **CI/CD pipelines**.',
-      'Conducted **technical interviews for 20+ candidates**, onboarding three successful hires.',
+      'Built the frontend of an **AI-powered edtech platform** used by **20,000+ active students weekly**.',
+      'Shipped **responsive interfaces** in **React and Preact** with **SCSS**, including charts that visualize learning progress.',
+      'Partnered with design to cut user friction by **15%** and raise task completion by **10%**.',
+      'Instrumented key interactions with **Google Analytics and Google Tag Manager**.',
+      '**Mentored three junior developers** and shipped features alongside backend **Node.js services** via **CI/CD pipelines**.',
+      'Ran **technical interviews for 20+ candidates**, resulting in **three hires**.',
     ],
   },
   {
@@ -171,11 +180,14 @@ export const experience: ExperienceEntry[] = [
     location: 'Ahmedabad, India',
     color: '#2DD4BF',
     details: [
-      'Developed **full-stack applications** with **React, Next.js, Node.js, and MongoDB**, applying **test-driven development**.',
-      'Engineered a backend system that handled **8.7 million API requests within 48 hours** and **15,000+ unique daily users**.',
-      'Built a comprehensive **interview & hiring platform** with **Google Meet / Zoom** integration and coding assessments (**1.2 GB RAM handling 300+ sessions**).',
+      'Built and maintained **full-stack applications** with **React, Next.js, Node.js and MongoDB** using **test-driven development**.',
+      'Designed **REST APIs** and **scalable data models** for multiple production systems:',
+      '  - A backend that handled **8.7 million API requests in 48 hours** and **15,000+ unique users per day**.',
+      '  - An **interview & hiring platform** with **Google Meet and Zoom** integration, coding and MCQ assessments, running **300+ sessions on 1.2 GB RAM**.',
+      '  - **Reusable UI components** and dynamic flows for a high-volume video content platform.',
       'Wrote utility functions with **100% unit test coverage** for a global retail technology project.',
-      'Deployed **Solidity smart contracts** integrating **Binance Smart Chain** and **Hedera Hashgraph**.',
+      'Deployed **Solidity smart contracts** on **Binance Smart Chain** and **Hedera Hashgraph**.',
+      'Integrated **Contentful, Customer.io and JW Player** in a distributed application ecosystem.',
     ],
   },
 ];

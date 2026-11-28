@@ -2,9 +2,12 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { landingNav, profile } from '@/components/landing/data';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
+
+const sectionId = (href: string) => href.split('#')[1] ?? '';
 
 export function LandingNav() {
   const [scrolled, setScrolled] = useState(false);
@@ -21,7 +24,7 @@ export function LandingNav() {
   // Scroll-spy: highlight the nav item for the section crossing mid-viewport.
   useEffect(() => {
     const els = landingNav
-      .map((l) => document.getElementById(l.href.slice(1)))
+      .map((l) => document.getElementById(sectionId(l.href)))
       .filter((el): el is HTMLElement => el !== null);
     if (!els.length) return;
 
@@ -56,8 +59,8 @@ export function LandingNav() {
             : 'border border-transparent bg-transparent',
         )}
       >
-        <a
-          href="#top"
+        <Link
+          href="/#top"
           className="group flex items-center gap-2.5 rounded-full pl-1 pr-3 font-display text-sm font-semibold tracking-tight text-white"
         >
           <span className="relative flex h-8 w-8 shrink-0 overflow-hidden rounded-full border border-white/15">
@@ -71,13 +74,13 @@ export function LandingNav() {
             />
           </span>
           <span className="hidden sm:inline">{profile.name}</span>
-        </a>
+        </Link>
 
         <div className="hidden items-center gap-1 md:flex">
           {landingNav.map((link) => {
-            const isActive = active === link.href.slice(1);
+            const isActive = active === sectionId(link.href);
             return (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 aria-current={isActive ? 'true' : undefined}
@@ -87,19 +90,19 @@ export function LandingNav() {
                 )}
               >
                 {link.label}
-              </a>
+              </Link>
             );
           })}
         </div>
 
         <div className="flex items-center gap-2">
-          <a
-            href="#contact"
+          <Link
+            href="/#contact"
             className="group hidden items-center gap-1.5 rounded-full border border-white/12 bg-white/[0.03] px-4 py-1.5 text-sm text-white/85 transition-all hover:border-white/25 hover:text-white sm:inline-flex"
           >
             Let&rsquo;s talk
             <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </a>
+          </Link>
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
@@ -117,24 +120,24 @@ export function LandingNav() {
         <div className="fixed inset-0 top-0 z-40 flex flex-col bg-black-100/95 px-6 pb-10 pt-24 backdrop-blur-xl md:hidden">
           <div className="flex flex-col gap-1">
             {landingNav.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
                 className="border-b border-white/5 py-4 font-display text-2xl text-white/80 transition-colors hover:text-white"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
-          <a
-            href="#contact"
+          <Link
+            href="/#contact"
             onClick={() => setOpen(false)}
             className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 font-semibold text-black-100"
           >
             Let&rsquo;s talk
             <ArrowUpRight className="h-4 w-4" />
-          </a>
+          </Link>
         </div>
       )}
     </header>
